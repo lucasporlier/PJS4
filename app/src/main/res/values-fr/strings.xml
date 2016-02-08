@@ -1,0 +1,18 @@
+<resources >
+    <string name = "app_name" >Role Plaie</string >
+    <string name = "action_settings" >Option</string >
+
+    <string name = "new_game" >Nouvelle partie</string >
+    <string name = "load_game" >Charger une partie</string >
+    <string name = "name" >Nom</string >
+    <string name = "game_name" >Nom de la partie</string >
+    <string name = "player_number" >Nombre de joueur</string >
+    <string name = "type_of_game" >Genre de jeu</string >
+    <string name = "confirm" >Confirmer</string >
+    <string name = "cancel" >Annuler</string >
+    <string name = "todo" >Pas encore implémenté</string >
+    <string name = "inventory" >Inventaire</string >
+    <string name = "caractere_profile" >Caracter profile</string >
+    <string name = "launch_dice" >Dice</string >
+
+</resources >
