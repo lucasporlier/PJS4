@@ -13,6 +13,11 @@
     <string name = "todo" >Not implemented yet</string >
     <string name = "inventory" >Inventory</string >
     <string name = "caractere_profile" >Caracter profile</string >
-    <string name = "launch_dice" >Choose a Dice to launch</string ><string name = "launch" >Launch</string ><string name = "dice_title" >Dice Launcher</string ><string name = "logo_description" >Role Plaie Logo</string >
+    <string name = "launch_dice" >Choose a Dice to launch</string >
+    <string name = "launch" >Launch</string >
+    <string name = "dice_title" >Dice Launcher</string >
+    <string name = "logo_description" >Role Plaie Logo</string >
+    <string name = "player_creator" >Player Creator</string >
+    <string name = "caractere_name" >Caracter Name</string><string name = "capacities" >Capacities</string >
 
 </resources >

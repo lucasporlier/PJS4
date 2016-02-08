@@ -76,4 +76,10 @@ public class MainActivity extends AppCompatActivity{
         Intent intent2 = new Intent(MainActivity.this, InGameMenuActivity.class);
         startActivity(intent2);
     }
+
+    public void test2(View view) {
+        Log.i("projet", "TEST CREATION FICHE PERSO");
+        Intent intent2 = new Intent(MainActivity.this, PlayerFileCreationActivity.class);
+        startActivity(intent2);
+    }
 }
