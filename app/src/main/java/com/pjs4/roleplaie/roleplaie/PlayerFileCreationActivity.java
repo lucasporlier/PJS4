@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+
 /**
- Created by ZHOU Eric on 08/02/2016.
+ * Used by the layout player_file_creation_layout.xml
+ * Created by ZHOU Eric on 08/02/2016.
  */
-public class PlayerFileCreationActivity extends Activity{
+public class PlayerFileCreationActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +23,9 @@ public class PlayerFileCreationActivity extends Activity{
     }
 
     /**
-     Add a new capacity line in the table
-     @param view
+     * Add a new capacity line in the table
+     *
+     * @param view the view
      */
     public void moreCapacity(View view) {
         Log.i("projet", "Ajout d'une nouelle ligne");

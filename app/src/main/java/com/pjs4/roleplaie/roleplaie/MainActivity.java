@@ -15,10 +15,9 @@ import android.widget.Toast;
 import static com.pjs4.roleplaie.roleplaie.R.string.todo;
 
 /**
- The main class of the application
-
+ * The main class of the application
  */
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity{
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener(){
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
@@ -73,6 +72,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void test(View view) {
+        Log.i("projet", "TEST MENU IN GAME");
         Intent intent2 = new Intent(MainActivity.this, InGameMenuActivity.class);
         startActivity(intent2);
     }

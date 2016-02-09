@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-/**
- Created by Eric ZHOU on 01/02/2016.
- Used by the layout dice_screen.xml
 
- @see Dice */
-public class DiceActivity extends Activity{
+/**
+ * Used by the layout dice_screen.xml
+ * Created by Eric ZHOU on 01/02/2016.
+ *
+ * @see Dice
+ */
+public class DiceActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +22,9 @@ public class DiceActivity extends Activity{
     }
 
     /**
-     Gives a random result between 1 and the max possible result of the choosen dice
-     @param view
+     * Gives a random result between 1 and the max possible result of the choosen dice
+     *
+     * @param view
      */
     public void launchDice(View view) {
         int result = Dice.launchDice(100);

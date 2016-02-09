@@ -12,7 +12,6 @@ public class NewGameActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_game);
-
         Log.i("projet", "Lancement d'une nouvelel partie");
     }
 }
