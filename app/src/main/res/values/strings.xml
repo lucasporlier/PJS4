@@ -20,5 +20,9 @@
     <string name = "player_creator">Player Creator</string>
     <string name = "caractere_name">Caracter Name</string>
     <string name = "capacities">Capacities</string>
+    <string name = "value">Value</string>
+    <string name = "your_first_weapon">Your First weapon</string>
+    <string name = "add_button">Add Button</string>
+    <string name = "description">Description</string>
 
 </resources>

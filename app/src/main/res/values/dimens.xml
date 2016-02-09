@@ -8,4 +8,6 @@
     <dimen name = "minimap_size" >175sp</dimen >
     <dimen name = "button_margin" >10sp</dimen >
     <dimen name = "button_size" >50sp</dimen >
+    <dimen name = "padding_table">5sp</dimen>
+    <dimen name = "edit_text_matchparent_margin">15sp</dimen>
 </resources >

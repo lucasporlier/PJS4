@@ -18,7 +18,7 @@
     <EditText
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
-        android:layout_margin = "15sp"
+        android:layout_margin = "@dimen/edit_text_matchparent_margin"
         android:hint = "@string/caractere_name" />
 
 
@@ -27,29 +27,27 @@
         android:layout_height = "wrap_content"
         android:layout_margin = "15sp"
         android:stretchColumns = "*"
-
-
         >
 
         <TableRow>
 
             <TextView
-                android:padding = "5sp"
+                android:padding = "@dimen/padding_table"
                 android:text = "Caract1"
                 android:textAlignment = "center" />
 
             <TextView
-                android:padding = "5sp"
+                android:padding = "@dimen/padding_table"
                 android:text = "Caract2"
                 android:textAlignment = "center" />
 
             <TextView
-                android:padding = "5sp"
+                android:padding = "@dimen/padding_table"
                 android:text = "Caract3"
                 android:textAlignment = "center" />
 
             <TextView
-                android:padding = "5sp"
+                android:padding = "@dimen/padding_table"
                 android:text = "Caract4"
                 android:textAlignment = "center" />
         </TableRow>
@@ -57,22 +55,22 @@
         <TableRow>
 
             <EditText
-                android:hint = "value"
+                android:hint = "@string/value"
                 android:inputType = "number"
                 android:textAlignment = "center" />
 
             <EditText
-                android:hint = "value"
+                android:hint = "@string/value"
                 android:inputType = "number"
                 android:textAlignment = "center" />
 
             <EditText
-                android:hint = "value"
+                android:hint = "@string/value"
                 android:inputType = "number"
-                android:textAlignment = "center" />>
+                android:textAlignment = "center" />
 
             <EditText
-                android:hint = "value"
+                android:hint = "@string/value"
                 android:inputType = "number"
                 android:textAlignment = "center" />
         </TableRow>
@@ -83,8 +81,8 @@
     <EditText
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
-        android:layout_margin = "15sp"
-        android:hint = "Your First weapon"
+        android:layout_margin = "@dimen/edit_text_matchparent_margin"
+        android:hint = "@string/your_first_weapon"
         android:inputType = "text" />
 
     <TextView
@@ -113,12 +111,12 @@
 
                     <EditText
                         android:layout_width = "100sp"
-                        android:hint = "Name" />
+                        android:hint = "@string/name" />
 
                     <EditText
                         android:layout_width = "match_parent"
                         android:layout_height = "wrap_content"
-                        android:hint = "Description" />
+                        android:hint = "@string/description" />
                 </TableRow>
 
             </TableLayout>
@@ -129,6 +127,7 @@
                 android:layout_height = "match_parent">
 
                 <ImageView
+                    android:contentDescription="@string/add_button"
                     android:layout_width = "40sp"
                     android:layout_height = "40sp"
                     android:layout_alignParentEnd = "true"
