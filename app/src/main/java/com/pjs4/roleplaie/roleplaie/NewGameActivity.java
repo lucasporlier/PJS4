@@ -14,4 +14,11 @@ public class NewGameActivity extends Activity{
         setContentView(R.layout.new_game);
         Log.i("projet", "Lancement d'une nouvelel partie");
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+
+    }
 }

@@ -43,8 +43,6 @@
             android:id="@+id/dice_list"
             android:layout_width="200sp"
             android:layout_height="match_parent">
-
-
         </ListView>
 
 
