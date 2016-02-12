@@ -1,5 +1,6 @@
 package com.pjs4.roleplaie.roleplaie;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -55,10 +56,17 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Log.i("projet", "option");
+            Toast.makeText(this, R.string.todo, Toast.LENGTH_SHORT).show();
         }
 
         if (id == R.id.action_exit) {
+            Log.i("projet", "quitter");
+
+            DialogFragment quitDialog = new DialogExit();
+
+            quitDialog.show(getFragmentManager(), "alert");
+
             return true;
         }
 
