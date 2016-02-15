@@ -1,105 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-    android:layout_width = "match_parent"
-    android:layout_height = "match_parent"
-    android:orientation = "vertical"
-
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent"
+              android:orientation = "vertical"
     >
 
-    <TextView
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:layout_gravity = "center"
-        android:layout_margin = "@dimen/margin_title"
-        android:text = "@string/player_creator"
-        android:textSize = "@dimen/title_size" />
-
-    <EditText
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:layout_margin = "@dimen/edit_text_matchparent_margin"
-        android:hint = "@string/caractere_name" />
-
-
-    <TableLayout
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:layout_margin = "15sp"
-        android:stretchColumns = "*"
-        >
-
-        <TableRow>
-
-            <TextView
-                android:padding = "@dimen/padding_table"
-                android:text = "Caract1"
-                android:textAlignment = "center" />
-
-            <TextView
-                android:padding = "@dimen/padding_table"
-                android:text = "Caract2"
-                android:textAlignment = "center" />
-
-            <TextView
-                android:padding = "@dimen/padding_table"
-                android:text = "Caract3"
-                android:textAlignment = "center" />
-
-            <TextView
-                android:padding = "@dimen/padding_table"
-                android:text = "Caract4"
-                android:textAlignment = "center" />
-        </TableRow>
-
-        <TableRow>
-
-            <EditText
-                android:hint = "@string/value"
-                android:inputType = "number"
-                android:textAlignment = "center" />
-
-            <EditText
-                android:hint = "@string/value"
-                android:inputType = "number"
-                android:textAlignment = "center" />
-
-            <EditText
-                android:hint = "@string/value"
-                android:inputType = "number"
-                android:textAlignment = "center" />
-
-            <EditText
-                android:hint = "@string/value"
-                android:inputType = "number"
-                android:textAlignment = "center" />
-        </TableRow>
-
-    </TableLayout>
-
-
-    <EditText
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:layout_margin = "@dimen/edit_text_matchparent_margin"
-        android:hint = "@string/your_first_weapon"
-        android:inputType = "text" />
-
-    <TextView
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:text = "@string/capacities" />
-
-
     <ScrollView
+        xmlns:android = "http://schemas.android.com/apk/res/android"
         android:layout_width = "match_parent"
-        android:layout_height = "wrap_content">
-
+        android:layout_height = "match_parent">
 
         <LinearLayout
             android:layout_width = "match_parent"
-            android:layout_height = "wrap_content"
+            android:layout_height = "match_parent"
             android:orientation = "vertical">
+
+            <TextView
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_gravity = "center"
+                android:layout_margin = "@dimen/margin_title"
+                android:text = "@string/player_creator"
+                android:textSize = "@dimen/title_size"/>
+
+            <EditText
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_margin = "@dimen/edit_text_matchparent_margin"
+                android:hint = "@string/caractere_name"/>
+
+
+            <TableLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_margin = "15sp"
+                android:stretchColumns = "*"
+                >
+
+                <TableRow>
+
+                    <TextView
+                        android:padding = "@dimen/padding_table"
+                        android:text = "Caract1"
+                        android:textAlignment = "center"/>
+
+                    <TextView
+                        android:padding = "@dimen/padding_table"
+                        android:text = "Caract2"
+                        android:textAlignment = "center"/>
+
+                    <TextView
+                        android:padding = "@dimen/padding_table"
+                        android:text = "Caract3"
+                        android:textAlignment = "center"/>
+
+                    <TextView
+                        android:padding = "@dimen/padding_table"
+                        android:text = "Caract4"
+                        android:textAlignment = "center"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <EditText
+                        android:hint = "@string/value"
+                        android:inputType = "number"
+                        android:textAlignment = "center"/>
+
+                    <EditText
+                        android:hint = "@string/value"
+                        android:inputType = "number"
+                        android:textAlignment = "center"/>
+
+                    <EditText
+                        android:hint = "@string/value"
+                        android:inputType = "number"
+                        android:textAlignment = "center"/>
+
+                    <EditText
+                        android:hint = "@string/value"
+                        android:inputType = "number"
+                        android:textAlignment = "center"/>
+                </TableRow>
+
+            </TableLayout>
+
+
+            <EditText
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_margin = "@dimen/edit_text_matchparent_margin"
+                android:hint = "@string/your_first_weapon"
+                android:inputType = "text"/>
+
+            <TextView
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:text = "@string/capacities"/>
 
             <TableLayout
                 android:id = "@+id/capacitiesTable"
@@ -111,12 +109,13 @@
 
                     <EditText
                         android:layout_width = "100sp"
-                        android:hint = "@string/name" />
+                        android:hint = "@string/name"/>
 
                     <EditText
                         android:layout_width = "match_parent"
                         android:layout_height = "wrap_content"
-                        android:hint = "@string/description" />
+                        android:hint = "@string/description"
+                        />
                 </TableRow>
 
             </TableLayout>
@@ -127,19 +126,18 @@
                 android:layout_height = "match_parent">
 
                 <ImageView
-                    android:contentDescription="@string/add_button"
                     android:layout_width = "40sp"
                     android:layout_height = "40sp"
                     android:layout_alignParentEnd = "true"
                     android:layout_alignParentTop = "true"
                     android:layout_margin = "20sp"
+                    android:contentDescription = "@string/add_button"
                     android:onClick = "moreCapacity"
                     android:scaleType = "fitXY"
-                    android:src = "@drawable/backgroung1" />
+                    android:src = "@drawable/backgroung1"/>
             </RelativeLayout>
         </LinearLayout>
 
     </ScrollView>
-
 
 </LinearLayout>

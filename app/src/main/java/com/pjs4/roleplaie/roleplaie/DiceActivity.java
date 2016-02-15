@@ -18,8 +18,15 @@ import android.widget.TextView;
  */
 public class DiceActivity extends Activity {
 
+    /**
+     * The number of faces for the dice
+     */
     private int chosenDice = 100;
-    private TextView tv;
+
+    /**
+     * The display of the chosen dice
+     */
+    private TextView chosenDiceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +37,8 @@ public class DiceActivity extends Activity {
         // Hardcoded list of dices
         String listDices[] = {"4", "6", "8", "10", "12", "20", "100"};
 
-        tv = (TextView) findViewById(R.id.chosen_dice);
-        tv.setText(tv + String.valueOf(chosenDice));
+        chosenDiceTextView = (TextView) findViewById(R.id.chosen_dice);
+        chosenDiceTextView.setText(chosenDiceTextView + String.valueOf(chosenDice));
 
         final ListAdapter listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listDices);
 
@@ -43,7 +50,7 @@ public class DiceActivity extends Activity {
                 String chosenDiceInList = String.valueOf(parent.getItemAtPosition(position));
                 chosenDice = Integer.parseInt(chosenDiceInList);
                 Log.i("projet", "Selected dice" + String.valueOf(chosenDice));
-                tv.setText(getResources().getText(R.string.you_chose_the_dice) + String.valueOf(chosenDice));
+                chosenDiceTextView.setText(getResources().getText(R.string.you_chose_the_dice) + String.valueOf(chosenDice));
             }
         });
     }
@@ -54,9 +61,10 @@ public class DiceActivity extends Activity {
      * @param view
      */
     public void launchDice(View view) {
+        TextView tv = (TextView) findViewById(R.id.dicePlace);
+
         int result = Dice.launchDice(chosenDice);
 
-        TextView tv = (TextView) findViewById(R.id.dicePlace);
         tv.setText(String.valueOf(result));
 
         Log.i("projet", "Dés lancés");
