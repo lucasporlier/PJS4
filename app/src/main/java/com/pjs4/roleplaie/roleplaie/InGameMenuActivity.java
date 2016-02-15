@@ -41,6 +41,7 @@ public class InGameMenuActivity extends Activity {
     }
 
     public void miniMap(View view) {
+        Log.i("projet", "préparation de a carte du monde");
         Intent intent = new Intent(this, MiniMapActivity.class);
         startActivity(intent);
     }
