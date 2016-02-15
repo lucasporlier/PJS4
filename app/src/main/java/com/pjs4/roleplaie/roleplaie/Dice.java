@@ -19,7 +19,7 @@ public class Dice{
     public static int launchDice(int n) {
         Log.i("projet", "lancer des dés");
         Random random = new Random();
-        return random.nextInt(n + 1);
+        return random.nextInt(n)+1;
     }
 }
 
