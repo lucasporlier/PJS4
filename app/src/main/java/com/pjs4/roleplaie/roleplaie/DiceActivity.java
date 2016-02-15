@@ -56,9 +56,9 @@ public class DiceActivity extends Activity {
     }
 
     /**
-     * Gives a random result between 1 and the max possible result of the chosen dice
+     * Display a random result between 1 and the max possible result of the chosen dice in a TextView
      *
-     * @param view
+     * @param view a view
      */
     public void launchDice(View view) {
         TextView tv = (TextView) findViewById(R.id.dicePlace);
