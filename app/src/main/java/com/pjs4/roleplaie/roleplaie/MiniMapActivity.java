@@ -18,8 +18,6 @@ public class MiniMapActivity extends Activity {
         LinearLayout l =(LinearLayout) findViewById(R.id.map_background);
         l.setBackground();
          */
-
-
     }
 
 
