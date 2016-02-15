@@ -1,8 +1,8 @@
 package com.pjs4.roleplaie.roleplaie;
 
-import android.util.Log;
+        import android.util.Log;
 
-import java.util.Random;
+        import java.util.Random;
 /**
  Dices to launch
  Created by Eric ZHOU on 01/02/2016.
@@ -10,10 +10,8 @@ import java.util.Random;
 public class Dice{
 
     /**
-     Gives a random number between 1 and n
-
+     Gives a random number between 1 and
      @param n the highest number
-
      @return a random number in the given range
      */
     public static int launchDice(int n) {
