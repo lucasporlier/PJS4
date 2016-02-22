@@ -93,7 +93,8 @@
             android:layout_width = "150sp"
             android:layout_height = "80sp"
             android:layout_margin = "10sp"
-            android:text = "button"
+            android:text = "Exit"
+            android:onClick="exitGameMenu"
             />
     </LinearLayout >
 

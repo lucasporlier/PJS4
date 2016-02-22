@@ -49,4 +49,18 @@ public class InGameMenuActivity extends Activity {
     public void seeCaractereProfile(View view) {
 
     }
+
+    public void exitGameMenu(View view) {
+        /*
+        Voulez vous vraiment quitter ?
+        if(ok){
+            Log.i("projet", "Préparation de l'intent MainActivity");
+            Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
+            startActivity(intent);
+        }
+         */
+        Log.i("projet", "Préparation de l'intent MainActivity");
+        Intent intent = new Intent(InGameMenuActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
