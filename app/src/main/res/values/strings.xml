@@ -26,5 +26,10 @@
     <string name = "description">Description</string>
     <string name = "you_chose_the_dice">You choose the dice :</string>
     <string name = "exit">Exit</string>
+    <string name = "player_file">Player File</string>
+    <string name = "level">Level</string>
+    <string name = "hp">HP:</string>
+    <string name = "mp">MP:</string>
+    <string name = "xp">XP:</string>
 
 </resources>
