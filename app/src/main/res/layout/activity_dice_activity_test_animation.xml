@@ -15,8 +15,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:onClick="HandleClick"
-        android:src="@drawable-xhdpi/dice3droll" />
-</RelativeLayout>
-
-
+        android:src="@drawable/dice3droll6" />
 </RelativeLayout>

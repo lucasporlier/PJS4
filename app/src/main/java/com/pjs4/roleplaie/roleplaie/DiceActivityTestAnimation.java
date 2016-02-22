@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler.Callback;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -40,7 +41,7 @@ public class DiceActivityTestAnimation extends Activity {
         if(!rolling) {
             rolling=true;
             //Show rolling image
-            dice_picture.setImageResource(R.drawable.dice3droll);
+            dice_picture.setImageResource(R.drawable.dice3droll6);
             //Start rolling sound
             dice_sound.play(sound_id,1.0f,1.0f,0,0,1.0f);
             //Pause to allow image to update

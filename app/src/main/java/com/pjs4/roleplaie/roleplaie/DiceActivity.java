@@ -2,13 +2,25 @@ package com.pjs4.roleplaie.roleplaie;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.Message;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ImageView;
+
+import android.media.AudioManager;
+import android.media.SoundPool;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Used by the layout dice_screen.xml
@@ -36,6 +48,18 @@ public class DiceActivity extends Activity {
 
         // Hardcoded list of dices
         String listDices[] = {"4", "6", "8", "10", "12", "20", "100"};
+
+        //***************************************************************
+        //CHANTIER EN COURS
+
+        // load dice sound
+        sound_id=dice_sound.load(this,R.raw.shake_dice,1);
+        // get reference to image widget
+        dice_picture = (ImageView) findViewById(R.id.imageView1);
+        // link handler to callback
+        handler=new Handler(callback);
+
+        //***************************************************************
 
         chosenDiceTextView = (TextView) findViewById(R.id.chosen_dice);
         chosenDiceTextView.setText(chosenDiceTextView + String.valueOf(chosenDice));
