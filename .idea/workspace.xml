@@ -47,8 +47,8 @@
       <file leaf-file-name="player_file_layout.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/player_file_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.862069">
-              <caret line="174" column="25" selection-start-line="174" selection-start-column="25" selection-end-line="174" selection-end-column="25" />
+            <state vertical-scroll-proportion="-6.793103">
+              <caret line="210" column="42" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="42" />
               <folding>
                 <element signature="e#824#845#0" expanded="true" />
                 <element signature="e#877#898#0" expanded="true" />
@@ -72,10 +72,11 @@
       <file leaf-file-name="PlayerFileActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/PlayerFileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6748634">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.58196723">
+              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2968#2981#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1653,8 +1654,8 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/PlayerFileActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/player_file_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/PlayerFileActivity.java" />
       </list>
     </option>
   </component>
@@ -2150,8 +2151,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/player_file_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.862069">
-          <caret line="174" column="25" selection-start-line="174" selection-start-column="25" selection-end-line="174" selection-end-column="25" />
+        <state vertical-scroll-proportion="-6.793103">
+          <caret line="210" column="42" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="42" />
           <folding>
             <element signature="e#824#845#0" expanded="true" />
             <element signature="e#877#898#0" expanded="true" />
@@ -2173,10 +2174,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/PlayerFileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6748634">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.58196723">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2968#2981#0" expanded="true" />
           </folding>
         </state>
       </provider>
