@@ -8,7 +8,7 @@ import android.view.View;
 
 /**
  * The main menu in game
- * Created by Eric ZHOU on 01/02/2016.
+ * Created by ZHOU Eric on 01/02/2016.
  */
 public class InGameMenuActivity extends Activity {
 
@@ -16,6 +16,15 @@ public class InGameMenuActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_in_game);
+
+        /*
+        retrouver le nom de la partie et l'afficher
+
+        TextView textView = (TextView) findViewById(R.id.game_name);
+        textView.setText(gameName);
+         */
+
+
         Log.i("projet", "lancement du menu in game");
     }
 
@@ -28,6 +37,16 @@ public class InGameMenuActivity extends Activity {
         Log.i("projet", "préparation du choix des dés");
         Intent intent2 = new Intent(InGameMenuActivity.this, DiceActivity.class);
         startActivity(intent2);
+
+    }
+
+    public void miniMap(View view) {
+        Log.i("projet", "préparation de a carte du monde");
+        Intent intent = new Intent(this, MiniMapActivity.class);
+        startActivity(intent);
+    }
+
+    public void seeCaractereProfile(View view) {
 
     }
 }

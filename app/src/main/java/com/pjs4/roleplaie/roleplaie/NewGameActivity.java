@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 /**
- Created by Utilisateur on 01/02/2016.
+ Created by ZHOU Eric on 01/02/2016.
  */
 public class NewGameActivity extends Activity{
 

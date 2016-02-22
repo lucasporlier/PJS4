@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.Random;
 /**
  Dices to launch
- Created by Eric ZHOU on 01/02/2016.
+ Created by ZHOU Eric on 01/02/2016.
  */
 public class Dice{
 

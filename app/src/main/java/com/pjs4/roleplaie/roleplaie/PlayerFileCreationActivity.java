@@ -23,7 +23,7 @@ public class PlayerFileCreationActivity extends Activity {
     }
 
     /**
-     * Add a new capacity line in the table
+     * Add a new line in the table of capacities
      *
      * @param view the view
      */
