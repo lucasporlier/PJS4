@@ -1,13 +1,13 @@
-<resources >
+<resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name = "activity_horizontal_margin" >16dp</dimen >
-    <dimen name = "activity_vertical_margin" >16dp</dimen >
-    <dimen name = "fab_margin" >16dp</dimen >
-    <dimen name = "margin_title" >10sp</dimen >
-    <dimen name = "title_size" >30sp</dimen >
-    <dimen name = "minimap_size" >175sp</dimen >
-    <dimen name = "button_margin" >10sp</dimen >
-    <dimen name = "button_size" >50sp</dimen >
-    <dimen name = "padding_table">5sp</dimen>
-    <dimen name = "edit_text_matchparent_margin">15sp</dimen>
-</resources >
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_title">10sp</dimen>
+    <dimen name="title_size">30sp</dimen>
+    <dimen name="minimap_size">175sp</dimen>
+    <dimen name="button_margin">10sp</dimen>
+    <dimen name="button_size">50sp</dimen>
+    <dimen name="padding_table">5sp</dimen>
+    <dimen name="edit_text_matchparent_margin">15sp</dimen>
+</resources>
