@@ -19,7 +19,15 @@ public class PlayerFileActivity extends Activity {
         Log.i("projet", "OnCreate PlayerFileActivity");
 
         /*
-           fill player informations here
+           fill player informations here:
+
+           NAME
+           LEVEL
+           HP
+           MP
+           XP
+           CARACTERISTICS
+           CAPACITIES
         */
 
         final TextView tvHP = (TextView) findViewById(R.id.tvHP);
@@ -34,12 +42,9 @@ public class PlayerFileActivity extends Activity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
