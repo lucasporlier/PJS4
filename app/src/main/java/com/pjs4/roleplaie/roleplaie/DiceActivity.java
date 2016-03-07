@@ -106,7 +106,7 @@ public class DiceActivity extends Activity {
 
         int result = Dice.launchDice(chosenDice);
 
-        iv.setImageResource(R.drawable.face1);
+        iv.setImageResource(R.drawable.face1); //face + result
 
         Log.i("projet", "Dés lancés");
     }
