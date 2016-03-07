@@ -30,10 +30,13 @@ import java.util.TimerTask;
  */
 public class DiceActivity extends Activity {
 
-    /**
-     * The number of faces for the dice
-     */
-    private int chosenDice = 100;
+    private int chosenDice = 100;   // The number of faces for the dice
+    ImageView dice_picture;		//reference to dice picture
+    SoundPool dice_sound = new SoundPool(1, AudioManager.STREAM_MUSIC,0);
+    int sound_id;		//Used to control sound stream return by SoundPool
+    Handler handler;	//Post message to start roll
+    Timer timer=new Timer();	//Used to implement feedback to user
+    boolean rolling=false;		//Is dice rolling?
 
     /**
      * The display of the chosen dice
@@ -79,18 +82,44 @@ public class DiceActivity extends Activity {
         });
     }
 
+    //Receives message from timer to start dice roll
+    Callback callback = new Callback() {
+        public boolean handleMessage(Message msg) {
+
+
+
+            //Get roll result
+            dice_picture.setImageResource(R.drawable.face1);
+
+            rolling=false;	//user can press again
+            return true;
+        }
+    };
+
     /**
      * Gives a random result between 1 and the max possible result of the chosen dice
      *
      * @param view
      */
     public void launchDice(View view) {
-        TextView tv = (TextView) findViewById(R.id.dicePlace);
+        ImageView iv = (ImageView) findViewById(R.id.imageDice3d);
 
         int result = Dice.launchDice(chosenDice);
 
-        tv.setText(String.valueOf(result));
+        iv.setImageResource(R.drawable.face1);
 
         Log.i("projet", "Dés lancés");
+    }
+
+    //Clean up
+    @Override
+    protected void onPause() {
+        super.onPause();
+        dice_sound.pause(sound_id);
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        timer.cancel();
     }
 }

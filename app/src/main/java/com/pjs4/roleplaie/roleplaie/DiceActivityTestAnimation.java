@@ -21,7 +21,7 @@ public class DiceActivityTestAnimation extends Activity {
     int sound_id;		//Used to control sound stream return by SoundPool
     Handler handler;	//Post message to start roll
     Timer timer=new Timer();	//Used to implement feedback to user
-    boolean rolling=false;		//Is die rolling?
+    boolean rolling=false;		//Is dice rolling?
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,22 +64,22 @@ public class DiceActivityTestAnimation extends Activity {
             //hence + 1
             switch(rng.nextInt(6)+1) {
                 case 1:
-                    dice_picture.setImageResource(R.drawable.one);
+                    dice_picture.setImageResource(R.drawable.face1);
                     break;
                 case 2:
-                    dice_picture.setImageResource(R.drawable.two);
+                    dice_picture.setImageResource(R.drawable.face2);
                     break;
                 case 3:
-                    dice_picture.setImageResource(R.drawable.three);
+                    dice_picture.setImageResource(R.drawable.face3);
                     break;
                 case 4:
-                    dice_picture.setImageResource(R.drawable.four);
+                    dice_picture.setImageResource(R.drawable.face4);
                     break;
                 case 5:
-                    dice_picture.setImageResource(R.drawable.five);
+                    dice_picture.setImageResource(R.drawable.face5);
                     break;
                 case 6:
-                    dice_picture.setImageResource(R.drawable.six);
+                    dice_picture.setImageResource(R.drawable.face6);
                     break;
                 default:
             }
