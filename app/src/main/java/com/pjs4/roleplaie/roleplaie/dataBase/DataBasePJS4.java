@@ -377,7 +377,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	}
 
 
-	private List<Joueur> cursorToListJoueur(Cursor c) {
+	private static List<Joueur> cursorToListJoueur(Cursor c) {
 		List<Joueur> l = new ArrayList<Joueur>();
 
 
@@ -398,6 +398,18 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
 
 		return l;
+	}
+
+	public List<Joueur> getAllPlayer(String extraGameName) {
+		SQLiteDatabase bdd = getWritableDatabase();
+
+		String query = "SELECT * FROM " + tab_joueur + " WHERE " + COL_nomPartiePerso + " = \"" + extraGameName + "\"";
+
+		Cursor c = bdd.rawQuery(query, null);
+		List<Joueur> list_Joueur = cursorToListJoueur(c);
+
+		return list_Joueur;
+
 	}
 
 	public List<Joueur> getJoueurWithNomPartie(String nomPartie) {
@@ -542,4 +554,6 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
 		return s;
 	}
+
+
 }
