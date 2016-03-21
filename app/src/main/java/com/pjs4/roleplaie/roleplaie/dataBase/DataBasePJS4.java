@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,11 +85,20 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_lorePerso = "lore";
 	private static final int NUM_COL_lorePerso = 7;
 
-	private static final String COL_nomPartiePerso = "lore";
+	private static final String COL_nomPartiePerso = "nomPartie";
 	private static final int NUM_COL_nomPartiePerso = 8;
 
 
-	private static final String tab_player = "CREATE TABLE " + tab_joueur + " (" + COL_IDPerso + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomPerso + " TEXT NOT NULL, " + COL_racePerso + " TEXT NOT NULL, " + COL_pvPerso + " INTEGER NOT NULL, " + COL_manaPerso + " INTEGER NOT NULL, " + COL_lvlPerso + " INTEGER NOT NULL, " + COL_nbExpPerso + " INT NOT NULL, " + COL_nomPartiePerso + " TEXT NOT NUL " + COL_lorePerso + " TEXT);";
+	private static final String tab_player = "CREATE TABLE " + tab_joueur + " (" +
+			COL_IDPerso + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+			COL_nomPerso + " TEXT NOT NULL, " +
+			COL_racePerso + " TEXT NOT NULL, " +
+			COL_pvPerso + " INTEGER NOT NULL, " +
+			COL_manaPerso + " INTEGER NOT NULL, " +
+			COL_lvlPerso + " INTEGER NOT NULL, " +
+			COL_nbExpPerso + " INT NOT NULL, " +
+			COL_nomPartiePerso + " TEXT NOT NULL, " +
+			COL_lorePerso + " TEXT);";
 /*--------------------------------------------------------------------------------------------Partie----------------------------------------------------------------------------------------*/
 
 	private static final String tab_partie = "table_partie";
@@ -106,7 +116,11 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final int NUM_COL_nbJoueurParti = 3;
 
 
-	private static final String tab_game = "CREATE TABLE " + tab_partie + " (" + COL_IDParti + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomParti + " TEXT NOT NULL, " + COL_nbJoueurParti + " TEXT NOT NULL, " + COL_typeParti + " TEXT NOT NULL);";
+	private static final String tab_game = "CREATE TABLE " + tab_partie + " (" +
+			COL_IDParti + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+			COL_nomParti + " TEXT NOT NULL, " +
+			COL_nbJoueurParti + " TEXT NOT NULL, " +
+			COL_typeParti + " TEXT NOT NULL);";
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -124,7 +138,11 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_nomJoueurStat = "nomJoueurStat";
 	private static final int NUM_COL_nomJoueurStat = 3;
 
-	private static final String tab_stats = "CREATE TABLE " + tab_stat + " (" + COL_IDStat + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_stat + " INTEGER NOT NULL, " + COL_nomStat + " TEXT NOT NULL, " + COL_nomJoueurStat + " TEXT NOT NULL);";
+	private static final String tab_stats = "CREATE TABLE " + tab_stat + " (" +
+			COL_IDStat + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+			COL_stat + " INTEGER NOT NULL, " +
+			COL_nomStat + " TEXT NOT NULL, " +
+			COL_nomJoueurStat + " TEXT NOT NULL);";
 
 /*------------------------------------------------------------------------------------------------------------------*/
 
@@ -146,10 +164,10 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
 
-		db.execSQL("DROP TABLE " + tab_competance + ";");
-		db.execSQL("DROP TABLE " + tab_objet + ";");
-		db.execSQL("DROP TABLE " + tab_joueur + ";");
-		db.execSQL("DROP TABLE " + tab_partie + ";");
+		db.execSQL("DROP TABLE IF EXISIT " + tab_competance + ";");
+		db.execSQL("DROP TABLE IF EXISIT " + tab_objet + ";");
+		db.execSQL("DROP TABLE IF EXISIT " + tab_joueur + ";");
+		db.execSQL("DROP TABLE IF EXISIT " + tab_partie + ";");
 		onCreate(db);
 	}
 
@@ -386,6 +404,39 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		Cursor c = bdd.rawQuery(query, null);
 
 		return cursorToparti(c);
+	}
+
+	/**
+	 * gets the list of all the games
+	 *
+	 * @return a list with all of the games in the data base
+	 */
+	public List<Partie> getAllGames() {
+
+		Log.i("projet", "Récupération des données en cours");
+		SQLiteDatabase bdd = getWritableDatabase();
+
+		String query = "SELECT * FROM " + tab_partie;
+		Log.i("projet", "Debut execution de la requete");
+		Cursor c = bdd.rawQuery(query, null);
+		Log.i("projet", "requete executé");
+		List<Partie> listGames = new ArrayList<>();
+		Partie partie = new Partie();
+
+		while (c.moveToNext()) {
+
+			partie.setId(c.getInt(NUM_COL_IDParti));
+			partie.setNom(c.getString(NUM_COL_nomParti));
+			partie.setNombreJoueur(c.getInt(NUM_COL_nbJoueurParti));
+			partie.setType(c.getString(NUM_COL_typeParti));
+
+			Log.i("projet", partie.toString());
+			listGames.add(partie);
+		}
+
+		Log.i("projet", "fin");
+		return listGames;
+
 	}
 
 	public void insertparti(Partie p) {

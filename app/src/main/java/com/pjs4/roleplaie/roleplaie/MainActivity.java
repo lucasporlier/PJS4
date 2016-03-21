@@ -13,91 +13,98 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import static com.pjs4.roleplaie.roleplaie.R.string.todo;
+import com.pjs4.roleplaie.roleplaie.dataBase.DataBasePJS4;
 
 /**
  * The main class of the application
  */
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+	DataBasePJS4 db;
 
-        Log.i("projet", "Lancement de l'application");
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-        });
-    }
+		Log.i("projet", "Lancement de l'application");
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        Log.i("projet", "lancement de la création d'une nouvelle partie");
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+			}
+		});
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Log.i("projet", "option");
-            Toast.makeText(this, R.string.todo, Toast.LENGTH_SHORT).show();
-        }
+		db = new DataBasePJS4(this);
+	}
 
-        if (id == R.id.action_exit) {
-            Log.i("projet", "quitter");
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		Log.i("projet", "lancement de la création d'une nouvelle partie");
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_main, menu);
+		return true;
+	}
 
-            DialogFragment quitDialog = new DialogExit();
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
 
-            quitDialog.show(getFragmentManager(), "alert");
+		//noinspection SimplifiableIfStatement
+		if (id == R.id.action_settings) {
+			Log.i("projet", "option");
+			Toast.makeText(this, R.string.todo, Toast.LENGTH_SHORT).show();
+		}
 
-            return true;
-        }
+		if (id == R.id.action_exit) {
+			Log.i("projet", "quitter");
 
-        return super.onOptionsItemSelected(item);
-    }
+			DialogFragment quitDialog = new DialogExit();
 
-    public void newGame(View view) {
-        Log.i("projet", "Préparation de l'intent Nouvelle partie");
-        Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
-        startActivity(intent);
-    }
+			quitDialog.show(getFragmentManager(), "alert");
 
-    public void loadGame(View view) {
-        Toast.makeText(this, todo, Toast.LENGTH_SHORT).show();
-    }
+			return true;
+		}
 
-    public void test(View view) {
-        Log.i("projet", "TEST MENU IN GAME");
-        Intent intent2 = new Intent(MainActivity.this, InGameMenuActivity.class);
-        startActivity(intent2);
-    }
+		return super.onOptionsItemSelected(item);
+	}
 
-    public void test2(View view) {
-        Log.i("projet", "TEST CREATION FICHE PERSO");
-        Intent intent2 = new Intent(MainActivity.this, PlayerFileCreationActivity.class);
-        startActivity(intent2);
-    }
+	public void newGame(View view) {
+		Log.i("projet", "Préparation de l'intent Nouvelle partie");
+		Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
+		startActivity(intent);
+	}
 
-    public void test3(View view) {
-        Log.i("projet", "TEST FICHE PERSO");
-        Intent intent2 = new Intent(MainActivity.this, PlayerFileActivity.class);
-        startActivity(intent2);
-    }
+	public void loadGame(View view) {
+		Log.i("projet", "Préparation de l'intent Chargement partie");
+		Intent intent = new Intent(MainActivity.this, LoadGameActivity.class);
+		startActivity(intent);
+	}
+
+	public void test(View view) {
+		Log.i("projet", "TEST MENU IN GAME");
+		Intent intent2 = new Intent(MainActivity.this, InGameMenuActivity.class);
+		startActivity(intent2);
+	}
+
+	public void test2(View view) {
+		Log.i("projet", "TEST CREATION FICHE PERSO");
+		Intent intent2 = new Intent(MainActivity.this, PlayerFileCreationActivity.class);
+		startActivity(intent2);
+	}
+
+	public void test3(View view) {
+		Log.i("projet", "TEST FICHE PERSO");
+		Intent intent2 = new Intent(MainActivity.this, PlayerFileActivity.class);
+		startActivity(intent2);
+	}
 }
