@@ -70,6 +70,14 @@
                 android:onClick="test2"
                 android:text="TESTnewPlayer"
                 />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ff2200"
+                android:onClick="test3"
+                android:text="TESTplayerfile"
+                />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
