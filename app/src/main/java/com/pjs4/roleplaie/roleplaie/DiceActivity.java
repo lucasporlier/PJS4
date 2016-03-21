@@ -98,17 +98,15 @@ public class DiceActivity extends Activity {
 
     /**
      * Gives a random result between 1 and the max possible result of the chosen dice
-     *
-     * @param view
      */
-    public void launchDice(View view) {
-        ImageView iv = (ImageView) findViewById(R.id.imageDice3d);
+    public void launchDice() {
+        dice_picture = (ImageView) findViewById(R.id.imageDice3d);
 
         int result = Dice.launchDice(chosenDice);
 
-        iv.setImageResource(Faces.getFace(chosenDice, result)); //face + result
+        dice_picture.setImageResource(Faces.getFace(chosenDice, result)); //face + result
 
-        Log.i("projet", "Dés lancés");
+        Log.i("projet", "Dé "+chosenDice+" lancé, resultat : "+result);
     }
 
     //Clean up
