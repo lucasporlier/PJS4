@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package = "com.pjs4.roleplaie.roleplaie"
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    >
+
+    <application
+        android:allowBackup = "true"
+        android:icon = "@mipmap/ic_launcher"
+        android:label = "@string/app_name"
+        android:supportsRtl = "true"
+        android:theme = "@style/AppTheme"
+        >
+
+        <activity
+            android:name = ".MainActivity"
+            android:label = "@string/app_name"
+            android:theme = "@style/AppTheme.NoActionBar"
+            >
+            <intent-filter>
+                <action android:name = "android.intent.action.MAIN"/>
+                <category android:name = "android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+
+        <!-- more activity here-->
+
+        <activity
+            android:name = ".NewGameActivity"
+            android:label = "label"
+            >
+        </activity>
+
+        <activity
+            android:name = ".InGameMenuActivity"
+            >
+        </activity>
+
+        <activity
+            android:name = ".DiceActivity"
+            >
+        </activity>
+
+        <activity
+            android:name = ".PlayerFileActivity"
+            >
+        </activity>
+
+        <activity
+            android:name = ".PlayerFileCreationActivity"
+            android:configChanges = "keyboardHidden|orientation"
+            >
+        </activity>
+
+        <activity
+            android:name = ".MiniMapActivity"
+            android:screenOrientation = "landscape"
+            >
+        </activity>
+
+        <activity
+            android:name = ".NewGameActivity2"
+            android:label = "label"
+            >
+        </activity>
+
+
+    </application>
+
+</manifest>
