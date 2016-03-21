@@ -64,6 +64,11 @@
             >
         </activity>
 
+        <activity
+            android:name = ".PlayerListActivity"
+            >
+        </activity>
+
     </application>
 
 </manifest>

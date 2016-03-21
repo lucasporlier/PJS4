@@ -33,5 +33,6 @@
     <string name = "xp">XP:</string>
     <string name = "active_capacities">Active Capcities</string>
     <string name = "passive_capacities">Passive Capcities</string>
+    <string name = "player_list">Player List</string>
 
 </resources>

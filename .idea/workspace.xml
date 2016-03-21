@@ -44,7 +44,7 @@
             <file leaf-file-name="DiceActivity.java" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/DiceActivity.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.6012862">
+                  <state vertical-scroll-proportion="0.62857145">
                     <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
                     <folding>
                       <element signature="e#1391#1935#0" expanded="true" />
@@ -83,14 +83,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataBasePJS4.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataBasePJS4.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/dataBase/DataBasePJS4.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41717792">
-              <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="182" column="40" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
               <folding>
-                <element signature="e#6032#6033#0" expanded="true" />
-                <element signature="e#6082#6083#0" expanded="true" />
+                <element signature="e#6144#6145#0" expanded="true" />
+                <element signature="e#6194#6195#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,8 +99,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+            <state vertical-scroll-proportion="-6.037037">
+              <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
               <folding>
                 <element signature="e#289#307#0" expanded="true" />
                 <element signature="e#487#505#0" expanded="true" />
@@ -113,11 +113,48 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/LoadGameActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+              <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1768#2193#0" expanded="true" />
-                <element signature="e#2192#2193#0" expanded="true" />
+                <element signature="e#1767#2192#0" expanded="true" />
+                <element signature="e#2191#2192#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InGameMenuActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/InGameMenuActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.4074073">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list_player_on_this_game.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_player_on_this_game.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8740741">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#395#416#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerListActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/PlayerListActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.185185">
+              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -581,6 +618,16 @@
                 <option name="description" value="Prepare com.android.support:support-v4:23.1.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComAndroidSupportSupportV42311Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-appindexing:8.1.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAppindexing810Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-basement:8.1.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement810Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1145,6 +1192,16 @@
                 <option name="name" value="prepareComAndroidSupportSupportV42311Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-appindexing:8.1.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAppindexing810Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-basement:8.1.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement810Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareDebugAndroidTestDependencies" />
               </ExternalTaskPojo>
@@ -1327,7 +1384,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\Utilisateur\AndroidStudioProjects\RolePlaie" value="4366596049836" />
+        <entry key="C:\Users\Utilisateur\AndroidStudioProjects\RolePlaie" value="4369645035254" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1545,8 +1602,10 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/intellij/annotations/12.0/annotations-12.0.jar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.1.1/appcompat-v7-23.1.1.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/design/23.1.1/design-23.1.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-appindexing/8.1.0/play-services-appindexing-8.1.0.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.1.1/support-v4-23.1.1.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/23.1.1/recyclerview-v7-23.1.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-basement/8.1.0/play-services-basement-8.1.0.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar" />
                           </list>
                         </option>
@@ -1705,9 +1764,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/dataBase/Partie.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/load_game_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/LoadGameActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/dataBase/DataBasePJS4.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/LoadGameActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/InGameMenuActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_player_on_this_game.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/PlayerListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -2080,7 +2142,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39693356" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24130106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24130106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24361159" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2561,17 +2623,28 @@
         <state vertical-scroll-proportion="0.044973545">
           <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding>
-            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/DiceActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6012862">
+        <state vertical-scroll-proportion="0.62857145">
           <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
           <folding>
             <element signature="e#1391#1935#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/dataBase/DataBasePJS4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="182" column="40" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
+          <folding>
+            <element signature="e#6144#6145#0" expanded="true" />
+            <element signature="e#6194#6195#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2586,10 +2659,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/LoadGameActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1767#2192#0" expanded="true" />
+            <element signature="e#2191#2192#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/PlayerListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.185185">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.037037">
+          <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
           <folding>
             <element signature="e#289#307#0" expanded="true" />
             <element signature="e#487#505#0" expanded="true" />
@@ -2597,25 +2692,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/LoadGameActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/InGameMenuActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1768#2193#0" expanded="true" />
-            <element signature="e#2192#2193#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-6.4074073">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pjs4/roleplaie/roleplaie/dataBase/DataBasePJS4.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_player_on_this_game.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41717792">
-          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8740741">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#6032#6033#0" expanded="true" />
-            <element signature="e#6082#6083#0" expanded="true" />
+            <element signature="e#395#416#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -12,6 +12,10 @@ import java.util.List;
 
 /**
  * Created by qu2 on 21/03/2016.
+ *
+ * The SQLiteOpenHelper class
+ * Content all the methods for access, updates and deletes on the data base
+ *
  */
 public class DataBasePJS4 extends SQLiteOpenHelper {
 
@@ -174,6 +178,11 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
     /* *********************************************************** OBJET ********************************************************** */
 
+	/**
+	 * find an object with it name
+	 * @param nom the name of the object
+	 * @return the found object
+	 */
 	public Objet getObjetWithName(String nom) {
 
 		SQLiteDatabase bdd = getWritableDatabase();
@@ -184,6 +193,10 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		return cursorToObjet(c);
 	}
 
+	/**
+	 * insert an object
+	 * @param o the object to be inserted
+	 */
 	public void insertObjets(Objet o) {
 
 		SQLiteDatabase bdd = getWritableDatabase();

@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class LoadGameActivity extends Activity {
 
-	private static final String EXTRA_GAME_NAME = "com.pjs4.roleplaie.roleplaie.EXTRA_GAME_NAME";
+	public static final String EXTRA_GAME_NAME = "com.pjs4.roleplaie.roleplaie.EXTRA_GAME_NAME";
 	DataBasePJS4 db;
 
 	@Override

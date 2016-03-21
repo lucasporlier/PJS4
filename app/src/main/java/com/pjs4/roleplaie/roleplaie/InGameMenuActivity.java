@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * The main menu in game
@@ -12,41 +13,42 @@ import android.view.View;
  */
 public class InGameMenuActivity extends Activity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu_in_game);
+	private String gameName;
 
-        /*
-        retrouver le nom de la partie et l'afficher
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.menu_in_game);
 
-        TextView textView = (TextView) findViewById(R.id.game_name);
-        textView.setText(gameName);
-         */
+		Intent intent = getIntent();
+
+		TextView textView = (TextView) findViewById(R.id.game_name);
+		gameName = intent.getStringExtra(LoadGameActivity.EXTRA_GAME_NAME);
+		textView.setText(gameName);
 
 
-        Log.i("projet", "lancement du menu in game");
-    }
+		Log.i("projet", "lancement du menu in game");
+	}
 
-    /**
-     * Choose the dice to launch
-     *
-     * @param view
-     */
-    public void chooseDice(View view) {
-        Log.i("projet", "préparation du choix des dés");
-        Intent intent2 = new Intent(InGameMenuActivity.this, DiceActivity.class);
-        startActivity(intent2);
+	/**
+	 * Changes the activity and show the Dice Activity
+	 *
+	 * @param view a view
+	 */
+	public void chooseDice(View view) {
+		Log.i("projet", "préparation du choix des dés");
+		Intent intent2 = new Intent(InGameMenuActivity.this, DiceActivity.class);
+		startActivity(intent2);
 
-    }
+	}
 
-    public void miniMap(View view) {
-        Log.i("projet", "préparation de a carte du monde");
-        Intent intent = new Intent(this, MiniMapActivity.class);
-        startActivity(intent);
-    }
+	public void miniMap(View view) {
+		Log.i("projet", "préparation de a carte du monde");
+		Intent intent = new Intent(this, MiniMapActivity.class);
+		startActivity(intent);
+	}
 
-    public void seeCaractereProfile(View view) {
+	public void seeCaractereProfile(View view) {
 
-    }
+	}
 }
