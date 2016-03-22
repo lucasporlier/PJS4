@@ -1,8 +1,11 @@
-package com.pjs4.roleplaie.roleplaie;
+package com.pjs4.roleplaie.roleplaie.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.pjs4.roleplaie.roleplaie.R;
+
 /**
  Created by ZHOU Eric on 01/02/2016.
  */

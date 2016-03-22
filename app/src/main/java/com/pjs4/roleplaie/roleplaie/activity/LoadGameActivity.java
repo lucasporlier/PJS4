@@ -1,4 +1,4 @@
-package com.pjs4.roleplaie.roleplaie;
+package com.pjs4.roleplaie.roleplaie.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.pjs4.roleplaie.roleplaie.R;
 import com.pjs4.roleplaie.roleplaie.dataBase.DataBasePJS4;
 import com.pjs4.roleplaie.roleplaie.dataBase.Partie;
 

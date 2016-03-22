@@ -1,4 +1,4 @@
-package com.pjs4.roleplaie.roleplaie;
+package com.pjs4.roleplaie.roleplaie.activity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

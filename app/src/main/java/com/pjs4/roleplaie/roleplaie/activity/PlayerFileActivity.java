@@ -1,4 +1,4 @@
-package com.pjs4.roleplaie.roleplaie;
+package com.pjs4.roleplaie.roleplaie.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pjs4.roleplaie.roleplaie.R;
 
 /**
  * Used to manage the player's information

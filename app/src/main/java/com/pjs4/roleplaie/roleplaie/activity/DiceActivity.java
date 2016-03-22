@@ -1,4 +1,4 @@
-package com.pjs4.roleplaie.roleplaie;
+package com.pjs4.roleplaie.roleplaie.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.pjs4.roleplaie.roleplaie.Dice;
+import com.pjs4.roleplaie.roleplaie.R;
 
 /**
  * Used by the layout dice_screen.xml

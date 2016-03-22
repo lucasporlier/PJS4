@@ -1,4 +1,4 @@
-package com.pjs4.roleplaie.roleplaie;
+package com.pjs4.roleplaie.roleplaie.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+
+import com.pjs4.roleplaie.roleplaie.R;
 
 /**
  * Used by the layout player_file_creation_layout.xml

@@ -1,4 +1,4 @@
-package com.pjs4.roleplaie.roleplaie;
+package com.pjs4.roleplaie.roleplaie.activity;
 
 import android.app.DialogFragment;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.pjs4.roleplaie.roleplaie.R;
 import com.pjs4.roleplaie.roleplaie.dataBase.DataBasePJS4;
 
 /**
