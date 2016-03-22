@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
               android:layout_width = "match_parent"
               android:layout_height = "match_parent"
               android:orientation = "vertical"
+=======
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:orientation = "vertical"
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
     >
 
     <ScrollView
@@ -25,7 +31,11 @@
                 />
 
             <EditText
+<<<<<<< HEAD
                 android:id = "@+id/GameNameEdiText"
+=======
+                android:id = "@+id/game_name"
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:ems = "10"
@@ -35,7 +45,11 @@
 
 
             <EditText
+<<<<<<< HEAD
                 android:id = "@+id/NbPlayereditText"
+=======
+                android:id = "@+id/player_number"
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_marginTop = "20sp"
@@ -45,13 +59,29 @@
                 />
 
             <EditText
+<<<<<<< HEAD
                 android:id = "@+id/TypeGameditText"
+=======
+                android:id = "@+id/game_type"
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_marginTop = "20sp"
                 android:hint = "@string/type_of_game"
                 />
 
+<<<<<<< HEAD
+=======
+            <EditText
+                android:id = "@+id/stat_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop = "20sp"
+                android:hint="@string/stat_number"
+                android:inputType="number"
+                />
+
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
             <LinearLayout
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
@@ -59,13 +89,21 @@
                 >
 
                 <Button
+<<<<<<< HEAD
 
+=======
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
                     android:layout_width = "match_parent"
                     android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/button_margin"
                     android:text = "@string/confirm"
+<<<<<<< HEAD
                     android:onClick="ConfirmNewGame"
                     />
+=======
+                    android:onClick="confirmNewGame1"
+                    android:id="@+id/confirm_new_game" />
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
 
             </LinearLayout>
 

@@ -1,7 +1,11 @@
 <menu xmlns:android = "http://schemas.android.com/apk/res/android"
       xmlns:app = "http://schemas.android.com/apk/res-auto"
       xmlns:tools = "http://schemas.android.com/tools"
+<<<<<<< HEAD
       tools:context = ".activity.MainActivity"
+=======
+      tools:context = "com.pjs4.roleplaie.roleplaie.MainActivity"
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
     >
     <item
         android:id = "@+id/action_settings"

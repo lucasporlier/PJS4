@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pjs4.roleplaie.roleplaie.ConfirmationNewGame
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop = "20sp"
+        android:text="Nom de la partie :"
+        android:id="@+id/lb_nameGame" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tv_nameGame" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop = "20sp"
+        android:text="Type de jeu :"
+        android:id="@+id/lb_typeGame" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tv_typeGame" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop = "20sp"
+        android:text="Nombre de joueur :"
+        android:id="@+id/lb_nbPlayerGame" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tv_nbPlayerGame" />
+
+    <ListView
+        android:layout_width="150dp"
+        android:layout_height="300dp"
+        android:layout_marginTop = "20sp"
+        android:id="@+id/lv_Stat" />
+
+</LinearLayout>

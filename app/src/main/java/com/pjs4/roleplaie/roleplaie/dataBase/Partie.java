@@ -1,15 +1,27 @@
 package com.pjs4.roleplaie.roleplaie.dataBase;
 
+<<<<<<< HEAD
+=======
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
 import java.util.List;
 
 /**
  * Created by qu2 on 21/03/2016.
  */
+<<<<<<< HEAD
 public class Partie {
+=======
+public class Partie implements Parcelable {
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
     private int id;
     private String nom;
     private String type;
     private int nombreJoueur;
+<<<<<<< HEAD
     private String resume;
     private List<Joueur> listJoueur;
 
@@ -18,6 +30,19 @@ public class Partie {
         this.type = type;
         this.nombreJoueur = nombreJoueur;
         this.resume = "";
+=======
+    private int nombreStat;
+    private List<String> listStat;
+    private List<Joueur> listJoueur;
+
+    public Partie(String nom, String type, int nombreJoueur, int nombreStat) {
+        this.nom = nom;
+        this.type = type;
+        this.nombreJoueur = nombreJoueur;
+        this.nombreStat = nombreStat;
+        this.listStat = new ArrayList<String>();
+        this.listJoueur = new ArrayList<Joueur>();
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
     }
 
     public Partie(){}
@@ -70,6 +95,7 @@ public class Partie {
         this.listJoueur = listJoueur;
     }
 
+<<<<<<< HEAD
     public String getResume() {
         return resume;
     }
@@ -77,5 +103,43 @@ public class Partie {
     public void setResume(String resume) {
         this.resume = resume;
     }
+=======
+    public Partie(Parcel in) {
+        nom = in.readString();
+        type = in.readString();
+        nombreJoueur = in.readInt();
+        nombreStat = in.readInt();
+        List<String> l = new ArrayList<String>();
+        in.readStringList(l);
+        if(l!=null){
+            listStat = l;
+        }
+        else
+            listStat = new ArrayList<String>();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nom);
+        dest.writeString(type);
+        dest.writeInt(nombreJoueur);
+        dest.writeInt(nombreStat);
+        dest.writeStringList(listStat);
+    }
+
+    public void addStat(int i, String name){
+        listStat.add(i, name);
+    }
+
+    public int getStatNumber(){
+        return nombreStat;
+    }
+
+>>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
 }
 
