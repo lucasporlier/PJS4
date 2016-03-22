@@ -1,24 +1,21 @@
 package com.pjs4.roleplaie.roleplaie;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.pjs4.roleplaie.roleplaie.dataBase.Game;
+import com.pjs4.roleplaie.roleplaie.dataBase.Partie;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class NewGameActivity2 extends AppCompatActivity {
-
-    Game game;
+    private Partie game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +49,20 @@ public class NewGameActivity2 extends AppCompatActivity {
 
     public void confirmNewGame2(View v){
         ListView statView = (ListView) findViewById(R.id.listStatView);
-        StatArrayAdapter la = (StatArrayAdapter) statView.getAdapter();
+        ListAdapter la = statView.getAdapter();
         if(la == null){
             return;
         }
 
-        for(int i = 0; i < la.getCount(); i++) {
-            Object strg = la.getItem(i).;
-            game.addStat(i,(String) strg);
+        for(int i = 0; i < game.getStatNumber(); i++) {
+            //statView.findViewById(i);
+            String strg = (String) la.getItem(i);
+            if(strg != null){
+                game.addStat(i, strg);
+            }
         }
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, InGameMenuActivity.class);
         intent.putExtra("game",game);
         startActivity(intent);
     }
