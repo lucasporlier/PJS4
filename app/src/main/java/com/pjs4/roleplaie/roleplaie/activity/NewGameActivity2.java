@@ -15,6 +15,7 @@ import com.pjs4.roleplaie.roleplaie.dataBase.Partie;
 import java.util.ArrayList;
 
 public class NewGameActivity2 extends AppCompatActivity {
+    public static final String EXTRA_GAME = "com.pjs4.roleplai.roleplaie.EXTRA_GAME";
     private Partie game;
 
     @Override
@@ -22,16 +23,16 @@ public class NewGameActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game2);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
-        game = getIntent().getExtras().getParcelable("game");
+        game = getIntent().getExtras().getParcelable(NewGameActivity.EXTRA_GAME1);
 
         ListView statView = (ListView) findViewById(R.id.listStatView);
         ArrayList<String> s = new ArrayList<String>();
@@ -62,8 +63,8 @@ public class NewGameActivity2 extends AppCompatActivity {
             }
         }
 
-        Intent intent = new Intent(this, InGameMenuActivity.class);
-        intent.putExtra("game",game);
+        Intent intent = new Intent(this, PlayerFileCreationActivity.class);
+        intent.putExtra(EXTRA_GAME, game);
         startActivity(intent);
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
  * Created by qu2 on 21/03/2016.
  */
 
-@SuppressLint("ParcelCreator")
+
 public class Partie implements Parcelable {
 
     private int id;
@@ -37,6 +37,18 @@ public class Partie implements Parcelable {
 
     public Partie(){}
 
+
+    public static final Creator<Partie> CREATOR = new Creator<Partie>() {
+        @Override
+        public Partie createFromParcel(Parcel in) {
+            return new Partie(in);
+        }
+
+        @Override
+        public Partie[] newArray(int size) {
+            return new Partie[size];
+        }
+    };
 
     public int getId() {
 
@@ -131,6 +143,8 @@ public class Partie implements Parcelable {
         return nombreStat;
     }
 
-
+    public String getStat(int i){
+        listStat.get(i);
+    }
 }
 

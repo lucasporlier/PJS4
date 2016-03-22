@@ -17,6 +17,8 @@ import com.pjs4.roleplaie.roleplaie.dataBase.Partie;
  */
 public class NewGameActivity extends Activity implements Parcelable{
 
+    public static final String EXTRA_GAME1 = "com.pjs4.roleplaie.roleplaie.activity.EXTRA_GAME1";
+
     public  NewGameActivity(){};
 
     protected NewGameActivity(Parcel in) {
@@ -49,9 +51,17 @@ public class NewGameActivity extends Activity implements Parcelable{
     }
 
     public void ConfirmNewGame(View view) {
-        TextView gameName = (TextView) findViewById(R.id.GameNameEdiText);
-        TextView nbPlayer = (TextView) findViewById(R.id.NbPlayereditText);
-        TextView typeGame = (TextView) findViewById(R.id.TypeGameditText);
+        String gameName = ((TextView) findViewById(R.id.GameNameEdiText)).getText().toString();
+        String nbPlayer = ((TextView) findViewById(R.id.NbPlayereditText)).getText().toString();
+        String typeGame = ((TextView) findViewById(R.id.TypeGameditText)).getText().toString();
+        String nbStat = ((TextView) findViewById(R.id.nbStatEditText)).getText().toString();
+
+        Partie partie = new Partie(gameName,typeGame,Integer.parseInt(nbPlayer),Integer.parseInt(nbStat));
+
+        Intent intent = new Intent(this,NewGameActivity2.class);
+
+        intent.putExtra(EXTRA_GAME1, partie);
+        startActivity(intent);
 
     }
 

@@ -1,6 +1,7 @@
 package com.pjs4.roleplaie.roleplaie.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import com.pjs4.roleplaie.roleplaie.R;
+import com.pjs4.roleplaie.roleplaie.dataBase.Partie;
 
 /**
  * Used by the layout player_file_creation_layout.xml
@@ -22,6 +24,17 @@ public class PlayerFileCreationActivity extends Activity {
         setContentView(R.layout.player_file_creation_layout);
 
         Log.i("projet", "Lancement de la création d'une fiche de personnage");
+
+        Intent intent = getIntent();
+        Partie p = intent.getExtras().getParcelable(NewGameActivity2.EXTRA_GAME);
+
+
+        Log.i("testParcelabel", p.getNom());
+        Log.i("testParcelabel", p.getType());
+        Log.i("testParcelabel", String.valueOf((p.getNombreJoueur())));
+        Log.i("testParcelabel", p.getStat(p.getStatNumber()-1));
+
+
     }
 
     /**
