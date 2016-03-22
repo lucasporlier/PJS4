@@ -94,4 +94,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent2 = new Intent(MainActivity.this, PlayerFileCreationActivity.class);
         startActivity(intent2);
     }
+
+    public void test3(View view) {
+        Log.i("projet", "TEST FICHE PERSO");
+        Intent intent2 = new Intent(MainActivity.this, PlayerFileActivity.class);
+        startActivity(intent2);
+    }
 }
