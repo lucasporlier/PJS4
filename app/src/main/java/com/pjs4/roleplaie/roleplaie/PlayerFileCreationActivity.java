@@ -19,7 +19,12 @@ public class PlayerFileCreationActivity extends Activity {
     public static final String EXTRA_NUMPLAYER = "COM.PJS4.ROLEPLAIE.ROLEPLAIE.NumPlayer";
     public static final String EXTRA_MAXPLAYER = "COM.PJS4.ROLEPLAIE.ROLEPLAIE.MaxPlayer";
 
-    private int numPlayer;
+    private static int numeroPlayer;
+    /**
+     * Contient le nombre de joueur total de la partie.
+     * static pour que ce soit commun a toute les activity.
+     */
+    private static int nbPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,21 +33,23 @@ public class PlayerFileCreationActivity extends Activity {
         Log.i("projet", "Lancement de la création d'une fiche de personnage");
 
         Intent intent = getIntent();
-        String gameName = intent.getStringExtra(NewGameActivity.EXTRA_GAMENAME);
-        String numberOfPlayer = intent.getStringExtra(NewGameActivity.EXTRA_NUMBEROFPLAYER);
-        String gameType = intent.getStringExtra(NewGameActivity.EXTRA_GAMETYPE);
+        String gameName = intent.getStringExtra(NewGameActivity.EXTRA_GAMENAME);//utile ou pas utile?
+        if(intent.getStringExtra(NewGameActivity.EXTRA_NUMBEROFPLAYER) != null){ //nbPLayer est static, on le fait qu'une fois
+            nbPlayer = Integer.parseInt(intent.getStringExtra(NewGameActivity.EXTRA_NUMBEROFPLAYER));
+        }
+        String gameType = intent.getStringExtra(NewGameActivity.EXTRA_GAMETYPE);//utile ou pas utile?
 
         final int NUMDEPART = 1; //On commence avec la fiche perso du joueur 1
 
-        if(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER) != null){ //est ce que ca marche?? A voir
+        if(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER) != null){ //est ce que ca marche?? A voir - ca marche - du coup non
             Log.i("projet", "EXTRA_NUMPLAYER existe, numPLayer prend la valeur suivante");
-            numPlayer = Integer.parseInt(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER));
+            numeroPlayer = Integer.parseInt(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER));
         }else{
             Log.i("projet", "EXTRA_NUMPLAYER n'existe pas, numPlayer est initié à 1");
-            numPlayer = NUMDEPART;
+            numeroPlayer = NUMDEPART;
         }
         TextView title = (TextView)findViewById(R.id.Text_Title);
-        title.setText(title.getText() + " " + numPlayer + "/" + numberOfPlayer); //Affiche le titre + le numero du joueur actuel
+        title.setText(title.getText() + " " + numeroPlayer + "/" + nbPlayer); //Affiche le titre + le numero du joueur actuel/joueur max
     }
 
     /**
@@ -75,26 +82,22 @@ public class PlayerFileCreationActivity extends Activity {
     }
 
     public void suivant(View view){
-        //Création d'un objet Personnage où on stocke toute ces données
+        //---Création d'un objet Personnage où on stocke toutes ces données
+        if(numeroPlayer < nbPlayer){
+            Log.i("projet","Préparation de l'intent PlayerFileCreationActivity");
+            Intent intent = new Intent(this, PlayerFileCreationActivity.class);
 
-        Log.i("projet","Préparation de l'intent PlayerFileCreationActivity");
-        Intent intent = new Intent(this, PlayerFileCreationActivity.class);
-//        Log.i("projet","Récupération de l'EditText ETGameName");
-//        EditText gameName = (EditText)findViewById(R.id.ETGameName);
-//        Log.i("projet","Récupération de l'EditText ETNbPlayer");
-//        EditText nbPlayer = (EditText)findViewById(R.id.ETNbPlayer);
-//        Log.i("projet","Récupération de l'EditText ETGameType");
-//        EditText gameType = (EditText)findViewById(R.id.ETTypeGame);
+            Log.i("projet", "Préparation du putExtra EXTRA_NUMPLAYER");
+            intent.putExtra(EXTRA_NUMPLAYER, (numeroPlayer + 1 + ""));
+            intent.putExtra(EXTRA_MAXPLAYER, nbPlayer);
+            startActivity(intent);
+        }else{
+            Log.i("projet","Préparation de l'intent InGameMenu Activity");
+            Intent intent = new Intent(this, InGameMenuActivity.class);
+            Log.i("projet","Lancement de l'intent InGameMenu Activity");
+            startActivity(intent);
+        }
 
-//        Log.i("projet","Préparation du putExtra EXTRA_GAMENAME");
-//        intent.putExtra(EXTRA_GAMENAME, gameName.getText().toString());
-//        Log.i("projet", "Préparation du putExtra EXTRA_NUMBEROFPLAYER");
-//        intent.putExtra(EXTRA_NUMBEROFPLAYER, nbPlayer.getText().toString());
-//        Log.i("projet", "Préparation du putExtra EXTRA_GAMETYPE");
-//        intent.putExtra(EXTRA_GAMETYPE,gameType.getText().toString());
-        Log.i("projet", "Préparation du putExtra EXTRA_NUMPLAYER");
-        intent.putExtra(EXTRA_NUMPLAYER, numPlayer+1);
-        startActivity(intent);
 
         //Si on arrive à la fin de la création de tout les persos, on les stocke dans la BDD
     }
