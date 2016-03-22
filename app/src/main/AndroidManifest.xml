@@ -13,7 +13,7 @@
         >
 
         <activity
-            android:name = ".MainActivity"
+            android:name = ".activity.MainActivity"
             android:label = "@string/app_name"
             android:theme = "@style/AppTheme.NoActionBar"
             >
@@ -27,37 +27,60 @@
         <!-- more activity here-->
 
         <activity
-            android:name = ".NewGameActivity"
+            android:name = ".activity.NewGameActivity"
             android:label = "label"
             >
         </activity>
 
         <activity
-            android:name = ".InGameMenuActivity"
+
+            android:name = ".activity.InGameMenuActivity"
             >
         </activity>
 
         <activity
-            android:name = ".DiceActivity"
+
+            android:name = ".activity.DiceActivity"
             >
         </activity>
 
         <activity
-            android:name = ".PlayerFileActivity"
+
+            android:name = ".activity.PlayerFileActivity"
             >
         </activity>
 
         <activity
-            android:name = ".PlayerFileCreationActivity"
+
+            android:name = ".activity.PlayerFileCreationActivity"
             android:configChanges = "keyboardHidden|orientation"
             >
         </activity>
 
         <activity
-            android:name = ".MiniMapActivity"
+
+            android:name = ".activity.MiniMapActivity"
             android:screenOrientation = "landscape"
             >
         </activity>
+
+        <activity
+
+            android:name = ".activity.LoadGameActivity"
+            >
+        </activity>
+
+        <activity
+            android:name = ".activity.PlayerListActivity"
+            >
+        </activity>
+        <activity
+            android:name = ".activity.NewGameActivity2"
+            android:label = "label"
+            >
+        </activity>
+
+
 
     </application>
 

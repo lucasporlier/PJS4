@@ -25,7 +25,12 @@
                 />
 
             <EditText
+<<<<<<< HEAD
                 android:id = "@+id/ETGameName"
+=======
+
+                android:id = "@+id/GameNameEdiText"
+>>>>>>> 99b055a1816aa16bca23567a7ca86935702b3821
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:ems = "10"
@@ -35,7 +40,12 @@
 
 
             <EditText
+<<<<<<< HEAD
                 android:id = "@+id/ETNbPlayer"
+=======
+
+                android:id = "@+id/NbPlayereditText"
+>>>>>>> 99b055a1816aa16bca23567a7ca86935702b3821
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_marginTop = "20sp"
@@ -45,12 +55,29 @@
                 />
 
             <EditText
+<<<<<<< HEAD
                 android:id = "@+id/ETTypeGame"
+=======
+
+                android:id = "@+id/TypeGameditText"
+>>>>>>> 99b055a1816aa16bca23567a7ca86935702b3821
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_marginTop = "20sp"
                 android:hint = "@string/type_of_game"
                 />
+
+
+
+            <EditText
+                android:id = "@+id/nbStatEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop = "20sp"
+                android:hint="@string/stat_number"
+                android:inputType="number"
+                />
+
 
             <LinearLayout
                 android:layout_width = "match_parent"
@@ -64,9 +91,12 @@
                     android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/button_margin"
                     android:text = "@string/confirm"
+<<<<<<< HEAD
                     android:onClick="createGame"
+=======
+                    android:onClick="ConfirmNewGame"
+>>>>>>> 99b055a1816aa16bca23567a7ca86935702b3821
                     />
-
             </LinearLayout>
 
         </LinearLayout>
