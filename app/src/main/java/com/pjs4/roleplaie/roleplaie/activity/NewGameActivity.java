@@ -17,6 +17,23 @@ import com.pjs4.roleplaie.roleplaie.dataBase.Partie;
  */
 public class NewGameActivity extends Activity implements Parcelable{
 
+    public  NewGameActivity(){};
+
+    protected NewGameActivity(Parcel in) {
+    }
+
+    public static final Creator<NewGameActivity> CREATOR = new Creator<NewGameActivity>() {
+        @Override
+        public NewGameActivity createFromParcel(Parcel in) {
+            return new NewGameActivity(in);
+        }
+
+        @Override
+        public NewGameActivity[] newArray(int size) {
+            return new NewGameActivity[size];
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +53,6 @@ public class NewGameActivity extends Activity implements Parcelable{
         TextView nbPlayer = (TextView) findViewById(R.id.NbPlayereditText);
         TextView typeGame = (TextView) findViewById(R.id.TypeGameditText);
 
-        Partie partie = new Partie(gameName.toString(),typeGame.toString(),Integer.parseInt(nbPlayer.toString()));
-
-
     }
 
     @Override
@@ -48,6 +62,5 @@ public class NewGameActivity extends Activity implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
     }
 }

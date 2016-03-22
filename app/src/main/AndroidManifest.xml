@@ -13,11 +13,7 @@
         >
 
         <activity
-<<<<<<< HEAD
             android:name = ".activity.MainActivity"
-=======
-            android:name = ".MainActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
             android:label = "@string/app_name"
             android:theme = "@style/AppTheme.NoActionBar"
             >
@@ -31,64 +27,45 @@
         <!-- more activity here-->
 
         <activity
-<<<<<<< HEAD
             android:name = ".activity.NewGameActivity"
-=======
-            android:name = ".NewGameActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
             android:label = "label"
             >
         </activity>
 
         <activity
-<<<<<<< HEAD
+
             android:name = ".activity.InGameMenuActivity"
-=======
-            android:name = ".InGameMenuActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
             >
         </activity>
 
         <activity
-<<<<<<< HEAD
+
             android:name = ".activity.DiceActivity"
-=======
-            android:name = ".DiceActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
             >
         </activity>
 
         <activity
-<<<<<<< HEAD
+
             android:name = ".activity.PlayerFileActivity"
-=======
-            android:name = ".PlayerFileActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
             >
         </activity>
 
         <activity
-<<<<<<< HEAD
+
             android:name = ".activity.PlayerFileCreationActivity"
-=======
-            android:name = ".PlayerFileCreationActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
             android:configChanges = "keyboardHidden|orientation"
             >
         </activity>
 
         <activity
-<<<<<<< HEAD
+
             android:name = ".activity.MiniMapActivity"
-=======
-            android:name = ".MiniMapActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
             android:screenOrientation = "landscape"
             >
         </activity>
 
         <activity
-<<<<<<< HEAD
+
             android:name = ".activity.LoadGameActivity"
             >
         </activity>
@@ -97,13 +74,13 @@
             android:name = ".activity.PlayerListActivity"
             >
         </activity>
-=======
-            android:name = ".NewGameActivity2"
+        <activity
+            android:name = ".activity.NewGameActivity2"
             android:label = "label"
             >
         </activity>
 
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
+
 
     </application>
 

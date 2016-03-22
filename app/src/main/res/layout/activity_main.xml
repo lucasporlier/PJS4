@@ -6,11 +6,7 @@
     android:layout_width = "match_parent"
     android:layout_height = "match_parent"
     android:fitsSystemWindows = "true"
-<<<<<<< HEAD
     tools:context = ".activity.MainActivity"
-=======
-    tools:context = "com.pjs4.roleplaie.roleplaie.MainActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
     >
 
     <android.support.design.widget.AppBarLayout
@@ -32,7 +28,7 @@
 
     <include layout = "@layout/content_main" />
 
-<<<<<<< HEAD
+
     <android.support.design.widget.FloatingActionButton
         android:id = "@+id/fab"
         android:layout_width = "wrap_content"
@@ -41,7 +37,4 @@
         android:layout_margin = "@dimen/fab_margin"
         android:src = "@android:drawable/ic_dialog_email"
         />
-
-=======
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
 </android.support.design.widget.CoordinatorLayout >

@@ -14,11 +14,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-<<<<<<< HEAD
     tools:context=".activity.MainActivity"
-=======
-    tools:context="com.pjs4.roleplaie.roleplaie.MainActivity"
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
     tools:showIn="@layout/activity_main"
     >
 

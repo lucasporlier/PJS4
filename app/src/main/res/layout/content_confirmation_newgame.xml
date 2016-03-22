@@ -4,15 +4,18 @@
 
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pjs4.roleplaie.roleplaie.ConfirmationNewGame
-    >
+    tools:context=".activity.ConfirmationNewGame"
+>
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop = "20sp"
+
         android:text="Nom de la partie :"
-        android:id="@+id/lb_nameGame" />
+        android:id="@+id/lb_nameGame"
+    />
 
     <TextView
         android:layout_width="wrap_content"

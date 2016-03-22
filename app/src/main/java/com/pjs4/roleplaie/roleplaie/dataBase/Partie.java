@@ -1,36 +1,26 @@
 package com.pjs4.roleplaie.roleplaie.dataBase;
 
-<<<<<<< HEAD
-=======
+
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
+
 import java.util.List;
 
 /**
  * Created by qu2 on 21/03/2016.
  */
-<<<<<<< HEAD
-public class Partie {
-=======
+
+@SuppressLint("ParcelCreator")
 public class Partie implements Parcelable {
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
+
     private int id;
     private String nom;
     private String type;
-    private int nombreJoueur;
-<<<<<<< HEAD
     private String resume;
-    private List<Joueur> listJoueur;
-
-    public Partie(String nom, String type, int nombreJoueur) {
-        this.nom = nom;
-        this.type = type;
-        this.nombreJoueur = nombreJoueur;
-        this.resume = "";
-=======
+    private int nombreJoueur;
     private int nombreStat;
     private List<String> listStat;
     private List<Joueur> listJoueur;
@@ -40,12 +30,13 @@ public class Partie implements Parcelable {
         this.type = type;
         this.nombreJoueur = nombreJoueur;
         this.nombreStat = nombreStat;
+        this.resume = "";
         this.listStat = new ArrayList<String>();
         this.listJoueur = new ArrayList<Joueur>();
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
     }
 
     public Partie(){}
+
 
     public int getId() {
 
@@ -95,7 +86,7 @@ public class Partie implements Parcelable {
         this.listJoueur = listJoueur;
     }
 
-<<<<<<< HEAD
+
     public String getResume() {
         return resume;
     }
@@ -103,7 +94,7 @@ public class Partie implements Parcelable {
     public void setResume(String resume) {
         this.resume = resume;
     }
-=======
+
     public Partie(Parcel in) {
         nom = in.readString();
         type = in.readString();
@@ -140,6 +131,6 @@ public class Partie implements Parcelable {
         return nombreStat;
     }
 
->>>>>>> d04a1bba9b82b53a77208844348206cb98209d69
+
 }
 
