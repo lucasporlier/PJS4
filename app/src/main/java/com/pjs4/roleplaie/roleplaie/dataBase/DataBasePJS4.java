@@ -40,7 +40,11 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_manaUseComp = "manaUse";
 	private static final int NUM_COL_manaUseComp = 4;
 
-	private static final String tab_comp = "CREATE TABLE " + tab_competance + " (" + COL_IDComp + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomComp + " TEXT NOT NULL, " + COL_effetComp + " TEXT NOT NULL, " + COL_nomProComp + " TEXT NOT NULL, " + COL_manaUseComp + " INTEGER NOT NULL);";
+	private static final String tab_comp = "CREATE TABLE "
+			+ tab_competance + " (" + COL_IDComp + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+			+ COL_nomComp + " TEXT NOT NULL, " + COL_effetComp + " TEXT NOT NULL, "
+			+ COL_nomProComp + " TEXT NOT NULL, "
+			+ COL_manaUseComp + " INTEGER NOT NULL);";
 
 	/*---------------------------------------------------------------------Objet-------------------------------------------------------*/
 	private static final String tab_objet = "table_objet";
@@ -60,7 +64,12 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_nomproObj = "nomproprietaire";
 	private static final int NUM_COL_nomproObj = 4;
 
-	private static final String tab_ob = "CREATE TABLE " + tab_objet + " (" + COL_IDObj + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomObj + " TEXT NOT NULL, " + COL_nbObj + " TEXT NOT NULL, " + COL_effetObj + " TEXT NOT NULL, " + COL_nomproObj + " TEXT NOT NULL);";
+	private static final String tab_ob = "CREATE TABLE "
+			+ tab_objet + " (" + COL_IDObj + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+			+ COL_nomObj + " TEXT NOT NULL, "
+			+ COL_nbObj + " TEXT NOT NULL, " + COL_effetObj
+			+ " TEXT NOT NULL, "
+			+ COL_nomproObj + " TEXT NOT NULL);";
 
 	/*------------------------------------------------------------------------Joueur---------------------------------------------------------------*/
 	private static final String tab_joueur = "table_joueur";
@@ -119,12 +128,16 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_nbJoueurParti = "nbJoueur";
 	private static final int NUM_COL_nbJoueurParti = 3;
 
+	private static final String COL_resume = "resume";
+	private  static final int NUM_COL_resume = 4;
+
 
 	private static final String tab_game = "CREATE TABLE " + tab_partie + " (" +
 			COL_IDParti + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
 			COL_nomParti + " TEXT NOT NULL, " +
 			COL_nbJoueurParti + " TEXT NOT NULL, " +
-			COL_typeParti + " TEXT NOT NULL);";
+			COL_typeParti + " TEXT NOT NULL " +
+			COL_resume + " TEXT);";
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -454,6 +467,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 			partie.setNom(c.getString(NUM_COL_nomParti));
 			partie.setNombreJoueur(c.getInt(NUM_COL_nbJoueurParti));
 			partie.setType(c.getString(NUM_COL_typeParti));
+			partie.setResume(c.getString(NUM_COL_resume));
 
 			Log.i("projet", partie.toString());
 			listGames.add(partie);
@@ -472,6 +486,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nomParti, p.getNom());
 		values.put(COL_typeParti, p.getType());
 		values.put(COL_nbJoueurParti, p.getNombreJoueur());
+		values.put(COL_resume,p.getResume());
 
 		bdd.insert(tab_partie, null, values);
 	}
@@ -482,6 +497,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nomParti, p.getNom());
 		values.put(COL_typeParti, p.getType());
 		values.put(COL_nbJoueurParti, p.getNombreJoueur());
+		values.put(COL_resume,p.getResume());
 
 		return bdd.update(tab_partie, values, COL_nomParti + " = " + nom, null);
 	}

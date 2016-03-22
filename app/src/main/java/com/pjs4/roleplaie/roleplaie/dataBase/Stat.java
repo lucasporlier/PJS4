@@ -7,20 +7,12 @@ public class Stat {
 	private int ID;
 	private int stat;
 	private String nomStat;
+	private String nomJoueurStat;
 
-	public void setNomJoueurStat(String nomJoueurStat) {
-		this.nomJoueurStat = nomJoueurStat;
-	}
 
-	public String getNomJoueurStat() {
-
-		return nomJoueurStat;
-	}
 
 	public Stat() {
 	}
-
-	private String nomJoueurStat;
 
 	public Stat(int stat, String nomStat, String nomJoueurStat) {
 		this.stat = stat;
@@ -50,6 +42,15 @@ public class Stat {
 
 	public void setStat(int stat) {
 		this.stat = stat;
+	}
+
+	public void setNomJoueurStat(String nomJoueurStat) {
+		this.nomJoueurStat = nomJoueurStat;
+	}
+
+	public String getNomJoueurStat() {
+
+		return nomJoueurStat;
 	}
 }
 

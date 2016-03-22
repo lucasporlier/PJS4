@@ -25,7 +25,7 @@
                 />
 
             <EditText
-                android:id = "@+id/editText"
+                android:id = "@+id/GameNameEdiText"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:ems = "10"
@@ -35,7 +35,7 @@
 
 
             <EditText
-                android:id = "@+id/editText3"
+                android:id = "@+id/NbPlayereditText"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_marginTop = "20sp"
@@ -45,7 +45,7 @@
                 />
 
             <EditText
-                android:id = "@+id/editText2"
+                android:id = "@+id/TypeGameditText"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_marginTop = "20sp"
@@ -64,6 +64,7 @@
                     android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/button_margin"
                     android:text = "@string/confirm"
+                    android:onClick="ConfirmNewGame"
                     />
 
             </LinearLayout>

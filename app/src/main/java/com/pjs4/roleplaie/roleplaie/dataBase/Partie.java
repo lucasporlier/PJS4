@@ -10,13 +10,14 @@ public class Partie {
     private String nom;
     private String type;
     private int nombreJoueur;
+    private String resume;
     private List<Joueur> listJoueur;
 
-    public Partie(String nom, String type, int nombreJoueur,List<Joueur> list) {
+    public Partie(String nom, String type, int nombreJoueur) {
         this.nom = nom;
         this.type = type;
         this.nombreJoueur = nombreJoueur;
-        this.listJoueur = list;
+        this.resume = "";
     }
 
     public Partie(){}
@@ -67,6 +68,14 @@ public class Partie {
     public void setListJoueur(List<Joueur> listJoueur) {
 
         this.listJoueur = listJoueur;
+    }
+
+    public String getResume() {
+        return resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 }
 
