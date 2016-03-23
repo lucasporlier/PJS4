@@ -21,7 +21,7 @@ import com.pjs4.roleplaie.roleplaie.dataBase.DataBasePJS4;
  */
 public class MainActivity extends AppCompatActivity {
 
-	DataBasePJS4 db;
+	public static DataBasePJS4 db;
 
 
 	@Override
