@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="RolePlaie" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+=======
+<<<<<<< HEAD
+<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$APPLICATION_HOME_DIR$/RolePlaie" external.system.id="GRADLE" external.system.module.group="RolePlaie" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+=======
+<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="PJS4" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+>>>>>>> 99b055a1816aa16bca23567a7ca86935702b3821
+>>>>>>> 392108153ce73f371a4dbe88d7fd654770ac897a
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>

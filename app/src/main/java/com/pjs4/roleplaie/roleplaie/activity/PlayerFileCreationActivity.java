@@ -46,7 +46,7 @@ public class PlayerFileCreationActivity extends Activity {
 
 
 		TextView tv;
-		for (int i = 0 ; i < p.getStatNumber() ; i++){
+		for (int i = 0; i < p.getStatNumber(); i++) {
 			tv = new TextView(this);
 
 			Log.i("projet", "ajout de la stat : " + String.valueOf(i));
@@ -56,7 +56,7 @@ public class PlayerFileCreationActivity extends Activity {
 		}
 
 		EditText ed;
-		for (int i = 0 ; i < p.getStatNumber() ; i++){
+		for (int i = 0; i < p.getStatNumber(); i++) {
 			ed = new EditText(this);
 			ed.setHint(getResources().getString(R.string.value));
 
