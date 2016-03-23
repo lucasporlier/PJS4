@@ -21,6 +21,8 @@ import java.util.List;
  */
 public class PlayerFileCreationActivity extends Activity {
 
+	private int numCapacities = 1;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +48,7 @@ public class PlayerFileCreationActivity extends Activity {
 		TextView tv;
 		for (int i = 0 ; i < p.getStatNumber() ; i++){
 			tv = new TextView(this);
+
 			Log.i("projet", "ajout de la stat : " + String.valueOf(i));
 			tv.setText(listStats.get(i));
 			tableRowName.addView(tv);
@@ -56,7 +59,8 @@ public class PlayerFileCreationActivity extends Activity {
 		for (int i = 0 ; i < p.getStatNumber() ; i++){
 			ed = new EditText(this);
 			ed.setHint(getResources().getString(R.string.value));
-			Log.i("projet", "ajout de la stat : " + String.valueOf(i));
+
+			Log.i("projet", "ajout de la value : " + String.valueOf(i));
 			tableRowValue.addView(ed, i);
 			Log.i("projet", "ok");
 		}

@@ -42,12 +42,13 @@
                 <TableRow
                     android:id="@+id/table_row_caracteristics_name">
 
+                    <TextView/>
 
                 </TableRow>
 
                 <TableRow
                     android:id="@+id/table_row_caracteristics_value">
-
+                    <TextView/>
                 </TableRow>
 
             </TableLayout>
@@ -73,15 +74,7 @@
 
                 <TableRow>
 
-                    <EditText
-                        android:layout_width = "100sp"
-                        android:hint = "@string/name"/>
 
-                    <EditText
-                        android:layout_width = "match_parent"
-                        android:layout_height = "wrap_content"
-                        android:hint = "@string/description"
-                        />
                 </TableRow>
 
             </TableLayout>
