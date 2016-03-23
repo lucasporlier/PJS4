@@ -1,9 +1,12 @@
 package com.pjs4.roleplaie.roleplaie.dataBase;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by qu2 on 21/03/2016.
  */
-public class Joueur {
+public class Joueur implements Parcelable{
 	private int id;
 	private String nom;
 	private String race;
@@ -13,6 +16,8 @@ public class Joueur {
 	private int nbExp;
 	private String lore;
 	private String nomPartie;
+
+
 
 
 	public Joueur(String nom, String race, int pv, int mana,String lore, String nomPartie) {
@@ -101,4 +106,48 @@ public class Joueur {
 	public void setNomPartie(String nomPartie) {
 		this.nomPartie = nomPartie;
 	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(id);
+		dest.writeString(nom);
+		dest.writeString(race);
+		dest.writeInt(pv);
+		dest.writeInt(mana);
+		dest.writeInt(lvl);
+		dest.writeInt(nbExp);
+		dest.writeString(lore);
+		dest.writeString(nomPartie);
+	}
+
+	public Joueur(Parcel in){
+		this.id = in.readInt();
+		this.nom = in.readString();
+		this.race = in.readString();
+		this.pv = in.readInt();
+		this.mana = in.readInt();
+		this.lvl = in.readInt();
+		this.nbExp = in.readInt();
+		this.lore = in.readString();
+		this.nomPartie = in.readString();
+	}
+
+	public static final Creator<Joueur> CREATOR = new Creator<Joueur>() {
+		@Override
+		public Joueur createFromParcel(Parcel in) {
+			return new Joueur(in);
+		}
+
+		@Override
+		public Joueur[] newArray(int size) {
+			return new Joueur[size];
+		}
+	};
+
+
 }

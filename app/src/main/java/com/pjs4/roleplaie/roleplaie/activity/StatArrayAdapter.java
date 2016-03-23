@@ -46,7 +46,7 @@ public class StatArrayAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return ((EditText)layoutItems.get(position).findViewById(R.id.ET_Stat)).getId();
     }
 
     @Override

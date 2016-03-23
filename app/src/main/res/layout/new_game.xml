@@ -26,8 +26,7 @@
 
             <EditText
 
-
-                android:id = "@+id/ETGameName"
+                android:id = "@+id/GameNameEdiText"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:ems = "10"

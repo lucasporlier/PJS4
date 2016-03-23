@@ -51,7 +51,7 @@ public class NewGameActivity extends Activity implements Parcelable{
     }
 
     public void ConfirmNewGame(View view) {
-        String gameName = ((TextView) findViewById(R.id.ETGameName)).getText().toString();
+        String gameName = ((TextView) findViewById(R.id.GameNameEdiText)).getText().toString();
         String nbPlayer = ((TextView) findViewById(R.id.NbPlayereditText)).getText().toString();
         String typeGame = ((TextView) findViewById(R.id.TypeGameditText)).getText().toString();
         String nbStat = ((TextView) findViewById(R.id.nbStatEditText)).getText().toString();

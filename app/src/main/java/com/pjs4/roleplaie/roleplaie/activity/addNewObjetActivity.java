@@ -17,35 +17,43 @@ import com.pjs4.roleplaie.roleplaie.dataBase.Objet;
  * Created by qu2 on 23/03/2016.
  */
 public class addNewObjetActivity extends AppCompatActivity {
-    private String nomObjet;
-    private String effetObjet;
-    private int nbObjet;
+    private TextView nomObjet;
+    private TextView effetObjet;
+    private TextView nbObjet;
     private  String nom = " olm";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creation_objet);
 
-        nomObjet = ((TextView) findViewById(R.id.nbObjetED)).toString();
-        effetObjet = ((TextView) findViewById(R.id.effetObjetED)).toString();
-        nbObjet = Integer.parseInt(((TextView) findViewById(R.id.nbObjetED)).toString());
+        nomObjet = (TextView) findViewById(R.id.nbObjetED);
+        effetObjet = (TextView) findViewById(R.id.effetObjetED);
+        nbObjet = (TextView) findViewById(R.id.nbObjetED);
 
 
 
     }
 
     public void confirmerCreation(View view) {
-        Objet o = new Objet(nbObjet,nomObjet,effetObjet,nom);
+
+        Objet o = new Objet(Integer.parseInt(nbObjet.getText().toString()),nomObjet.getText().toString(),effetObjet.getText().toString(),nom);//TODO Nom a changer
 
         MainActivity.db.insertObjets(o);
-    /*    Intent intent = new Intent(this,InventoryActivity.class);
-       startActivity(intent);
-         */
+        Intent intent = new Intent(this,InventoryActivity.class);
+        startActivity(intent);
+
 
     }
 
 
 
     public void newObjetCreation(View view) {
+        Objet o = new Objet(Integer.parseInt(nbObjet.getText().toString()),nomObjet.getText().toString(),effetObjet.getText().toString(),nom);//TODO Nom a changer
+
+        MainActivity.db.insertObjets(o);
+
+        nbObjet.setText("");
+        nomObjet.setText("");
+        effetObjet.setText("");
     }
 }

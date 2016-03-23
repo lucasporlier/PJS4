@@ -56,12 +56,7 @@
             </TableLayout>
 
 
-            <EditText
-                android:layout_width = "match_parent"
-                android:layout_height = "wrap_content"
-                android:layout_margin = "@dimen/edit_text_matchparent_margin"
-                android:hint = "@string/your_first_weapon"
-                android:inputType = "text"/>
+           
 
             <TextView
                 android:layout_width = "match_parent"
@@ -120,7 +115,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/suivant"
                         android:id="@+id/btnSuivant"
-                        android:onClick="suivant"/>
+                        android:onClick="suivant"
+                        />
                 </TableRow>
 
             </TableLayout>
