@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.pjs4.roleplaie.roleplaie.R;
 import com.pjs4.roleplaie.roleplaie.dataBase.Partie;
@@ -29,10 +30,14 @@ public class PlayerFileCreationActivity extends Activity {
         Partie p = intent.getExtras().getParcelable(NewGameActivity2.EXTRA_GAME);
 
 
+
+
         Log.i("testParcelabel", p.getNom());
         Log.i("testParcelabel", p.getType());
         Log.i("testParcelabel", String.valueOf((p.getNombreJoueur())));
-        Log.i("testParcelabel", p.getStat(p.getStatNumber()-1));
+        Log.i("testParcelabel", p.getStat(p.getStatNumber() - 1));
+
+        Log.i("testListGame",p.getListStat().toString());
 
 
     }

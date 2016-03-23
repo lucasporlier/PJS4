@@ -35,7 +35,8 @@ public class Partie implements Parcelable {
         this.listJoueur = new ArrayList<Joueur>();
     }
 
-    public Partie(){}
+    public Partie() {
+    }
 
 
     public static final Creator<Partie> CREATOR = new Creator<Partie>() {
@@ -59,8 +60,7 @@ public class Partie implements Parcelable {
         return nom;
     }
 
-    public String getType()
-    {
+    public String getType() {
         return type;
     }
 
@@ -83,8 +83,7 @@ public class Partie implements Parcelable {
         this.nom = nom;
     }
 
-    public void setType(String type)
-    {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -114,10 +113,9 @@ public class Partie implements Parcelable {
         nombreStat = in.readInt();
         List<String> l = new ArrayList<String>();
         in.readStringList(l);
-        if(l!=null){
+        if (l != null) {
             listStat = l;
-        }
-        else
+        } else
             listStat = new ArrayList<String>();
     }
 
@@ -135,16 +133,33 @@ public class Partie implements Parcelable {
         dest.writeStringList(listStat);
     }
 
-    public void addStat(int i, String name){
+    public void addStat(int i, String name) {
         listStat.add(i, name);
     }
 
-    public int getStatNumber(){
+    public int getStatNumber() {
         return nombreStat;
     }
 
-    public String getStat(int i){
-        listStat.get(i);
+    public String getStat(int i) {
+       return listStat.get(i);
+    }
+
+    public int getNombreStat() {
+        return nombreStat;
+    }
+
+    public void setNombreStat(int nombreStat) {
+        this.nombreStat = nombreStat;
+    }
+
+    public List<String> getListStat() {
+        return listStat;
+    }
+
+    public void setListStat(List<String> listStat) {
+        this.listStat = listStat;
     }
 }
+
 
