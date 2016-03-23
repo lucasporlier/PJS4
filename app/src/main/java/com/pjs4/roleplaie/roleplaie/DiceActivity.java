@@ -82,14 +82,20 @@ public class DiceActivity extends Activity {
         });
     }
 
+    //When pause completed message sent to callback
+    class Roll extends TimerTask {
+        public void run() {
+            Log.i("projet","koukou le TimerTask (pause)");
+            handler.sendEmptyMessage(0);
+        }
+    }
+
     //Receives message from timer to start dice roll
     Callback callback = new Callback() {
         public boolean handleMessage(Message msg) {
 
-
-
             //Get roll result
-            dice_picture.setImageResource(R.drawable.face1);
+            launchDice();
 
             rolling=false;	//user can press again
             return true;
@@ -114,6 +120,7 @@ public class DiceActivity extends Activity {
     protected void onPause() {
         super.onPause();
         dice_sound.pause(sound_id);
+        Log.i("projet","onPause");
     }
 
     protected void onDestroy() {

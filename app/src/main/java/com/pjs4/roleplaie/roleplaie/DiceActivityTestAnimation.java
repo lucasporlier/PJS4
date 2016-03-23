@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler.Callback;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -52,6 +53,7 @@ public class DiceActivityTestAnimation extends Activity {
     //When pause completed message sent to callback
     class Roll extends TimerTask {
         public void run() {
+            Log.i("projet","koukou le TimerTask (pause)");
             handler.sendEmptyMessage(0);
         }
     }
@@ -64,26 +66,27 @@ public class DiceActivityTestAnimation extends Activity {
             //hence + 1
             switch(rng.nextInt(6)+1) {
                 case 1:
-                    dice_picture.setImageResource(R.drawable.face1);
+                    dice_picture.setImageResource(R.drawable.d6f1);
                     break;
                 case 2:
-                    dice_picture.setImageResource(R.drawable.face2);
+                    dice_picture.setImageResource(R.drawable.d6f2);
                     break;
                 case 3:
-                    dice_picture.setImageResource(R.drawable.face3);
+                    dice_picture.setImageResource(R.drawable.d6f3);
                     break;
                 case 4:
-                    dice_picture.setImageResource(R.drawable.face4);
+                    dice_picture.setImageResource(R.drawable.d6f4);
                     break;
                 case 5:
-                    dice_picture.setImageResource(R.drawable.face5);
+                    dice_picture.setImageResource(R.drawable.d6f5);
                     break;
                 case 6:
-                    dice_picture.setImageResource(R.drawable.face6);
+                    dice_picture.setImageResource(R.drawable.d6f6);
                     break;
                 default:
             }
             rolling=false;	//user can press again
+            Log.i("projet","koukou");
             return true;
         }
     };

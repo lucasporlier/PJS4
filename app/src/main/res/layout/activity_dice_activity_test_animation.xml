@@ -15,5 +15,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:onClick="HandleClick"
-        android:src="@drawable/dice3droll6" />
+        android:src="@drawable/dice3d"/>
 </RelativeLayout>

@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void test3(View view) {
         Log.i("projet", "TEST ANIMATION DICE");
-        Intent intent2 = new Intent(MainActivity.this, DiceActivityTestAnimation.class);
+        Intent intent2 = new Intent(MainActivity.this, DiceActivity.class);
         startActivity(intent2);
     }
 }
