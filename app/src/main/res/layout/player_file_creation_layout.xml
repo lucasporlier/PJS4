@@ -32,56 +32,22 @@
 
 
             <TableLayout
+                android:id="@+id/table_caracteristics"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_margin = "15sp"
                 android:stretchColumns = "*"
                 >
 
-                <TableRow>
+                <TableRow
+                    android:id="@+id/table_row_caracteristics_name">
 
-                    <TextView
-                        android:padding = "@dimen/padding_table"
-                        android:text = "Caract1"
-                        android:textAlignment = "center"/>
 
-                    <TextView
-                        android:padding = "@dimen/padding_table"
-                        android:text = "Caract2"
-                        android:textAlignment = "center"/>
-
-                    <TextView
-                        android:padding = "@dimen/padding_table"
-                        android:text = "Caract3"
-                        android:textAlignment = "center"/>
-
-                    <TextView
-                        android:padding = "@dimen/padding_table"
-                        android:text = "Caract4"
-                        android:textAlignment = "center"/>
                 </TableRow>
 
-                <TableRow>
+                <TableRow
+                    android:id="@+id/table_row_caracteristics_value">
 
-                    <EditText
-                        android:hint = "@string/value"
-                        android:inputType = "number"
-                        android:textAlignment = "center"/>
-
-                    <EditText
-                        android:hint = "@string/value"
-                        android:inputType = "number"
-                        android:textAlignment = "center"/>
-
-                    <EditText
-                        android:hint = "@string/value"
-                        android:inputType = "number"
-                        android:textAlignment = "center"/>
-
-                    <EditText
-                        android:hint = "@string/value"
-                        android:inputType = "number"
-                        android:textAlignment = "center"/>
                 </TableRow>
 
             </TableLayout>

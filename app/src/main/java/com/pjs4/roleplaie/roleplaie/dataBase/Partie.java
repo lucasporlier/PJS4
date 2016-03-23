@@ -1,12 +1,10 @@
 package com.pjs4.roleplaie.roleplaie.dataBase;
 
 
-import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 /**
@@ -98,6 +96,9 @@ public class Partie implements Parcelable {
         this.listJoueur = listJoueur;
     }
 
+    public List<String> getListStat() {
+        return listStat;
+    }
 
     public String getResume() {
         return resume;
@@ -144,7 +145,7 @@ public class Partie implements Parcelable {
     }
 
     public String getStat(int i){
-        listStat.get(i);
+        return listStat.get(i);
     }
 }
 
