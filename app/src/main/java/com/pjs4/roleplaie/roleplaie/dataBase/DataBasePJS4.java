@@ -239,6 +239,41 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		return bdd.delete(tab_objet, COL_nomObj + " = " + name, null);
 	}
 
+	public List<Objet> getListObjet(){
+		SQLiteDatabase bdd = getWritableDatabase();
+		List<Objet> objetList =  new ArrayList<Objet>();
+
+		String query = "SELECT * FROM " + tab_objet ;
+		Cursor c = bdd.rawQuery(query, null);
+
+		objetList = cursorToObjetList(c);
+
+		return objetList;
+	}
+
+	private List<Objet> cursorToObjetList(Cursor c){
+		List<Objet> oList = new ArrayList<Objet>();
+		if (c.getCount() == 0) {
+			return null;
+		}
+
+
+
+		Objet o = new Objet();
+		while(c.moveToNext()) {
+			o.setId(c.getInt(NUM_COL_IDObj));
+			o.setNom(c.getString(NUM_COL_nomObj));
+			o.setNb(c.getInt(NUM_COL_nbObj));
+			o.setEffet(c.getString(NUM_COL_effetObj));
+			o.setNomPro(c.getString(NUM_COL_nomproObj));
+			oList.add(o);
+		}
+		c.close();
+
+		return oList;
+
+	}
+
 	private Objet cursorToObjet(Cursor c) {
 
 		if (c.getCount() == 0) {
@@ -260,7 +295,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		return o;
 	}
 
-    /* *********************************************************** COMPETANCES ********************************************************** */
+    /* *********************************************************** COMPETENCES ********************************************************** */
 
 	public Competance getCompetanceWithName(String nom) {
 		SQLiteDatabase bdd = getWritableDatabase();

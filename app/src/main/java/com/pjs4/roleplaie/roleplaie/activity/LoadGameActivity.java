@@ -26,7 +26,7 @@ import java.util.List;
 public class LoadGameActivity extends Activity {
 
 	public static final String EXTRA_GAME_NAME = "com.pjs4.roleplaie.roleplaie.EXTRA_GAME_NAME";
-	DataBasePJS4 db;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +44,9 @@ public class LoadGameActivity extends Activity {
 
 	private void fillGameList(ListView listViewGames) {
 		Log.i("projet", "DEBUT DU REMPLISSAGE DE LA LISTE");
-		db = new DataBasePJS4(this);
+		DataBasePJS4 base = MainActivity.db;
 		Log.i("projet", "Récupération des données");
-		List<Partie> listGames =  db.getAllGames();
+		List<Partie> listGames =  base.getAllGames();
 		Log.i("projet", "Terminée" + listGames.toString());
 		List<String> listGamesName = new ArrayList<>();
 
