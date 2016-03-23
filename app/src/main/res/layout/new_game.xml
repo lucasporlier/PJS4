@@ -26,7 +26,8 @@
 
             <EditText
 
-                android:id = "@+id/GameNameEdiText"
+
+                android:id = "@+id/ETGameName"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:ems = "10"
@@ -36,6 +37,7 @@
 
 
             <EditText
+
 
                 android:id = "@+id/NbPlayereditText"
                 android:layout_width = "match_parent"
@@ -47,6 +49,7 @@
                 />
 
             <EditText
+
 
                 android:id = "@+id/TypeGameditText"
                 android:layout_width = "match_parent"

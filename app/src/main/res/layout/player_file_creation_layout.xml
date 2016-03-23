@@ -22,66 +22,35 @@
                 android:layout_gravity = "center"
                 android:layout_margin = "@dimen/margin_title"
                 android:text = "@string/player_creator"
-                android:textSize = "@dimen/title_size"/>
+                android:textSize = "@dimen/title_size"
+                android:id="@+id/Text_Title" />
 
             <EditText
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_margin = "@dimen/edit_text_matchparent_margin"
-                android:hint = "@string/caractere_name"/>
+                android:hint = "@string/caractere_name"
+                android:id="@+id/ET_nomPerso" />
 
 
             <TableLayout
+                android:id="@+id/table_caracteristics"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_margin = "15sp"
                 android:stretchColumns = "*"
                 >
 
-                <TableRow>
+                <TableRow
+                    android:id="@+id/table_row_caracteristics_name">
 
-                    <TextView
-                        android:padding = "@dimen/padding_table"
-                        android:text = "Caract1"
-                        android:textAlignment = "center"/>
+                    <TextView/>
 
-                    <TextView
-                        android:padding = "@dimen/padding_table"
-                        android:text = "Caract2"
-                        android:textAlignment = "center"/>
-
-                    <TextView
-                        android:padding = "@dimen/padding_table"
-                        android:text = "Caract3"
-                        android:textAlignment = "center"/>
-
-                    <TextView
-                        android:padding = "@dimen/padding_table"
-                        android:text = "Caract4"
-                        android:textAlignment = "center"/>
                 </TableRow>
 
-                <TableRow>
-
-                    <EditText
-                        android:hint = "@string/value"
-                        android:inputType = "number"
-                        android:textAlignment = "center"/>
-
-                    <EditText
-                        android:hint = "@string/value"
-                        android:inputType = "number"
-                        android:textAlignment = "center"/>
-
-                    <EditText
-                        android:hint = "@string/value"
-                        android:inputType = "number"
-                        android:textAlignment = "center"/>
-
-                    <EditText
-                        android:hint = "@string/value"
-                        android:inputType = "number"
-                        android:textAlignment = "center"/>
+                <TableRow
+                    android:id="@+id/table_row_caracteristics_value">
+                    <TextView/>
                 </TableRow>
 
             </TableLayout>
@@ -107,15 +76,7 @@
 
                 <TableRow>
 
-                    <EditText
-                        android:layout_width = "100sp"
-                        android:hint = "@string/name"/>
 
-                    <EditText
-                        android:layout_width = "match_parent"
-                        android:layout_height = "wrap_content"
-                        android:hint = "@string/description"
-                        />
                 </TableRow>
 
             </TableLayout>
@@ -134,8 +95,36 @@
                     android:contentDescription = "@string/add_button"
                     android:onClick = "moreCapacity"
                     android:scaleType = "fitXY"
-                    android:src = "@drawable/backgroung1"/>
+                    android:src = "@drawable/backgroung1"
+                    android:id="@+id/imageView" />
+
             </RelativeLayout>
+
+            <TableLayout
+                android:id = "@+id/btnTables"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:stretchColumns = "1">
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/retour"
+                        android:id="@+id/btnRetour"
+                        android:onClick="retour"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/suivant"
+                        android:id="@+id/btnSuivant"
+                        android:onClick="suivant"/>
+                </TableRow>
+
+            </TableLayout>
+
         </LinearLayout>
 
     </ScrollView>

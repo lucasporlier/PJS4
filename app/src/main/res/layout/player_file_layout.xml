@@ -149,7 +149,7 @@
                 </TableRow>
 
                 <TableRow
-                    android:id = "@+id/table_caracteristics_value">
+                    android:id = "@+id/table_row_caracteristics_value">
 
                     <TextView
                         android:id = "@+id/caracteristic_value"
