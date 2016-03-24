@@ -207,6 +207,24 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	}
 
 	/**
+	 *
+	 * @param nom the name of the proprietaire
+	 * @return
+	 */
+	public List<Objet> getObjetWithNomPro(String nom) {
+
+		SQLiteDatabase bdd = getWritableDatabase();
+		List<Objet> objetList =  new ArrayList<Objet>();
+
+		String query = "SELECT * FROM " + tab_objet + " WHERE " + COL_nomproObj + " = "+ nom;
+		Cursor c = bdd.rawQuery(query, null);
+
+		objetList = cursorToObjetList(c);
+
+		return objetList;
+	}
+
+	/**
 	 * insert an object
 	 * @param o the object to be inserted
 	 */

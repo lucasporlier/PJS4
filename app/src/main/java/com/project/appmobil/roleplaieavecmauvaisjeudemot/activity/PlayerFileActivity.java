@@ -1,6 +1,7 @@
 package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
  * Created by ZHOU Eric on 22/02/2016.
  */
 public class PlayerFileActivity extends Activity {
+
+	public static final String EXTRA_NOMPROP = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPROP";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -96,11 +99,11 @@ public class PlayerFileActivity extends Activity {
 	}
 
 	public void inventory(View view) {
-		Toast.makeText(this, R.string.todo, Toast.LENGTH_SHORT).show();
-/*
-		Intent intent = new Intent(this, Inventory.class);
-		// which caracter
-		startActivity(intent);*/
+		//Toast.makeText(this, R.string.todo, Toast.LENGTH_SHORT).show();
+
+		Intent intent = new Intent(this, InventoryActivity.class);
+		intent.putExtra(EXTRA_NOMPROP, ((TextView) findViewById(R.id.name)).getText());
+		startActivity(intent);
 
 	}
 }

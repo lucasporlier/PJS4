@@ -32,6 +32,12 @@
         <activity android:name = ".activity.LoadGameActivity"></activity>
 
         <activity android:name = ".activity.DiceActivity"></activity>
+
+        <activity android:name=".activity.InventoryActivity"></activity>
+
+        <activity android:name=".activity.PlayerListActivity"></activity>
+
+        <activity android:name=".activity.PlayerFileActivity"></activity>
     </application>
 
 

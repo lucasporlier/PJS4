@@ -60,6 +60,8 @@ public class InGameMenuActivity extends Activity {
 	}
 
 	public void seeCaractereProfile(View view) {
-
+		Log.i("projet", "affichage de la liste des joueurs");
+		Intent intent = new Intent(this, PlayerListActivity.class);
+		startActivity(intent);
 	}
 }
