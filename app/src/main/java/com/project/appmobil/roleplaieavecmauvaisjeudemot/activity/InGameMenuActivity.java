@@ -26,7 +26,14 @@ public class InGameMenuActivity extends Activity {
 		Intent intent = getIntent();
 
 		TextView textView = (TextView) findViewById(R.id.game_name);
-		gameName = intent.getStringExtra(LoadGameActivity.EXTRA_GAME_NAME);
+		if(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_GAMENAME) != null){
+			gameName = intent.getStringExtra(PlayerFileCreationActivity.EXTRA_GAMENAME);
+		}else if(intent.getStringExtra(LoadGameActivity.EXTRA_GAME_NAME) != null){
+			gameName = intent.getStringExtra(LoadGameActivity.EXTRA_GAME_NAME);
+		}else{
+			gameName = "didn't found";
+		}
+
 		textView.setText(gameName);
 		//TODO lors de la création d'une partie, il faut afficher le nom de la partie
 

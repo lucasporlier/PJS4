@@ -29,10 +29,13 @@ public class PlayerFileCreationActivity extends Activity {
 	 */
 	private static Partie p;
 	private static int numeroPlayer = 1;
-	private static int nbPlayer;
+	private static int nbPlayerMAX;
 	private static ArrayList<Joueur> playerList = new ArrayList<>();
 
 	private int numCapacities = 1;
+
+	public static final String EXTRA_NUMPLAYER = "COM.PJS4.ROLEPLAIE.ROLEPLAIE.NumPlayer";
+	public static final String EXTRA_GAMENAME = "COM.PJS4.ROLEPLAIE.ROLEPLAIE.GameName";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,12 +80,17 @@ public class PlayerFileCreationActivity extends Activity {
 			tableRowValue.addView(ed, i);
 		}
 
-		if (p.getNombreJoueur() != 0) { //nbPLayer est static, on le fait qu'une fois
-			nbPlayer = p.getNombreJoueur();
+		if (p.getNombreJoueur() != 0) { //Récupère le nombre de joueur MAX
+			nbPlayerMAX = p.getNombreJoueur();
 		}
 
+        if(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER) != null){ //Récupération du numéro du joueur actuel
+            Log.i("projet", "Incrémentation de numeroPlayer");
+            numeroPlayer = Integer.parseInt(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER));
+        }
+
 		TextView title = (TextView) findViewById(R.id.Text_Title);
-		title.setText(title.getText() + " " + numeroPlayer + "/" + nbPlayer);
+		title.setText(title.getText() + " " + numeroPlayer + "/" + nbPlayerMAX);
 
 
 	}
@@ -162,24 +170,29 @@ public class PlayerFileCreationActivity extends Activity {
 		return listCapacities;
 	}
 
-	public void suivant(View view) {
+    public void retour(View view){
+        this.finish();
+    }
+
+
+    public void suivant(View view) {
 
 		Log.i("projet", getCharacteristicValues().toString());
 		Log.i("projet", getCapacities().toString());
 
-		if (numeroPlayer < nbPlayer) {
+		if (numeroPlayer < nbPlayerMAX) {
 			Log.i("projet", "Préparation de l'intent PlayerFileCreationActivity");
 			Intent intent = new Intent(this, PlayerFileCreationActivity.class);
 
 			Log.i("projet", "Préparation du putExtra EXTRA_NUMPLAYER");
-			intent.putExtra("EXTRA_NUMPLAYER", String.valueOf((numeroPlayer + 1)));
-			intent.putExtra("EXTRA_MAXPLAYER", nbPlayer);
+			intent.putExtra(EXTRA_NUMPLAYER, String.valueOf((numeroPlayer + 1) + ""));
 			intent.putExtra(NewGameActivity2.EXTRA_GAME, p);
 			intent.putParcelableArrayListExtra("List", playerList);
 			startActivity(intent);
 		} else {
 			Log.i("projet", "Préparation de l'intent InGameMenu Activity");
 			Intent intent = new Intent(this, InGameMenuActivity.class);
+            intent.putExtra(EXTRA_GAMENAME, p.getNom());
 			Log.i("projet", "Lancement de l'intent InGameMenu Activity");
 			startActivity(intent);
 		}
