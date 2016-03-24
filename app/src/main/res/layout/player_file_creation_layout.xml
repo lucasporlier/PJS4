@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              android:orientation = "vertical"
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent">
+
+    <ScrollView
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent">
+
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:orientation = "vertical">
+
+            <TextView
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_gravity = "center"
+                android:layout_margin = "@dimen/margin_title"
+                android:text = "@string/player_creator"
+                android:textSize = "@dimen/title_size"
+                android:id="@+id/Text_Title" />
+
+            <EditText
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_margin = "@dimen/edit_text_matchparent_margin"
+                android:hint = "@string/caractere_name"
+                android:id="@+id/ET_nomPerso" />
+
+
+            <TableLayout
+                android:id="@+id/table_caracteristics"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_margin = "15sp"
+                android:stretchColumns = "*"
+                >
+
+                <TableRow
+                    android:id="@+id/table_row_caracteristics_name">
+
+                    <TextView/>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/table_row_caracteristics_value">
+                    <TextView/>
+                </TableRow>
+
+            </TableLayout>
+
+
+
+
+            <TextView
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:text = "@string/capacities"/>
+
+            <TableLayout
+                android:id = "@+id/capacitiesTable"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:stretchColumns = "1">
+
+                <TableRow>
+
+
+                </TableRow>
+
+            </TableLayout>
+
+
+            <RelativeLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent">
+
+                <ImageView
+                    android:layout_width = "40sp"
+                    android:layout_height = "40sp"
+                    android:layout_alignParentEnd = "true"
+                    android:layout_alignParentTop = "true"
+                    android:layout_margin = "20sp"
+                    android:contentDescription = "@string/add_button"
+                    android:onClick = "moreCapacity"
+                    android:scaleType = "fitXY"
+                    android:src = "@drawable/backgroung1"
+                    android:id="@+id/imageView" />
+
+            </RelativeLayout>
+
+            <TableLayout
+                android:id = "@+id/btnTables"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:stretchColumns = "1">
+
+                <TableRow>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/retour"
+                        android:id="@+id/btnRetour"
+                        android:onClick="retour"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/suivant"
+                        android:id="@+id/btnSuivant"
+                        android:onClick="suivant"
+                        />
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

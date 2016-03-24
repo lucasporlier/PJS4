@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              android:orientation = "vertical"
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent">
+
+
+    <ScrollView
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent">
+
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:orientation = "vertical">
+
+            <TextView
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_gravity = "center"
+                android:layout_margin = "@dimen/margin_title"
+                android:text = "@string/new_game"
+                android:textSize = "@dimen/title_size"
+                />
+
+            <EditText
+
+                android:id = "@+id/GameNameEdiText"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:ems = "10"
+                android:hint = "@string/game_name"
+                android:inputType = "textPersonName"
+                />
+
+
+            <EditText
+
+
+                android:id = "@+id/NbPlayereditText"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_marginTop = "20sp"
+                android:ems = "10"
+                android:hint = "@string/player_number"
+                android:inputType = "number"
+                />
+
+            <EditText
+
+
+                android:id = "@+id/TypeGameditText"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_marginTop = "20sp"
+                android:hint = "@string/type_of_game"
+                />
+
+
+
+            <EditText
+                android:id = "@+id/nbStatEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop = "20sp"
+                android:hint="@string/stat_number"
+                android:inputType="number"
+                />
+
+
+            <LinearLayout
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:orientation = "vertical"
+                >
+
+                <Button
+
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    android:layout_margin = "@dimen/button_margin"
+                    android:text = "@string/confirm"
+                    android:onClick="ConfirmNewGame"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
