@@ -2,27 +2,43 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.Message;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import android.media.AudioManager;
+import android.media.SoundPool;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.Dice;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.Faces;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
 
 /**
  * Used by the layout dice_screen.xml
  * Created by ZHOU Eric on 01/02/2016.
+ * Modified by Porlier-Pagnon Lucas on 25/03/2016.
  */
 public class DiceActivity extends Activity {
 
-	/**
-	 * The number of faces for the dice
-	 */
-	private int chosenDice = 100;
+	private int chosenDice = 100;   // The number of faces for the dice
+	ImageView dice_picture;		//reference to dice picture
+	SoundPool dice_sound = new SoundPool(1, AudioManager.STREAM_MUSIC,0);
+	int sound_id;		//Used to control sound stream return by SoundPool
+	Handler handler;	//Post message to start roll
+	Timer timer=new Timer();	//Used to implement feedback to user
+	boolean rolling=false;		//Is dice rolling?
 
 	/**
 	 * The display of the chosen dice
@@ -56,18 +72,50 @@ public class DiceActivity extends Activity {
 		});
 	}
 
+
+	//When pause completed message sent to callback
+	class Roll extends TimerTask {
+		public void run() {
+			Log.i("projet","koukou le TimerTask (pause)");
+			handler.sendEmptyMessage(0);
+		}
+	}
+
+	//Receives message from timer to start dice roll
+	Callback callback = new Callback() {
+		public boolean handleMessage(Message msg) {
+
+			//Get roll result
+			launchDice();
+
+			rolling=false;	//user can press again
+			return true;
+		}
+	};
+
 	/**
-	 * Display a random result between 1 and the max possible result of the chosen dice in a TextView
-	 *
-	 * @param view a view
+	 * Gives a random result between 1 and the max possible result of the chosen dice
 	 */
-	public void launchDice(View view) {
-		TextView tv = (TextView) findViewById(R.id.dicePlace);
+	public void launchDice() {
+		dice_picture = (ImageView) findViewById(R.id.imageDice3d);
 
 		int result = Dice.launchDice(chosenDice);
 
-		tv.setText(String.valueOf(result));
+		dice_picture.setImageResource(Faces.getFace(chosenDice, result)); //face + result
 
-		Log.i("projet", "Dés lancés");
+		Log.i("projet", "Dé "+chosenDice+" lancé, resultat : "+result);
+	}
+
+	//Clean up
+	@Override
+	protected void onPause() {
+		super.onPause();
+		dice_sound.pause(sound_id);
+		Log.i("projet", "DiceActivity paused");
+	}
+
+	protected void onDestroy() {
+		super.onDestroy();
+		timer.cancel();
 	}
 }
