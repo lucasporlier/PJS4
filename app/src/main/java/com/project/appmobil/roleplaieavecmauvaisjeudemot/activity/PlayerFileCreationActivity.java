@@ -128,19 +128,16 @@ public class PlayerFileCreationActivity extends Activity {
 	public List<Integer> getCharacteristicValues() {
 		Log.i("projet", "début récupération valeurs");
 
-		Log.i("projet", "récupération de la table row");
 		TableRow tableRow = (TableRow) findViewById(R.id.table_row_caracteristics_value);
-		Log.i("projet", "récupération de la table row terminé");
+
 		List<Integer> listValues = new ArrayList<>();
 
-		Log.i("projet", String.valueOf(tableRow.getChildCount() - 1));
+
 		for (int i = 0; i < tableRow.getChildCount() - 1; i++) {
 			EditText value = ((EditText) tableRow.getChildAt(i));
-			Log.i("projet", value.getText().toString());
+
 			listValues.add(Integer.parseInt(value.getText().toString()));
 		}
-
-		Log.i("projet", "fin récupération valeurs");
 		return listValues;
 	}
 
@@ -150,20 +147,20 @@ public class PlayerFileCreationActivity extends Activity {
 
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.capacitiesTable);
 
-		Log.i("projet", "début de la boucle");
-		for (int i = 0; i < tableLayout.getChildCount() - 1; i++) {
-			Log.i("projet", "ligne : " + i);
-			if (tableLayout.getChildAt(i) instanceof TableRow) {
+		Log.i("projet", "Il y a " + tableLayout.getChildCount() + "fils dans tableLayout");
+		for (int i = 0; i < tableLayout.getChildCount(); i++) {
+
+			/*if (tableLayout.getChildAt(i) instanceof TableRow) {*/
 				Log.i("projet", "la ligne : " + i + " est bien une table row");
-				for (int j = 0; i < ((TableRow) tableLayout.getChildAt(i)).getChildCount() - 1; i++) {
-					Log.i("projet", "colonne : " + j);
-					Log.i("projet", ((TableRow) tableLayout.getChildAt(i)).getChildAt(i).toString());
-					if (((TableRow) tableLayout.getChildAt(i)).getChildAt(j) instanceof EditText) {
-						Log.i("projet", "la colonne : " + j + " est bien un Edit text");
+
+				Log.i("projet", "Il y a " + ((TableRow) tableLayout.getChildAt(i)).getChildCount() + "fils dans tableRow");
+				for (int j = 0; j < ((TableRow) tableLayout.getChildAt(i)).getChildCount(); j++) {
+
+					/*if (((TableRow) tableLayout.getChildAt(i)).getChildAt(j) instanceof EditText) {*/
 						listCapacities.add(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(j)).getText().toString());
 						Log.i("projet", "Ligne ajoutée");
-					}
-				}
+					/*}*/
+				/*}*/
 			}
 		}
 

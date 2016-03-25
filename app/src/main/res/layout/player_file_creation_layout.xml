@@ -66,11 +66,6 @@
                 android:layout_height = "wrap_content"
                 android:stretchColumns = "1">
 
-                <TableRow>
-
-
-                </TableRow>
-
             </TableLayout>
 
 
