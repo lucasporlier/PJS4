@@ -54,7 +54,7 @@ public class NewGameActivity2 extends AppCompatActivity {
 			}
 		}
 
-		MainActivity.db.insertparti(game);
+
 		Log.i("projet", "lancement de PlayerFileCreation");
 		Intent intent = new Intent(this, PlayerFileCreationActivity.class);
 		intent.putExtra(EXTRA_GAME, game);

@@ -32,10 +32,13 @@ public class PlayerFileCreationActivity extends Activity {
 	private static int numeroPlayer = 1;
 	private static int nbPlayerMAX;
 	private static ArrayList<Joueur> playerList = new ArrayList<>();
+
+
 	private static TextView nomPerso;
 	private static TextView racePerso;
 	private static TextView hpPerso;
 	private static TextView manaPerso;
+	private String lore = "";
 
 
 	private int numCapacities = 1;
@@ -62,6 +65,11 @@ public class PlayerFileCreationActivity extends Activity {
 
 		Log.i("Projet", "GetParcelable");
 		p = intent.getExtras().getParcelable(NewGameActivity2.EXTRA_GAME);
+
+		playerList = intent.getExtras().getParcelableArrayList("List");
+		if(playerList ==null){
+			playerList = new ArrayList<>();
+		}
 		Log.i("projet", p.toString());
 		Log.i("Projet", "fin getParcelable");
 
@@ -185,11 +193,14 @@ public class PlayerFileCreationActivity extends Activity {
 
 
     public void suivant(View view) {
+		Joueur j = new Joueur (nomPerso.getText().toString(),racePerso.getText().toString(),Integer.parseInt(hpPerso.getText().toString()),Integer.parseInt(manaPerso.getText().toString()),lore,p.getNom());
+		Log.i("Joueur",j.getRace());
+		playerList.add(j);
 
 		Log.i("projet", getCharacteristicValues().toString());
 		Log.i("projet", getCapacities().toString());
-
 		if (numeroPlayer < nbPlayerMAX) {
+
 			Log.i("projet", "Préparation de l'intent PlayerFileCreationActivity");
 			Intent intent = new Intent(this, PlayerFileCreationActivity.class);
 
@@ -199,15 +210,17 @@ public class PlayerFileCreationActivity extends Activity {
 			intent.putParcelableArrayListExtra("List", playerList);
 			startActivity(intent);
 		} else {
+
 			Log.i("projet", "Préparation de l'intent InGameMenu Activity");
 			Intent intent = new Intent(this, InGameMenuActivity.class);
             intent.putExtra(LoadGameActivity.EXTRA_GAMENAME, p);
 			Log.i("projet", "Lancement de l'intent InGameMenu Activity");
 
-			for(Joueur j: playerList){
-				MainActivity.db.insertJoueur(j);
+			for(Joueur joueur: playerList){
+				MainActivity.db.insertJoueur(joueur);
 			}
 
+			Log.i("TestBd",MainActivity.db.getAllPlayer(p.getNom()).toString());
 			MainActivity.db.insertparti(p);
 
 			startActivity(intent);
