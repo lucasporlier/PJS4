@@ -13,21 +13,31 @@
               tools:context = ".activity.NewGameActivity2"
               tools:showIn = "@layout/new_game2">
 
-    <ListView
-        android:id = "@+id/listStatView"
-        android:layout_width = "wrap_content"
-        android:layout_height = "250dp"
-        android:layout_alignParentTop = "true"
-        android:layout_centerHorizontal = "true"
-        />
-
-    <Button
-        android:id = "@+id/confirm_new_game"
+    <ScrollView
         android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:layout_margin = "@dimen/button_margin"
-        android:onClick = "confirmNewGame2"
-        android:text = "@string/confirm"
-        />
+        android:layout_height = "wrap_content">
 
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:orientation = "vertical">
+
+            <ListView
+                android:id = "@+id/listStatView"
+                android:layout_width = "wrap_content"
+                android:layout_height = "250dp"
+                />
+
+            <Button
+                android:id = "@+id/confirm_new_game"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_margin = "@dimen/button_margin"
+                android:onClick = "confirmNewGame2"
+                android:text = "@string/confirm"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
