@@ -140,21 +140,14 @@
                 android:stretchColumns = "*">
 
                 <TableRow
-                    android:id = "@+id/table_capacities">
+                    android:id = "@+id/table_caracteristics_name">
+                    <TextView/>
 
-                    <TextView
-                        android:id = "@+id/caracteristics_name"
-                        android:text = "caracteristic_name"
-                        android:textAlignment = "center"/>
                 </TableRow>
 
                 <TableRow
                     android:id = "@+id/table_row_caracteristics_value">
-
-                    <TextView
-                        android:id = "@+id/caracteristic_value"
-                        android:text = "caracteristic_value"
-                        android:textAlignment = "center"/>
+                    <TextView/>
                 </TableRow>
 
             </TableLayout>
