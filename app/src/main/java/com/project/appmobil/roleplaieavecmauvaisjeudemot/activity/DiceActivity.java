@@ -32,18 +32,20 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
  */
 public class DiceActivity extends Activity {
 
-	private int chosenDice = 100;   // The number of faces for the dice
+	/**
+	 * The number of faces for the dice
+	 */
+	private int chosenDice = 20;
 	ImageView dice_picture;		//reference to dice picture
 	SoundPool dice_sound = new SoundPool(1, AudioManager.STREAM_MUSIC,0);
 	int sound_id;		//Used to control sound stream return by SoundPool
-	Handler handler;	//Post message to start roll
+	Handler handler = new Handler(Callback);	//Post message to start roll
 	Timer timer=new Timer();	//Used to implement feedback to user
 	boolean rolling=false;		//Is dice rolling?
-
 	/**
-	 * The display of the chosen dice
+	 * The displayed text of the chosen dice
 	 */
-	private TextView chosenDiceTextView;
+	TextView chosenDiceTextView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,7 @@ public class DiceActivity extends Activity {
 		chosenDiceTextView = (TextView) findViewById(R.id.chosen_dice);
 		chosenDiceTextView.setText(chosenDiceTextView + String.valueOf(chosenDice));
 
-		final ListAdapter listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listDices);
+		final ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listDices);
 
 		ListView lv = (ListView) findViewById(R.id.dice_list);
 		lv.setAdapter(listAdapter);
@@ -67,10 +69,17 @@ public class DiceActivity extends Activity {
 				String chosenDiceInList = String.valueOf(parent.getItemAtPosition(position));
 				chosenDice = Integer.parseInt(chosenDiceInList);
 				Log.i("projet", "Selected dice" + String.valueOf(chosenDice));
+
+				dice_picture = (ImageView) findViewById(R.id.imageDice3d);
+
+				// Affiche le dé selectionné avec sa valeur la plus grande
+				dice_picture.setImageResource(Faces.getFace(chosenDice, chosenDice));
+
 				chosenDiceTextView.setText(getResources().getText(R.string.you_chose_the_dice) + String.valueOf(chosenDice));
 			}
 		});
 	}
+
 
 
 	//When pause completed message sent to callback

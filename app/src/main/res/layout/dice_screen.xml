@@ -16,13 +16,13 @@
 
     <ImageView 
 		android:id="@+id/imageDice3d"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:onClick="HandleClick"
-        android:src="@drawable/dice3droll6"
-	/>
+        android:onClick="launchDice"
+        android:src="@drawable/d20f20"
+        android:layout_gravity="center_horizontal" />
 
 
     <TextView
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/you_chose_the_dice"
+        android:text= "@string/you_chose_the_dice"
         android:textSize="25sp"
 	/>
 

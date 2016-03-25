@@ -24,7 +24,7 @@
     <string name = "your_first_weapon">Your First weapon</string>
     <string name = "add_button">Add Button</string>
     <string name = "description">Description</string>
-    <string name = "you_chose_the_dice">You choose the dice :</string>
+    <string name = "you_chose_the_dice">You choose the dice : </string>
     <string name = "suivant">Suivant</string>
     <string name = "retour">Retour</string>
     <string name = "exit">Exit</string>
