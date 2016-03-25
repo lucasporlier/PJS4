@@ -35,7 +35,7 @@ public class PlayerFileCreationActivity extends Activity {
 	private int numCapacities = 1;
 
 	public static final String EXTRA_NUMPLAYER = "COM.PJS4.ROLEPLAIE.ROLEPLAIE.NumPlayer";
-	public static final String EXTRA_GAMENAME = "COM.PJS4.ROLEPLAIE.ROLEPLAIE.GameName";
+	//public static final String EXTRA_GAMENAME = "COM.PJS4.ROLEPLAIE.ROLEPLAIE.GameName";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -192,7 +192,7 @@ public class PlayerFileCreationActivity extends Activity {
 		} else {
 			Log.i("projet", "Préparation de l'intent InGameMenu Activity");
 			Intent intent = new Intent(this, InGameMenuActivity.class);
-            intent.putExtra(EXTRA_GAMENAME, p.getNom());
+            intent.putExtra(LoadGameActivity.EXTRA_GAMENAME, p);
 			Log.i("projet", "Lancement de l'intent InGameMenu Activity");
 			startActivity(intent);
 		}

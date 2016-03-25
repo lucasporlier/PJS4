@@ -25,8 +25,8 @@ import java.util.List;
  */
 public class LoadGameActivity extends Activity {
 
-	public static final String EXTRA_GAME_NAME = "com.pjs4.roleplaie.roleplaie.EXTRA_GAME_NAME";
 
+	public static final String EXTRA_GAMENAME = "COM.PJS4.ROLEPLAIE.ROLEPLAIE.GameName";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +68,11 @@ public class LoadGameActivity extends Activity {
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 					Log.i("projet", "Cliqué dsur un item");
 					String chosenGame = String.valueOf(parent.getItemAtPosition(position));
+
+						Partie p = MainActivity.db.getPartietWithName(chosenGame);
+
 					Intent intent = new Intent(LoadGameActivity.this, InGameMenuActivity.class);
-					intent.putExtra(EXTRA_GAME_NAME, chosenGame);
+					intent.putExtra(EXTRA_GAMENAME, p);
 					startActivity(intent);
 				}
 			});

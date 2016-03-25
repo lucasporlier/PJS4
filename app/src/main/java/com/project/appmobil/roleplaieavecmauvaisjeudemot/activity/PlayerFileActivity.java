@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 
 
 /**
@@ -17,6 +19,13 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
  * Created by ZHOU Eric on 22/02/2016.
  */
 public class PlayerFileActivity extends Activity {
+
+	private TextView namePerso;
+	private TextView lvlPerso;
+	private TextView pvPerso;
+	private TextView manaPerso;
+	private TextView xpPerso;
+
 
 	public static final String EXTRA_NOMPROP = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPROP";
 
@@ -26,17 +35,24 @@ public class PlayerFileActivity extends Activity {
 		setContentView(R.layout.player_file_layout);
 		Log.i("projet", "OnCreate PlayerFileActivity");
 
-        /*
-           fill player informations here:
+		Intent intent = getIntent();
 
-           NAME
-           LEVEL
-           HP
-           MP
-           XP
-           CARACTERISTICS
-           CAPACITIES
-        */
+		Joueur j =intent.getExtras().getParcelable(PlayerListActivity.EXTRA_PLAYER_NAME);
+
+		namePerso = (TextView) findViewById(R.id.player_file_title);
+		lvlPerso = (TextView) findViewById(R.id.player_level);
+		pvPerso = (TextView) findViewById(R.id.tvHP);
+		manaPerso = (TextView) findViewById(R.id.tvMP);
+		xpPerso = (TextView) findViewById(R.id.tvXP);
+
+		namePerso.setText(j.getNom());
+		lvlPerso.setText(j.getLvl());
+		pvPerso.setText(j.getLvl());
+		manaPerso.setText(j.getMana());
+		xpPerso.setText(j.getNbExp());
+
+
+        //TODO Les 3 ListView
 
 		final TextView tvHP = (TextView) findViewById(R.id.tvHP);
 		SeekBar sbHP = (SeekBar) findViewById(R.id.seekBarHP);
