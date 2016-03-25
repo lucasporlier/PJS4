@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
               android:orientation = "vertical"
               android:layout_width = "match_parent"
-              android:layout_height = "match_parent">
+              android:layout_height = "match_parent"
+              >
 
 
     <ScrollView
@@ -11,32 +12,33 @@
 
         <LinearLayout
             android:layout_width = "match_parent"
-            android:layout_height = "match_parent"
+            android:layout_height = "wrap_content"
             android:orientation = "vertical">
 
             <TextView
-                android:layout_width = "wrap_content"
-                android:layout_height = "wrap_content"
+                android:layout_width = "match_parent"
+                android:layout_height="60dp"
                 android:layout_gravity = "center"
-                android:layout_margin = "@dimen/margin_title"
+                android:padding="10dp"
                 android:text = "@string/new_game"
                 android:textSize = "@dimen/title_size"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:background="@drawable/backgroung1"
                 />
 
             <EditText
-
                 android:id = "@+id/GameNameEdiText"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
+                android:layout_marginTop="10dp"
                 android:ems = "10"
                 android:hint = "@string/game_name"
-                android:inputType = "textPersonName"
+                android:inputType = "textPersonName|textCapWords"
                 />
 
 
             <EditText
-
-
                 android:id = "@+id/NbPlayereditText"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
@@ -47,13 +49,13 @@
                 />
 
             <EditText
-
-
                 android:id = "@+id/TypeGameditText"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_marginTop = "20sp"
+                android:ems="10"
                 android:hint = "@string/type_of_game"
+                android:inputType="textCapWords"
                 />
 
 
@@ -75,10 +77,10 @@
                 >
 
                 <Button
-
                     android:layout_width = "match_parent"
-                    android:layout_height = "wrap_content"
+                    android:layout_height = "50dp"
                     android:layout_margin = "@dimen/button_margin"
+                    android:background="@drawable/backgroung1"
                     android:text = "@string/confirm"
                     android:onClick="ConfirmNewGame"
                     />
