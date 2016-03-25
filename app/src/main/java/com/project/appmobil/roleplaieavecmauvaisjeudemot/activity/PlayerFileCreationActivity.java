@@ -84,10 +84,10 @@ public class PlayerFileCreationActivity extends Activity {
 			nbPlayerMAX = p.getNombreJoueur();
 		}
 
-        if(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER) != null){ //Récupération du numéro du joueur actuel
-            Log.i("projet", "Incrémentation de numeroPlayer");
-            numeroPlayer = Integer.parseInt(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER));
-        }
+		if (intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER) != null) { //Récupération du numéro du joueur actuel
+			Log.i("projet", "Incrémentation de numeroPlayer");
+			numeroPlayer = Integer.parseInt(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_NUMPLAYER));
+		}
 
 		TextView title = (TextView) findViewById(R.id.Text_Title);
 		title.setText(title.getText() + " " + numeroPlayer + "/" + nbPlayerMAX);
@@ -104,7 +104,7 @@ public class PlayerFileCreationActivity extends Activity {
 	public void moreCapacity(View view) {
 		Log.i("projet", "Ajout d'une nouelle ligne");
 		TableLayout tbL = (TableLayout) findViewById(R.id.capacitiesTable);
-
+int numCol = 1;
 		EditText ed1 = new EditText(this);
 		ed1.setHint("Name");
 
@@ -116,7 +116,7 @@ public class PlayerFileCreationActivity extends Activity {
 		tr.addView(ed1);
 		tr.addView(ed2);
 		Log.i("projet ", "editText ajout reussi");
-		tbL.addView(tr);
+		tbL.addView(tr, numCapacities++);
 		Log.i("projet ", "ajout reussi");
 	}
 
@@ -151,18 +151,25 @@ public class PlayerFileCreationActivity extends Activity {
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.capacitiesTable);
 
 		Log.i("projet", "début de la boucle");
-		for (int i = 0; i < tableLayout.getChildCount() - 1; i++) {
+		Log.i("projet", " "+tableLayout.getChildCount());
+		for (int i = 0; i < tableLayout.getChildCount() ; i++) {
 			Log.i("projet", "ligne : " + i);
 			if (tableLayout.getChildAt(i) instanceof TableRow) {
+
 				Log.i("projet", "la ligne : " + i + " est bien une table row");
-				for (int j = 0; i < ((TableRow) tableLayout.getChildAt(i)).getChildCount() - 1; i++) {
+				Log.i("projet","in y a " + String.valueOf(((TableRow) tableLayout.getChildAt(i)).getChildCount()) );
+				Log.i("projet", tableLayout.getChildAt(i).toString());
+
+				Log.i("projet" , "il y a  "+ ((TableRow) tableLayout.getChildAt(i)).getChildCount());
+
+				for (int j = 0; i < ((TableRow) tableLayout.getChildAt(i)).getChildCount() ; i++) {
 					Log.i("projet", "colonne : " + j);
 					Log.i("projet", ((TableRow) tableLayout.getChildAt(i)).getChildAt(i).toString());
-					if (((TableRow) tableLayout.getChildAt(i)).getChildAt(j) instanceof EditText) {
-						Log.i("projet", "la colonne : " + j + " est bien un Edit text");
-						listCapacities.add(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(j)).getText().toString());
-						Log.i("projet", "Ligne ajoutée");
-					}
+					//il y a un if ici
+					Log.i("projet", "la colonne : " + j + " est bien un Edit text");
+					listCapacities.add(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(j)).getText().toString());
+					Log.i("projet", "Ligne ajoutée");
+
 				}
 			}
 		}
@@ -170,15 +177,15 @@ public class PlayerFileCreationActivity extends Activity {
 		return listCapacities;
 	}
 
-    public void retour(View view){
-        this.finish();
-    }
+	public void retour(View view) {
+		this.finish();
+	}
 
 
-    public void suivant(View view) {
+	public void suivant(View view) {
 
 		Log.i("projet", getCharacteristicValues().toString());
-		Log.i("projet", getCapacities().toString());
+		Log.i("projet", "VOICI LA LISTE : " + getCapacities().toString());
 
 		if (numeroPlayer < nbPlayerMAX) {
 			Log.i("projet", "Préparation de l'intent PlayerFileCreationActivity");
@@ -192,7 +199,7 @@ public class PlayerFileCreationActivity extends Activity {
 		} else {
 			Log.i("projet", "Préparation de l'intent InGameMenu Activity");
 			Intent intent = new Intent(this, InGameMenuActivity.class);
-            intent.putExtra(EXTRA_GAMENAME, p.getNom());
+			intent.putExtra(EXTRA_GAMENAME, p.getNom());
 			Log.i("projet", "Lancement de l'intent InGameMenu Activity");
 			startActivity(intent);
 		}
