@@ -16,6 +16,8 @@ public class Joueur implements Parcelable{
 	private int nbExp;
 	private String lore;
 	private String nomPartie;
+	private int hpMax;
+	private int manaMax;
 
 
 
@@ -29,6 +31,21 @@ public class Joueur implements Parcelable{
 		this.nbExp = 0;
 		this.lore = lore;
 		this.nomPartie = nomPartie;
+		this.hpMax = pv;
+		this.manaMax = mana;
+	}
+
+	public Joueur(String nom, String race, int pv, int mana,String lore, String nomPartie,int hpMax,int manaMax) {
+		this.nom = nom;
+		this.race = race;
+		this.pv = pv;
+		this.mana = mana;
+		this.lvl = 1;
+		this.nbExp = 0;
+		this.lore = lore;
+		this.nomPartie = nomPartie;
+		this.hpMax = hpMax;
+		this.manaMax = manaMax;
 	}
 
 	public Joueur() {
@@ -149,5 +166,19 @@ public class Joueur implements Parcelable{
 		}
 	};
 
+	public int getManaMax() {
+		return manaMax;
+	}
 
+	public void setManaMax(int manaMax) {
+		this.manaMax = manaMax;
+	}
+
+	public int getHpMax() {
+		return hpMax;
+	}
+
+	public void setHpMax(int hpMax) {
+		this.hpMax = hpMax;
+	}
 }

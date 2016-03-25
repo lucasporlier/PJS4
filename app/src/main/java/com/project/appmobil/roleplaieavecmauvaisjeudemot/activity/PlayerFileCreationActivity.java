@@ -12,6 +12,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 
@@ -31,6 +32,11 @@ public class PlayerFileCreationActivity extends Activity {
 	private static int numeroPlayer = 1;
 	private static int nbPlayerMAX;
 	private static ArrayList<Joueur> playerList = new ArrayList<>();
+	private static TextView nomPerso;
+	private static TextView racePerso;
+	private static TextView hpPerso;
+	private static TextView manaPerso;
+
 
 	private int numCapacities = 1;
 
@@ -41,6 +47,12 @@ public class PlayerFileCreationActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.player_file_creation_layout);
+
+		nomPerso = (TextView) findViewById(R.id.ET_nomPerso);
+		racePerso = (TextView) findViewById(R.id.ET_racePerso);
+		hpPerso = (TextView) findViewById(R.id.ET_hpMax);
+		manaPerso = (TextView) findViewById(R.id.ET_manaMax);
+
 
 		Log.i("projet", "Lancement de la création d'une fiche de personnage");
 
@@ -191,6 +203,13 @@ public class PlayerFileCreationActivity extends Activity {
 			Intent intent = new Intent(this, InGameMenuActivity.class);
             intent.putExtra(LoadGameActivity.EXTRA_GAMENAME, p);
 			Log.i("projet", "Lancement de l'intent InGameMenu Activity");
+
+			for(Joueur j: playerList){
+				MainActivity.db.insertJoueur(j);
+			}
+
+			MainActivity.db.insertparti(p);
+
 			startActivity(intent);
 		}
 
