@@ -3,6 +3,7 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
         import android.app.Activity;
         import android.content.Intent;
         import android.os.Bundle;
+        import android.provider.Telephony;
         import android.view.View;
         import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
@@ -12,6 +13,7 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
         import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
         import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
         import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
+        import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 
         import java.util.ArrayList;
         import java.util.List;
@@ -23,7 +25,8 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
  */
 
 public class PlayerListActivity extends Activity {
-    private static final String EXTRA_PLAYER_NAME = "com.pjs4.roleplaie.roleplaie.EXTRA_PLAYER_NAME";
+
+    public static final String EXTRA_PLAYER_NAME = "com.pjs4.roleplaie.roleplaie.EXTRA_PLAYER_NAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +35,11 @@ public class PlayerListActivity extends Activity {
 
         ListView listPlayer = (ListView) findViewById(R.id.list_of_players);
 
-        DataBasePJS4 db = new DataBasePJS4(this);
+        Intent intent = getIntent();
 
-        List<Joueur> list_joueur = db.getAllPlayer(LoadGameActivity.EXTRA_GAME_NAME);
+        Partie p = intent.getExtras().getParcelable(LoadGameActivity.EXTRA_GAMENAME);
+
+        List<Joueur> list_joueur = MainActivity.db.getJoueurWithNomPartie(p.getNom());
 
         List<String> list_player_name = new ArrayList<>();
 
@@ -49,8 +54,9 @@ public class PlayerListActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String chosenPlayerName = String.valueOf(parent.getItemAtPosition(position));
+                Joueur j = MainActivity.db.getJoueurWithName(chosenPlayerName);
                 Intent intent = new Intent(PlayerListActivity.this, PlayerFileActivity.class);
-                intent.putExtra(EXTRA_PLAYER_NAME,chosenPlayerName);
+                intent.putExtra(EXTRA_PLAYER_NAME,j);
                 startActivity(intent);
             }
         });

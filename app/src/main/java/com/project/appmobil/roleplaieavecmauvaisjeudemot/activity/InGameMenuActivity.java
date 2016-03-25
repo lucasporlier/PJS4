@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 
 
 /**
@@ -26,16 +27,11 @@ public class InGameMenuActivity extends Activity {
 		Intent intent = getIntent();
 
 		TextView textView = (TextView) findViewById(R.id.game_name);
-		if(intent.getStringExtra(PlayerFileCreationActivity.EXTRA_GAMENAME) != null){
-			gameName = intent.getStringExtra(PlayerFileCreationActivity.EXTRA_GAMENAME);
-		}else if(intent.getStringExtra(LoadGameActivity.EXTRA_GAME_NAME) != null){
-			gameName = intent.getStringExtra(LoadGameActivity.EXTRA_GAME_NAME);
-		}else{
-			gameName = "didn't found";
-		}
 
-		textView.setText(gameName);
-		//TODO lors de la création d'une partie, il faut afficher le nom de la partie
+		Partie p = intent.getExtras().getParcelable(LoadGameActivity.EXTRA_GAMENAME);
+
+		textView.setText(p.getNom());
+
 
 
 		Log.i("projet", "lancement du menu in game");
@@ -62,6 +58,9 @@ public class InGameMenuActivity extends Activity {
 	public void seeCaractereProfile(View view) {
 		Log.i("projet", "affichage de la liste des joueurs");
 		Intent intent = new Intent(this, PlayerListActivity.class);
+		TextView textView = (TextView) findViewById(R.id.game_name);
+		Partie  p = MainActivity.db.getPartietWithName(textView.toString());
+		intent.putExtra(LoadGameActivity.EXTRA_GAMENAME, p);
 		startActivity(intent);
 	}
 }
