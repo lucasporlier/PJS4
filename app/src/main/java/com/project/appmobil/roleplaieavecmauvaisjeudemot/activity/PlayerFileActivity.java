@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
-import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Stat;
 
 
 /**
@@ -39,6 +40,8 @@ public class PlayerFileActivity extends Activity {
 
 		Joueur j =intent.getExtras().getParcelable(PlayerListActivity.EXTRA_PLAYER_NAME);
 
+		DataBasePJS4 db = MainActivity.db;
+
 		namePerso = (TextView) findViewById(R.id.player_file_title);
 		lvlPerso = (TextView) findViewById(R.id.player_level);
 		pvPerso = (TextView) findViewById(R.id.tvHP);
@@ -50,9 +53,24 @@ public class PlayerFileActivity extends Activity {
 		pvPerso.setText(j.getLvl());
 		manaPerso.setText(j.getMana());
 		xpPerso.setText(j.getNbExp());
+		
+		TableRow tableRowName = (TableRow) findViewById(R.id.table_caracteristics_name);
+		TextView tv;
+		for(Stat s :db.getAllStats(j.getNom())){
+			tv = new TextView(this);
+			tv.setText(s.getNomStat());
+			tableRowName.addView(tv);
+		}
 
+		TableRow tableRowValues = (TableRow) findViewById(R.id.table_row_caracteristics_value);
 
-        //TODO Les 3 ListView
+		for(Stat s :db.getAllStats(j.getNom())){
+			tv = new TextView(this);
+			tv.setText(s.getNomStat());
+			tableRowValues.addView(tv);
+		}
+
+        //TODO Les 2 ListView
 
 		final TextView tvHP = (TextView) findViewById(R.id.tvHP);
 		SeekBar sbHP = (SeekBar) findViewById(R.id.seekBarHP);

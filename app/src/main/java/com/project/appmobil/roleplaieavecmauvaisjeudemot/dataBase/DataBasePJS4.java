@@ -175,6 +175,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		db.execSQL(tab_ob);
 		db.execSQL(tab_player);
 		db.execSQL(tab_game);
+		db.execSQL(tab_stats);
 	}
 
 	@Override
@@ -185,6 +186,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		db.execSQL("DROP TABLE IF EXIST " + tab_objet + ";");
 		db.execSQL("DROP TABLE IF EXIST " + tab_joueur + ";");
 		db.execSQL("DROP TABLE IF EXIST " + tab_partie + ";");
+		db.execSQL("DROP TABLE IF EXIST " + tab_stat + ";");
 		onCreate(db);
 	}
 
@@ -622,6 +624,34 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		c.close();
 
 		return s;
+	}
+
+	public List<Stat> getAllStats(String player) {
+
+		Log.i("projet", "Récupération des données en cours");
+		SQLiteDatabase bdd = getWritableDatabase();
+
+		String query = "SELECT * FROM " + tab_stat + " WHERE " + COL_nomJoueurStat  + " = \"" + player + "\"";
+		Log.i("projet", "Debut execution de la requete");
+		Cursor c = bdd.rawQuery(query, null);
+		Log.i("projet", "requete executé");
+		List<Stat> listStat = new ArrayList<>();
+		Stat stat = new Stat();
+
+		while (c.moveToNext()) {
+
+			stat.setID(c.getInt(NUM_COL_IDStat));
+			stat.setNomStat(c.getString(NUM_COL_nomStat));
+			stat.setStat(c.getInt(NUM_COL_stat));
+			stat.setNomJoueurStat(c.getString(NUM_COL_nomJoueurStat));
+
+			Log.i("projet", stat.toString());
+			listStat.add(stat);
+		}
+
+		Log.i("projet", "fin");
+		return listStat;
+
 	}
 
 
