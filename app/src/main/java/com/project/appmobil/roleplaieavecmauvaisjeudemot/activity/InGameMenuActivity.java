@@ -35,6 +35,7 @@ public class InGameMenuActivity extends Activity {
 
 
 		Log.i("projet", "lancement du menu in game");
+		Log.i("TestBd", String.valueOf(MainActivity.db.getAllGames().size()));
 	}
 
 	/**
@@ -57,9 +58,10 @@ public class InGameMenuActivity extends Activity {
 
 	public void seeCaractereProfile(View view) {
 		Log.i("projet", "affichage de la liste des joueurs");
+		Log.i("TesteBd", MainActivity.db.getAllGames().toString());
 		Intent intent = new Intent(this, PlayerListActivity.class);
 		TextView textView = (TextView) findViewById(R.id.game_name);
-		Partie  p = MainActivity.db.getPartietWithName(textView.toString());
+		Partie p = MainActivity.db.getPartietWithName(textView.toString());
 		intent.putExtra(LoadGameActivity.EXTRA_GAMENAME, p);
 		startActivity(intent);
 	}

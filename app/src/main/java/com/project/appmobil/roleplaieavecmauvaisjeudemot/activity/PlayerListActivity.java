@@ -37,7 +37,7 @@ public class PlayerListActivity extends Activity {
 
         Intent intent = getIntent();
 
-        Partie p = intent.getExtras().getParcelable(LoadGameActivity.EXTRA_GAMENAME);
+        Partie p  = intent.getExtras().getParcelable(LoadGameActivity.EXTRA_GAMENAME);
 
         List<Joueur> list_joueur = MainActivity.db.getJoueurWithNomPartie(p.getNom());
 

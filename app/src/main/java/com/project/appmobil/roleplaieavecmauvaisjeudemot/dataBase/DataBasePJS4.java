@@ -101,6 +101,12 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_nomPartiePerso = "nomPartie";
 	private static final int NUM_COL_nomPartiePerso = 8;
 
+	private static final String COL_hpMax = "pvMax";
+	private static final int NUM_COL_hpMax = 9;
+
+	private static final String COL_manaMax = "manaMax";
+	private static final int NUM_COL_manaMax = 10;
+
 
 	private static final String tab_player = "CREATE TABLE " + tab_joueur + " (" +
 			COL_IDPerso + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -111,7 +117,9 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 			COL_lvlPerso + " INTEGER NOT NULL, " +
 			COL_nbExpPerso + " INT NOT NULL, " +
 			COL_nomPartiePerso + " TEXT NOT NULL, " +
-			COL_lorePerso + " TEXT);";
+			COL_lorePerso + " TEXT, "+
+			COL_hpMax + " INTEGER NOT NULL , +" +
+			COL_manaMax + " Integer NOT NULL);";
 /*--------------------------------------------------------------------------------------------Partie----------------------------------------------------------------------------------------*/
 
 	private static final String tab_partie = "table_partie";
@@ -139,7 +147,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 			COL_typeParti + " TEXT NOT NULL, " +
 			COL_resume + " TEXT);";
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------STATS------------------------------------------------------------------------------*/
 
 	private static final String tab_stat = "table_stat";
 
@@ -395,6 +403,8 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nbExpPerso, j.getNbExp());
 		values.put(COL_lorePerso, j.getLore());
 		values.put(COL_nomPartiePerso, j.getNomPartie());
+		values.put(COL_hpMax, j.getHpMax());
+		values.put(COL_manaMax, j.getManaMax());
 
 		bdd.insert(tab_joueur, null, values);
 	}
@@ -410,6 +420,8 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nbExpPerso, j.getNbExp());
 		values.put(COL_lorePerso, j.getLore());
 		values.put(COL_nomPartiePerso, j.getNomPartie());
+		values.put(COL_hpMax, j.getHpMax());
+		values.put(COL_manaMax, j.getManaMax());
 
 		return bdd.update(tab_joueur, values, COL_nomPerso + " = " + nom, null);
 	}
@@ -439,6 +451,8 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		joueur.setNbExp(c.getInt(NUM_COL_nbExpPerso));
 		joueur.setLore(c.getString(NUM_COL_lorePerso));
 		joueur.setNomPartie(c.getString(NUM_COL_nomPartiePerso));
+		joueur.setHpMax(c.getInt(NUM_COL_hpMax));
+		joueur.setHpMax(c.getInt(NUM_COL_manaMax));
 
 		c.close();
 		return joueur;
@@ -461,6 +475,8 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 			joueur.setNbExp(c.getInt(NUM_COL_nbExpPerso));
 			joueur.setLore(c.getString(NUM_COL_lorePerso));
 			joueur.setNomPartie(c.getString(NUM_COL_nomPartiePerso));
+			joueur.setHpMax(c.getInt(NUM_COL_hpMax));
+			joueur.setHpMax(c.getInt(NUM_COL_manaMax));
 			l.add(joueur);
 		}
 
