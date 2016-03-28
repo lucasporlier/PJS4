@@ -36,7 +36,7 @@
     <string name = "player_list">Player List</string>
     <string name="stat_number">Number of characteristics</string>
     <string name="title_activity_new_game2">NewGameActivity2</string>
-
+    <string name="caractere_race">Caracter Race</string>
 
 
 </resources>

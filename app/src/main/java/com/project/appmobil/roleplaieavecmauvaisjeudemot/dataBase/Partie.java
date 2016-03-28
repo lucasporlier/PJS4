@@ -157,7 +157,10 @@ public class Partie implements Parcelable {
 
 	public void setListStat(List<String> listStat) {
 		this.listStat = listStat;
+	}
 
+	public void addJoueur(Joueur j){
+		this.listJoueur.add(j);
 	}
 }
 
