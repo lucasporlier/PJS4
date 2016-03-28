@@ -33,8 +33,6 @@
     <string name = "hp">HP:</string>
     <string name = "mp">MP:</string>
     <string name = "xp">XP:</string>
-    <string name = "active_capacities">Active Capcities</string>
-    <string name = "passive_capacities">Passive Capcities</string>
     <string name = "player_list">Player List</string>
     <string name="stat_number">Number of characteristics</string>
     <string name="title_activity_new_game2">NewGameActivity2</string>
