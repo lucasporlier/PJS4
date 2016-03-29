@@ -40,7 +40,7 @@
             android:layout_width = "150sp"
             android:layout_height = "80sp"
             android:layout_margin = "10sp"
-            android:onClick = "seeCaractereProfile"
+            android:onClick = "seeCharactereProfile"
             android:text = "@string/caractere_profile"
             />
 

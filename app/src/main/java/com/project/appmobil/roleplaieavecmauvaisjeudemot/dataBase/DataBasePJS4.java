@@ -509,7 +509,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
    /* *********************************************************** PARTIE ********************************************************** */
 
-	public Partie getPartietWithName(String nom) {
+	public Partie getPartieWithName(String nom) {
 		SQLiteDatabase bdd = getWritableDatabase();
 		String query = "SELECT * FROM " + tab_partie + " WHERE " + COL_nomParti + " = \"" + nom + "\"";
 		Cursor c = bdd.rawQuery(query, null);
