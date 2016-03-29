@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-              android:orientation = "vertical"
               android:layout_width = "match_parent"
-              android:layout_height = "match_parent">
+              android:layout_height = "match_parent"
+              android:orientation = "vertical">
 
     <ScrollView
         android:layout_width = "match_parent"
@@ -14,68 +14,76 @@
             android:orientation = "vertical">
 
             <TextView
+                android:id = "@+id/Text_Title"
                 android:layout_width = "wrap_content"
                 android:layout_height = "60dp"
                 android:layout_gravity = "center"
-                android:padding="10dp"
+                android:background = "@drawable/backgroung1"
+                android:padding = "10dp"
                 android:text = "@string/player_creator"
-                android:textSize = "@dimen/title_size"
-                android:id="@+id/Text_Title"
-                android:textAlignment="center"
-                android:background="@drawable/backgroung1"/>
+                android:textAlignment = "center"
+                android:textSize = "@dimen/title_size"/>
 
             <EditText
+                android:id = "@+id/ET_nomPerso"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_margin = "@dimen/edit_text_matchparent_margin"
                 android:hint = "@string/caractere_name"
-                android:id="@+id/ET_nomPerso"
-                android:inputType="textPersonName|textCapWords"/>
+                android:inputType = "textPersonName|textCapWords"/>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:orientation = "horizontal">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/edit_text_matchparent_margin"
-                    android:text="HP : "
-                    android:textColor="#FF7F7F"
-                    android:textSize="20dp"
-                    android:textStyle="bold"/>
+                    android:text = "HP : "
+                    android:textColor = "#FF7F7F"
+                    android:textSize = "20dp"
+                    android:textStyle = "bold"/>
+
                 <EditText
+                    android:id = "@+id/ET_hpMax"
                     android:layout_width = "50dp"
                     android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/edit_text_matchparent_margin"
+                    android:inputType = "number"
+                    android:maxLength = "5"
+                    android:singleLine = "true"/>
 
-                    android:id="@+id/ET_hpMax" />
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/edit_text_matchparent_margin"
-                    android:text="Energy : "
-                    android:textColor="#4C93FF"
-                    android:textSize="20dp"
-                    android:textStyle="bold"/>
+                    android:text = "Energy : "
+                    android:textColor = "#4C93FF"
+                    android:textSize = "20dp"
+                    android:textStyle = "bold"/>
+
                 <EditText
+                    android:id = "@+id/ET_manaMax"
                     android:layout_width = "50dp"
                     android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/edit_text_matchparent_margin"
-
-                    android:id="@+id/ET_manaMax" />
+                    android:inputType = "number"
+                    android:maxLength = "5"
+                    android:singleLine = "true"/>
             </LinearLayout>
 
             <EditText
+                android:id = "@+id/ET_racePerso"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_margin = "@dimen/edit_text_matchparent_margin"
                 android:hint = "@string/caractere_race"
-                android:id="@+id/ET_racePerso"
-                android:inputType="textPersonName|textCapWords"/>
+                android:inputType = "textPersonName|textCapWords"/>
 
             <TableLayout
-                android:id="@+id/table_caracteristics"
+                android:id = "@+id/table_caracteristics"
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_margin = "15sp"
@@ -83,28 +91,26 @@
                 >
 
                 <TableRow
-                    android:id="@+id/table_row_caracteristics_name">
-
+                    android:id = "@+id/table_row_caracteristics_name">
 
 
                 </TableRow>
 
                 <TableRow
-                    android:id="@+id/table_row_caracteristics_value">
+                    android:id = "@+id/table_row_caracteristics_value">
+
                     <TextView/>
                 </TableRow>
 
             </TableLayout>
 
 
-
-
             <TextView
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:text = "@string/capacities"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize = "20dp"
+                android:textStyle = "bold"/>
 
             <TableLayout
                 android:id = "@+id/capacitiesTable"
@@ -120,6 +126,7 @@
                 android:layout_height = "match_parent">
 
                 <ImageView
+                    android:id = "@+id/imageView"
                     android:layout_width = "40sp"
                     android:layout_height = "40sp"
                     android:layout_alignParentEnd = "true"
@@ -128,8 +135,7 @@
                     android:contentDescription = "@string/add_button"
                     android:onClick = "moreCapacity"
                     android:scaleType = "fitXY"
-                    android:src = "@drawable/backgroung1"
-                    android:id="@+id/imageView" />
+                    android:src = "@drawable/backgroung1"/>
 
             </RelativeLayout>
 
@@ -142,23 +148,23 @@
                 <TableRow>
 
                     <Button
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:text="@string/retour"
-                        android:id="@+id/btnRetour"
-                        android:onClick="retour"
-                        android:background="@drawable/backgroung1"/>
+                        android:id = "@+id/btnRetour"
+                        android:layout_width = "100dp"
+                        android:layout_height = "50dp"
+                        android:layout_marginLeft = "5dp"
+                        android:layout_marginRight = "5dp"
+                        android:background = "@drawable/backgroung1"
+                        android:onClick = "retour"
+                        android:text = "@string/retour"/>
 
                     <Button
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:layout_marginEnd="5dp"
-                        android:text="@string/suivant"
-                        android:id="@+id/btnSuivant"
-                        android:onClick="suivant"
-                        android:background="@drawable/backgroung1"
+                        android:id = "@+id/btnSuivant"
+                        android:layout_width = "100dp"
+                        android:layout_height = "50dp"
+                        android:layout_marginEnd = "5dp"
+                        android:background = "@drawable/backgroung1"
+                        android:onClick = "suivant"
+                        android:text = "@string/suivant"
                         />
                 </TableRow>
 

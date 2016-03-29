@@ -78,6 +78,7 @@ public class LoadGameActivity extends Activity {
 			});
 
 			Log.i("projet", "FIN DU REMPLISSAGE DE LA LISTE");
+			Log.i("projet", base.getAllPlayer().toString());
 
 		} else {
 			TextView textView = (TextView) findViewById(R.id.title_loag_game);
