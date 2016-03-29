@@ -12,10 +12,9 @@ import java.util.List;
 
 /**
  * Created by qu2 on 21/03/2016.
- *
+ * <p/>
  * The SQLiteOpenHelper class
  * Content all the methods for access, updates and deletes on the data base
- *
  */
 public class DataBasePJS4 extends SQLiteOpenHelper {
 
@@ -40,11 +39,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_manaUseComp = "manaUse";
 	private static final int NUM_COL_manaUseComp = 4;
 
-	private static final String tab_comp = "CREATE TABLE "
-			+ tab_competance + " (" + COL_IDComp + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-			+ COL_nomComp + " TEXT NOT NULL, " + COL_effetComp + " TEXT NOT NULL, "
-			+ COL_nomProComp + " TEXT NOT NULL, "
-			+ COL_manaUseComp + " INTEGER NOT NULL);";
+	private static final String tab_comp = "CREATE TABLE " + tab_competance + " (" + COL_IDComp + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomComp + " TEXT NOT NULL, " + COL_effetComp + " TEXT NOT NULL, " + COL_nomProComp + " TEXT NOT NULL, " + COL_manaUseComp + " INTEGER NOT NULL);";
 
 	/*---------------------------------------------------------------------Objet-------------------------------------------------------*/
 	private static final String tab_objet = "table_objet";
@@ -64,12 +59,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_nomproObj = "nomproprietaire";
 	private static final int NUM_COL_nomproObj = 4;
 
-	private static final String tab_ob = "CREATE TABLE "
-			+ tab_objet + " (" + COL_IDObj + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-			+ COL_nomObj + " TEXT NOT NULL, "
-			+ COL_nbObj + " TEXT NOT NULL, " + COL_effetObj
-			+ " TEXT NOT NULL, "
-			+ COL_nomproObj + " TEXT NOT NULL);";
+	private static final String tab_ob = "CREATE TABLE " + tab_objet + " (" + COL_IDObj + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomObj + " TEXT NOT NULL, " + COL_nbObj + " TEXT NOT NULL, " + COL_effetObj + " TEXT NOT NULL, " + COL_nomproObj + " TEXT NOT NULL);";
 
 	/*------------------------------------------------------------------------Joueur---------------------------------------------------------------*/
 	private static final String tab_joueur = "table_joueur";
@@ -117,7 +107,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 			COL_lvlPerso + " INTEGER NOT NULL, " +
 			COL_nbExpPerso + " INT NOT NULL, " +
 			COL_nomPartiePerso + " TEXT NOT NULL, " +
-			COL_lorePerso + " TEXT, "+
+			COL_lorePerso + " TEXT, " +
 			COL_hpMax + " INTEGER NOT NULL , " +
 			COL_manaMax + " Integer NOT NULL);";
 /*--------------------------------------------------------------------------------------------Partie----------------------------------------------------------------------------------------*/
@@ -137,7 +127,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final int NUM_COL_nbJoueurParti = 3;
 
 	private static final String COL_resume = "resume";
-	private  static final int NUM_COL_resume = 4;
+	private static final int NUM_COL_resume = 4;
 
 
 	private static final String tab_game = "CREATE TABLE " + tab_partie + " (" +
@@ -202,6 +192,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
 	/**
 	 * find an object with it name
+	 *
 	 * @param nom the name of the object
 	 * @return the found object
 	 */
@@ -217,16 +208,15 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	}
 
 	/**
-	 *
 	 * @param nom the name of the proprietaire
 	 * @return
 	 */
 	public List<Objet> getObjetWithNomPro(String nom) {
 
 		SQLiteDatabase bdd = getWritableDatabase();
-		List<Objet> objetList =  new ArrayList<Objet>();
+		List<Objet> objetList = new ArrayList<Objet>();
 
-		String query = "SELECT * FROM " + tab_objet + " WHERE " + COL_nomproObj + " = "+ nom;
+		String query = "SELECT * FROM " + tab_objet + " WHERE " + COL_nomproObj + " = " + nom;
 		Cursor c = bdd.rawQuery(query, null);
 
 		objetList = cursorToObjetList(c);
@@ -236,6 +226,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
 	/**
 	 * insert an object
+	 *
 	 * @param o the object to be inserted
 	 */
 	public void insertObjets(Objet o) {
@@ -269,11 +260,11 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		return bdd.delete(tab_objet, COL_nomObj + " = " + name, null);
 	}
 
-	public List<Objet> getListObjet(){
+	public List<Objet> getListObjet() {
 		SQLiteDatabase bdd = getWritableDatabase();
-		List<Objet> objetList =  new ArrayList<Objet>();
+		List<Objet> objetList = new ArrayList<Objet>();
 
-		String query = "SELECT * FROM " + tab_objet ;
+		String query = "SELECT * FROM " + tab_objet;
 		Cursor c = bdd.rawQuery(query, null);
 
 		objetList = cursorToObjetList(c);
@@ -281,18 +272,16 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		return objetList;
 	}
 
-	private List<Objet> cursorToObjetList(Cursor c){
-		SQLiteDatabase bdd = getWritableDatabase();
 
+	private List<Objet> cursorToObjetList(Cursor c) {
 		List<Objet> oList = new ArrayList<Objet>();
 		if (c.getCount() == 0) {
 			return null;
 		}
 
 
-
 		Objet o = new Objet();
-		while(c.moveToNext()) {
+		while (c.moveToNext()) {
 			o.setId(c.getInt(NUM_COL_IDObj));
 			o.setNom(c.getString(NUM_COL_nomObj));
 			o.setNb(c.getInt(NUM_COL_nbObj));
@@ -301,7 +290,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 			oList.add(o);
 		}
 		c.close();
-		bdd.close();
+
 
 		return oList;
 
@@ -516,19 +505,33 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
 	}
 
+	public List<Joueur> getAllPlayer() {
+		SQLiteDatabase bdd = getWritableDatabase();
+
+		String query = "SELECT * FROM " + tab_joueur;
+
+		Cursor c = bdd.rawQuery(query, null);
+		List<Joueur> list_Joueur = cursorToListJoueur(c);
+		bdd.close();
+		return list_Joueur;
+
+	}
+
 	public List<Joueur> getJoueurWithNomPartie(String nomPartie) {
 		SQLiteDatabase bdd = getWritableDatabase();
 		String query = "SELECT * FROM " + tab_joueur + " WHERE " + COL_nomPartiePerso + " = \"" + nomPartie + "\"";
 		Cursor c = bdd.rawQuery(query, null);
-		bdd.close();
 
-		return cursorToListJoueur(c);
+
+		List<Joueur> list_Joueur =  cursorToListJoueur(c);
+		bdd.close();
+		return list_Joueur;
 	}
 
 
    /* *********************************************************** PARTIE ********************************************************** */
 
-	public Partie getPartietWithName(String nom) {
+	public Partie getPartieWithName(String nom) {
 		SQLiteDatabase bdd = getWritableDatabase();
 		String query = "SELECT * FROM " + tab_partie + " WHERE " + COL_nomParti + " = \"" + nom + "\"";
 		Cursor c = bdd.rawQuery(query, null);
@@ -579,7 +582,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nomParti, p.getNom());
 		values.put(COL_typeParti, p.getType());
 		values.put(COL_nbJoueurParti, p.getNombreJoueur());
-		values.put(COL_resume,p.getResume());
+		values.put(COL_resume, p.getResume());
 
 		bdd.insert(tab_partie, null, values);
 		bdd.close();
@@ -591,7 +594,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nomParti, p.getNom());
 		values.put(COL_typeParti, p.getType());
 		values.put(COL_nbJoueurParti, p.getNombreJoueur());
-		values.put(COL_resume,p.getResume());
+		values.put(COL_resume, p.getResume());
 
 		return bdd.update(tab_partie, values, COL_nomParti + " = " + nom, null);
 	}
@@ -675,7 +678,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		Log.i("projet", "Récupération des données en cours");
 		SQLiteDatabase bdd = getWritableDatabase();
 
-		String query = "SELECT * FROM " + tab_stat + " WHERE " + COL_nomJoueurStat  + " = \"" + player + "\"";
+		String query = "SELECT * FROM " + tab_stat + " WHERE " + COL_nomJoueurStat + " = \"" + player + "\"";
 		Log.i("projet", "Debut execution de la requete");
 		Cursor c = bdd.rawQuery(query, null);
 		Log.i("projet", "requete executé");

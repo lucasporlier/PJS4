@@ -53,7 +53,7 @@ public class PlayerFileActivity extends Activity {
 		pvPerso.setText(j.getLvl());
 		manaPerso.setText(j.getMana());
 		xpPerso.setText(j.getNbExp());
-		
+
 		TableRow tableRowName = (TableRow) findViewById(R.id.table_caracteristics_name);
 		TextView tv;
 		for(Stat s :db.getAllStats(j.getNom())){
@@ -71,6 +71,8 @@ public class PlayerFileActivity extends Activity {
 		}
 
         //TODO Les 2 ListView
+
+
 
 		final TextView tvHP = (TextView) findViewById(R.id.tvHP);
 		SeekBar sbHP = (SeekBar) findViewById(R.id.seekBarHP);

@@ -69,7 +69,7 @@ public class LoadGameActivity extends Activity {
 					Log.i("projet", "Cliqué dsur un item");
 					String chosenGame = String.valueOf(parent.getItemAtPosition(position));
 
-						Partie p = MainActivity.db.getPartietWithName(chosenGame);
+					Partie p = MainActivity.db.getPartieWithName(chosenGame);
 
 					Intent intent = new Intent(LoadGameActivity.this, InGameMenuActivity.class);
 					intent.putExtra(EXTRA_GAMENAME, p);
@@ -78,6 +78,7 @@ public class LoadGameActivity extends Activity {
 			});
 
 			Log.i("projet", "FIN DU REMPLISSAGE DE LA LISTE");
+			Log.i("projet", base.getAllPlayer().toString());
 
 		} else {
 			TextView textView = (TextView) findViewById(R.id.title_loag_game);

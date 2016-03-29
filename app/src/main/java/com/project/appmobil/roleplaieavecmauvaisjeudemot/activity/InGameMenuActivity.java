@@ -17,7 +17,9 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
  */
 public class InGameMenuActivity extends Activity {
 
+	public static final String EXTRA_NOMPARTIE = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPARTIE";
 	private String gameName;
+	private Partie p;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class InGameMenuActivity extends Activity {
 
 		TextView textView = (TextView) findViewById(R.id.game_name);
 
-		Partie p = intent.getExtras().getParcelable(LoadGameActivity.EXTRA_GAMENAME);
+		p = intent.getExtras().getParcelable(LoadGameActivity.EXTRA_GAMENAME);
 
 		textView.setText(p.getNom());
 
@@ -56,13 +58,22 @@ public class InGameMenuActivity extends Activity {
 		startActivity(intent);
 	}
 
-	public void seeCaractereProfile(View view) {
+	public void seeCharactereProfile(View view) {
 		Log.i("projet", "affichage de la liste des joueurs");
 		Log.i("TesteBd", MainActivity.db.getAllGames().toString());
+
 		Intent intent = new Intent(this, PlayerListActivity.class);
+
 		TextView textView = (TextView) findViewById(R.id.game_name);
-		Partie p = MainActivity.db.getPartietWithName(textView.toString());
-		intent.putExtra(LoadGameActivity.EXTRA_GAMENAME, p);
+
+		intent.putExtra(EXTRA_NOMPARTIE, p);
+
 		startActivity(intent);
+	}
+
+	public void exitGameMenu(View view) {
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+		finish();
 	}
 }

@@ -1,22 +1,20 @@
 package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 
         import android.app.Activity;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.provider.Telephony;
-        import android.view.View;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.ListAdapter;
-        import android.widget.ListView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
-        import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
-        import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
-        import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
-        import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ZHOU Eric on 21/03/2016.
@@ -37,7 +35,7 @@ public class PlayerListActivity extends Activity {
 
         Intent intent = getIntent();
 
-        Partie p  = intent.getExtras().getParcelable(LoadGameActivity.EXTRA_GAMENAME);
+        Partie p = intent.getParcelableExtra(InGameMenuActivity.EXTRA_NOMPARTIE);
 
         List<Joueur> list_joueur = MainActivity.db.getJoueurWithNomPartie(p.getNom());
 
