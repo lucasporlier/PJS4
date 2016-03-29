@@ -15,18 +15,22 @@
 
             <TextView
                 android:layout_width = "wrap_content"
-                android:layout_height = "wrap_content"
+                android:layout_height = "60dp"
                 android:layout_gravity = "center"
-                android:layout_margin = "@dimen/margin_title"
+                android:padding="10dp"
                 android:text = "@string/player_creator"
                 android:textSize = "@dimen/title_size"
-                android:id="@+id/Text_Title" />
+                android:id="@+id/Text_Title"
+                android:textAlignment="center"
+                android:background="@drawable/backgroung1"/>
+
             <EditText
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:layout_margin = "@dimen/edit_text_matchparent_margin"
                 android:hint = "@string/caractere_name"
-                android:id="@+id/ET_nomPerso" />
+                android:id="@+id/ET_nomPerso"
+                android:inputType="textPersonName|textCapWords"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,9 +40,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin = "@dimen/edit_text_matchparent_margin"
-                    android:text="HP : "/>
+                    android:text="HP : "
+                    android:textColor="#FF7F7F"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
                 <EditText
-                    android:layout_width = "wrap_content"
+                    android:layout_width = "50dp"
                     android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/edit_text_matchparent_margin"
 
@@ -47,9 +54,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin = "@dimen/edit_text_matchparent_margin"
-                    android:text="Energie : "/>
+                    android:text="Energy : "
+                    android:textColor="#4C93FF"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
                 <EditText
-                    android:layout_width = "wrap_content"
+                    android:layout_width = "50dp"
                     android:layout_height = "wrap_content"
                     android:layout_margin = "@dimen/edit_text_matchparent_margin"
 
@@ -61,7 +71,8 @@
                 android:layout_height = "wrap_content"
                 android:layout_margin = "@dimen/edit_text_matchparent_margin"
                 android:hint = "@string/caractere_race"
-                android:id="@+id/ET_racePerso" />
+                android:id="@+id/ET_racePerso"
+                android:inputType="textPersonName|textCapWords"/>
 
             <TableLayout
                 android:id="@+id/table_caracteristics"
@@ -74,7 +85,7 @@
                 <TableRow
                     android:id="@+id/table_row_caracteristics_name">
 
-                    <TextView/>
+
 
                 </TableRow>
 
@@ -91,7 +102,9 @@
             <TextView
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
-                android:text = "@string/capacities"/>
+                android:text = "@string/capacities"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <TableLayout
                 android:id = "@+id/capacitiesTable"
@@ -129,18 +142,23 @@
                 <TableRow>
 
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:text="@string/retour"
                         android:id="@+id/btnRetour"
-                        android:onClick="retour"/>
+                        android:onClick="retour"
+                        android:background="@drawable/backgroung1"/>
 
                     <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="5dp"
                         android:text="@string/suivant"
                         android:id="@+id/btnSuivant"
                         android:onClick="suivant"
+                        android:background="@drawable/backgroung1"
                         />
                 </TableRow>
 

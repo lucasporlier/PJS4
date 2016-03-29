@@ -1,8 +1,8 @@
 package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListAdapter;
@@ -13,14 +13,14 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 
 import java.util.ArrayList;
 
-public class NewGameActivity2 extends AppCompatActivity {
+public class NewGameActivity2 extends Activity {
 	public static final String EXTRA_GAME = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_GAME";
 	private Partie game;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.new_game2);
+		setContentView(R.layout.content_new_game2);
 
 
 		game = getIntent().getExtras().getParcelable(NewGameActivity.EXTRA_GAME1);
