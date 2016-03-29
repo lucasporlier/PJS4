@@ -37,7 +37,7 @@ public class InGameMenuActivity extends Activity {
 
 
 		Log.i("projet", "lancement du menu in game");
-		Log.i("TestBd", String.valueOf(MainActivity.db.getAllGames().size()));
+
 	}
 
 	/**

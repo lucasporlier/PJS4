@@ -39,6 +39,7 @@
     <string name="caractere_race">Character Race</string>
     <string name="write_player_carac">Write player\'s caracteristics :</string>
     <string name="characteristic">"Characteristic "</string>
+    <string name="inventory_is_empty">Inventory is empty</string>
 
 
 </resources>

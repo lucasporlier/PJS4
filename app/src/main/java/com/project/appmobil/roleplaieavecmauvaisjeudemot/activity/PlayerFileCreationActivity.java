@@ -12,6 +12,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Competence;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
@@ -26,14 +27,15 @@ import java.util.List;
 public class PlayerFileCreationActivity extends Activity {
 
 	public static final String EXTRA_LISTPLAYER = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_LISTPLAYER";
+	public static final String EXTRA_LISTCOMPETENCE = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_LISTCOMPETENCE";
 	/**
 	 * The game that contain the list of Characteristics
 	 */
 	private static Partie p;
 	private static int numeroPlayer = 1;
 	private static int nbPlayerMAX;
-	private static ArrayList<Joueur> playerList = new ArrayList<>();
-
+	private static ArrayList<Joueur> playerList;
+	private static ArrayList<Competence> competencesList;
 
 	private static TextView nomPerso;
 	private static TextView racePerso;
@@ -69,9 +71,14 @@ public class PlayerFileCreationActivity extends Activity {
 		p = intent.getParcelableExtra(NewGameActivity2.EXTRA_GAME);
 
 		playerList = intent.getParcelableArrayListExtra(EXTRA_LISTPLAYER);
+		competencesList = intent.getParcelableArrayListExtra(EXTRA_LISTCOMPETENCE);
 		if(playerList ==null){
 			playerList = new ArrayList<>();
 		}
+		if(competencesList ==null){
+			competencesList = new ArrayList<>();
+		}
+
 		Log.i("projet", p.toString());
 		Log.i("Projet", "fin getParcelable");
 
@@ -165,9 +172,9 @@ public class PlayerFileCreationActivity extends Activity {
 		return listValues;
 	}
 
-	public List<String> getCapacities() {
+	public List<Competence> getCapacities() {
 
-		List<String> listCapacities = new ArrayList<>();
+		List<Competence> listCapacities = new ArrayList<>();
 
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.capacitiesTable);
 
@@ -175,21 +182,27 @@ public class PlayerFileCreationActivity extends Activity {
 		for (int i = 0; i < tableLayout.getChildCount(); i++) {
 
 			/*if (tableLayout.getChildAt(i) instanceof TableRow) {*/
-				Log.i("projet", "la ligne : " + i + " est bien une table row");
+			Log.i("projet", "la ligne : " + i + " est bien une table row");
+			Competence c = new Competence();
+			c.setNomComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(0)).getText().toString());
+			c.setEffetComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(1)).getText().toString());
+			c.setNomPro(((EditText) findViewById(R.id.ET_nomPerso)).getText().toString());
+			listCapacities.add(c);
+			Log.i("projet", "La competence : " + listCapacities.get(i).getNomComp() + " a ete ajoutée");
 
-				Log.i("projet", "Il y a " + ((TableRow) tableLayout.getChildAt(i)).getChildCount() + "fils dans tableRow");
-				for (int j = 0; j < ((TableRow) tableLayout.getChildAt(i)).getChildCount(); j++) {
-
-					/*if (((TableRow) tableLayout.getChildAt(i)).getChildAt(j) instanceof EditText) {*/
-						listCapacities.add(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(j)).getText().toString());
-						Log.i("projet", "Ligne ajoutée");
-					/*}*/
-				/*}*/
+			/*Log.i("projet", "Il y a " + ((TableRow) tableLayout.getChildAt(i)).getChildCount() + "fils dans tableRow");
+			for (int j = 0; j < ((TableRow) tableLayout.getChildAt(i)).getChildCount(); j++) {
+				//if (((TableRow) tableLayout.getChildAt(i)).getChildAt(j) instanceof EditText) {
+				c.setNomComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(j)).getText().toString());
+				//listCapacities.add(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(j)).getText().toString());
+				Log.i("projet", "Ligne " + i + " ajoutée");
+					//}
+				//}*/
 			}
-		}
-
 		return listCapacities;
 	}
+
+
 
     public void retour(View view){
         this.finish();
@@ -198,11 +211,11 @@ public class PlayerFileCreationActivity extends Activity {
 
     public void suivant(View view) {
 		Joueur j = new Joueur (nomPerso.getText().toString(),racePerso.getText().toString(),Integer.parseInt(hpPerso.getText().toString()),Integer.parseInt(manaPerso.getText().toString()),lore,p.getNom());
-		Log.i("Joueur",j.getRace());
+		Log.i("Joueur", j.getRace());
 		playerList.add(j);
-
-		Log.i("projet", getCharacteristicValues().toString());
-		Log.i("projet", getCapacities().toString());
+		competencesList.addAll(getCapacities());
+		//Log.i("projet", getCharacteristicValues().toString());
+		//Log.i("projet", getCapacities().toString());
 		if (numeroPlayer < nbPlayerMAX) {
 
 			Log.i("projet", "Préparation de l'intent PlayerFileCreationActivity");
@@ -212,6 +225,7 @@ public class PlayerFileCreationActivity extends Activity {
 			intent.putExtra(EXTRA_NUMPLAYER, String.valueOf((numeroPlayer + 1) + ""));
 			intent.putExtra(NewGameActivity2.EXTRA_GAME, p);
 			intent.putParcelableArrayListExtra(EXTRA_LISTPLAYER, playerList);
+			intent.putParcelableArrayListExtra(EXTRA_LISTCOMPETENCE,competencesList);
 			startActivity(intent);
 		} else {
 
@@ -223,7 +237,9 @@ public class PlayerFileCreationActivity extends Activity {
 			for(Joueur joueur: playerList){
 				MainActivity.db.insertJoueur(joueur);
 			}
-
+			for(Competence c:competencesList){
+				MainActivity.db.insertCompetence(c);
+			}
 			Log.i("TestBd",MainActivity.db.getAllPlayer(p.getNom()).toString());
 			MainActivity.db.insertparti(p);
 

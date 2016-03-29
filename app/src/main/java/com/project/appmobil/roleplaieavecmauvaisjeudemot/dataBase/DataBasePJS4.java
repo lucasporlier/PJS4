@@ -216,7 +216,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		SQLiteDatabase bdd = getWritableDatabase();
 		List<Objet> objetList = new ArrayList<Objet>();
 
-		String query = "SELECT * FROM " + tab_objet + " WHERE " + COL_nomproObj + " = " + nom;
+		String query = "SELECT * FROM " + tab_objet + " WHERE " + COL_nomproObj + " = \"" + nom + "\"";
 		Cursor c = bdd.rawQuery(query, null);
 
 		objetList = cursorToObjetList(c);
@@ -276,7 +276,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private List<Objet> cursorToObjetList(Cursor c) {
 		List<Objet> oList = new ArrayList<Objet>();
 		if (c.getCount() == 0) {
-			return null;
+			return oList;
 		}
 
 
@@ -363,10 +363,9 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		SQLiteDatabase bdd = getWritableDatabase();
 		ContentValues values = new ContentValues();
 
-
-		values.put(COL_nomComp, c.getNomComp());
-		values.put(COL_effetComp, c.getEffetComp());
 		values.put(COL_nomProComp, c.getNomPro());
+		values.put(COL_effetComp, c.getEffetComp());
+		values.put(COL_nomComp, c.getNomComp());
 		values.put(COL_manaUseComp, c.getManaUse());
 
 		bdd.insert(tab_competence, null, values);
@@ -424,6 +423,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
 	public void insertJoueur(Joueur j) {
 		SQLiteDatabase bdd = getWritableDatabase();
+
 		ContentValues values = new ContentValues();
 
 		values.put(COL_nomPerso, j.getNom());
@@ -486,7 +486,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		joueur.setLore(c.getString(NUM_COL_lorePerso));
 		joueur.setNomPartie(c.getString(NUM_COL_nomPartiePerso));
 		joueur.setHpMax(c.getInt(NUM_COL_hpMax));
-		joueur.setHpMax(c.getInt(NUM_COL_manaMax));
+		joueur.setManaMax(c.getInt(NUM_COL_manaMax));
 
 		c.close();
 		bdd.close();
@@ -544,7 +544,6 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		List<Joueur> list_Joueur = cursorToListJoueur(c);
 		bdd.close();
 		return list_Joueur;
-
 	}
 
 	public List<Joueur> getJoueurWithNomPartie(String nomPartie) {

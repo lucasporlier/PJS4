@@ -38,7 +38,7 @@ public class ObjetArrayAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return obj.get(position);
+        return ((TextView)layoutItem.findViewById(R.id.nomObjet)).toString();
     }
 
     @Override
