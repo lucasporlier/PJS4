@@ -38,9 +38,9 @@ public class PlayerFileActivity extends Activity {
 
 		Intent intent = getIntent();
 
-		Joueur j =intent.getExtras().getParcelable(PlayerListActivity.EXTRA_PLAYER_NAME);
+		Joueur j =intent.getParcelableExtra(PlayerListActivity.EXTRA_PLAYER_NAME);
 
-		DataBasePJS4 db = MainActivity.db;
+
 
 		namePerso = (TextView) findViewById(R.id.player_file_title);
 		lvlPerso = (TextView) findViewById(R.id.player_level);
@@ -49,14 +49,21 @@ public class PlayerFileActivity extends Activity {
 		xpPerso = (TextView) findViewById(R.id.tvXP);
 
 		namePerso.setText(j.getNom());
-		lvlPerso.setText(j.getLvl());
-		pvPerso.setText(j.getLvl());
-		manaPerso.setText(j.getMana());
-		xpPerso.setText(j.getNbExp());
+		lvlPerso.setText(String.valueOf(j.getLvl()));
+		pvPerso.setText(String.valueOf(j.getPv()));
+		manaPerso.setText(String.valueOf(j.getMana()));
+		xpPerso.setText(String.valueOf(j.getNbExp()));
+
+		SeekBar seekBarHP = (SeekBar) findViewById(R.id.seekBarHP);
+		seekBarHP.setMax(j.getHpMax());
+
+
+		SeekBar seekBarMP = (SeekBar) findViewById(R.id.seekBarMP);
+		seekBarMP.setMax(j.getManaMax());
 
 		TableRow tableRowName = (TableRow) findViewById(R.id.table_caracteristics_name);
 		TextView tv;
-		for(Stat s :db.getAllStats(j.getNom())){
+		for(Stat s :MainActivity.db.getAllStats(j.getNom())){
 			tv = new TextView(this);
 			tv.setText(s.getNomStat());
 			tableRowName.addView(tv);
@@ -64,7 +71,7 @@ public class PlayerFileActivity extends Activity {
 
 		TableRow tableRowValues = (TableRow) findViewById(R.id.table_row_caracteristics_value);
 
-		for(Stat s :db.getAllStats(j.getNom())){
+		for(Stat s :MainActivity.db.getAllStats(j.getNom())){
 			tv = new TextView(this);
 			tv.setText(s.getNomStat());
 			tableRowValues.addView(tv);
@@ -138,7 +145,8 @@ public class PlayerFileActivity extends Activity {
 		//Toast.makeText(this, R.string.todo, Toast.LENGTH_SHORT).show();
 
 		Intent intent = new Intent(this, InventoryActivity.class);
-		intent.putExtra(EXTRA_NOMPROP, ((TextView) findViewById(R.id.name)).getText());
+		Joueur j = MainActivity.db.getJoueurWithName(((TextView) findViewById(R.id.player_file_title)).getText().toString());
+		intent.putExtra(EXTRA_NOMPROP,j);
 		startActivity(intent);
 
 	}

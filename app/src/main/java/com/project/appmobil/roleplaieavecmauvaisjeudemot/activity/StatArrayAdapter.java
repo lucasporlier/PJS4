@@ -71,6 +71,5 @@ public class StatArrayAdapter extends BaseAdapter {
 
 		return layoutItem;
 	}
-
 }
 

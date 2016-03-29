@@ -3,7 +3,8 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
         import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+        import android.util.Log;
+        import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
@@ -53,6 +54,7 @@ public class PlayerListActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String chosenPlayerName = String.valueOf(parent.getItemAtPosition(position));
                 Joueur j = MainActivity.db.getJoueurWithName(chosenPlayerName);
+                Log.i("TestJ",String.valueOf(j.getLvl()));
                 Intent intent = new Intent(PlayerListActivity.this, PlayerFileActivity.class);
                 intent.putExtra(EXTRA_PLAYER_NAME,j);
                 startActivity(intent);
