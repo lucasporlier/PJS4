@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,8 +38,8 @@ public class ObjetArrayAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return obj.get(position);
+    public String getItem(int position) {
+        return ((TextView)layoutItems.get(position).findViewById(R.id.nomObjet)).getText().toString();
     }
 
     @Override
@@ -66,4 +67,6 @@ public class ObjetArrayAdapter extends BaseAdapter {
         layoutItems.add(layoutItem);
         return layoutItem;
     }
+
+    
 }

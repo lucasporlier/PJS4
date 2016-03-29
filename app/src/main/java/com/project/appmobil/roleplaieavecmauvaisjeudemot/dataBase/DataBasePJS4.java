@@ -207,6 +207,19 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		return o;
 	}
 
+	public Objet getObjetWithName(String nom, String nomPro) {
+
+		SQLiteDatabase bdd = getWritableDatabase();
+
+		String query = "SELECT * FROM " + tab_objet + " WHERE " + COL_nomObj + " = \"" + nom + "\" AND " +COL_nomproObj + " = \"" + nomPro + "\"" ;
+		Cursor c = bdd.rawQuery(query, null);
+		Objet o = cursorToObjet(c);
+		bdd.close();
+		return o;
+	}
+
+
+
 	/**
 	 * @param nom the name of the proprietaire
 	 * @return

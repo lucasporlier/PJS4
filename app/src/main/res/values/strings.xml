@@ -44,6 +44,8 @@
     <string name="quantity">Quantity</string>
     <string name="new_object">New Object</string>
     <string name="add">Add</string>
+    <string name="use">Use</string>
+    <string name="use_item">Use Item</string>
 
 
 </resources>

@@ -2,11 +2,17 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 
         import android.content.Intent;
         import android.os.Bundle;
+        import android.support.v4.app.FragmentManager;
         import android.support.v7.app.AppCompatActivity;
+        import android.view.MenuItem;
         import android.view.View;
+        import android.widget.AdapterView;
         import android.widget.ListView;
+        import android.widget.PopupMenu;
         import android.widget.TextView;
+        import android.widget.Toast;
 
+        import com.project.appmobil.roleplaieavecmauvaisjeudemot.Dialog.DialogUseItem;
         import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
         import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
         import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Objet;
@@ -31,11 +37,38 @@ public class InventoryActivity extends AppCompatActivity {
             tv.setText(tv.getText() + "\n\n" + getString(R.string.inventory_is_empty));
         }else{
 
-
-
             ObjetArrayAdapter adapter = new ObjetArrayAdapter(this, objets);
             ListView objetView = (ListView) findViewById(R.id.listObjectView);
             objetView.setAdapter(adapter);
+
+            objetView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
+                    PopupMenu popupMenu = new PopupMenu(InventoryActivity.this, view);
+
+                    popupMenu.getMenuInflater().inflate(R.menu.inventory_pop_up_menu, popupMenu.getMenu());
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        public boolean onMenuItemClick(MenuItem item) {
+                            // Toast.makeText(InventoryActivity.this, "You Clicked : " + (parent.getItemAtPosition(position)), Toast.LENGTH_SHORT).show();
+                            if (item.getItemId() == R.id.add) {
+                                DialogUseItem dialogUseItem = new DialogUseItem();
+
+                                //dialogUseItem.show(dialogUseItem, "Use Item");
+                            }
+
+                            if(item.getItemId() ==R.id.use){
+
+                            }
+
+                            return true;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+            });
+
         }
     }
 
@@ -45,4 +78,6 @@ public class InventoryActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_NOMPRO,joueur.getNom());
         startActivity(intent);
     }
+
+
 }
