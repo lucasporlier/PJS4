@@ -22,7 +22,6 @@ public class StatArrayAdapter extends BaseAdapter {
 	private LayoutInflater mInflater;
 	private ArrayList<String> stats;
 	private View convertView;
-	private ViewGroup parent;
 	private LinearLayout layoutItem;
 	private List<LinearLayout> layoutItems =  new ArrayList<LinearLayout>();
 
@@ -64,7 +63,7 @@ public class StatArrayAdapter extends BaseAdapter {
 		TextView tv_Num = (TextView)layoutItem.findViewById(R.id.TV_Num);
 		EditText et_Stat = (EditText)layoutItem.findViewById(R.id.ET_Stat);
 
-		tv_Num.setText("Caractéristique n°"+Integer.toString(position+1));
+		tv_Num.setText("Characteristic n°"+Integer.toString(position+1));
 		et_Stat.setHint(stats.get(position));
 
 		layoutItems.add(layoutItem);

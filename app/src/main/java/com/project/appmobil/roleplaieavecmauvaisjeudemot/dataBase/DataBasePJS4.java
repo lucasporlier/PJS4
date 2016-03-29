@@ -21,8 +21,8 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final int version = 1;
 	private static final String dataBaseName = "PJS4.db";
 
-	/*-----------------------------------------------------------------Competance---------------------------------------------------------*/
-	private static final String tab_competance = "table_competance";
+	/*-----------------------------------------------------------------Competence---------------------------------------------------------*/
+	private static final String tab_competence = "table_competence";
 
 	private static final String COL_IDComp = "ID";
 	private static final int NUM_COL_IDComp = 0;
@@ -39,7 +39,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_manaUseComp = "manaUse";
 	private static final int NUM_COL_manaUseComp = 4;
 
-	private static final String tab_comp = "CREATE TABLE " + tab_competance + " (" + COL_IDComp + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomComp + " TEXT NOT NULL, " + COL_effetComp + " TEXT NOT NULL, " + COL_nomProComp + " TEXT NOT NULL, " + COL_manaUseComp + " INTEGER NOT NULL);";
+	private static final String tab_comp = "CREATE TABLE " + tab_competence + " (" + COL_IDComp + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomComp + " TEXT NOT NULL, " + COL_effetComp + " TEXT NOT NULL, " + COL_nomProComp + " TEXT NOT NULL, " + COL_manaUseComp + " INTEGER NOT NULL);";
 
 	/*---------------------------------------------------------------------Objet-------------------------------------------------------*/
 	private static final String tab_objet = "table_objet";
@@ -179,7 +179,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
 
-		db.execSQL("DROP TABLE IF EXIST " + tab_competance + ";");
+		db.execSQL("DROP TABLE IF EXIST " + tab_competence + ";");
 		db.execSQL("DROP TABLE IF EXIST " + tab_objet + ";");
 		db.execSQL("DROP TABLE IF EXIST " + tab_joueur + ";");
 		db.execSQL("DROP TABLE IF EXIST " + tab_partie + ";");
@@ -321,16 +321,45 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
     /* *********************************************************** COMPETENCES ********************************************************** */
 
-	public Competance getCompetanceWithName(String nom) {
+	public Competence getCompetenceWithName(String nom) {
 		SQLiteDatabase bdd = getWritableDatabase();
-		String query = "SELECT * FROM " + tab_competance + " WHERE " + COL_nomComp + " = \"" + nom + "\"";
+		String query = "SELECT * FROM " + tab_competence + " WHERE " + COL_nomComp + " = \"" + nom + "\"";
 		Cursor c = bdd.rawQuery(query, null);
 		bdd.close();
-		return cursorToCompetance(c);
+		return cursorToCompetence(c);
 
 	}
 
-	public void insertCompetance(Competance c) {
+	public List<Competence> getCompetenceWithPro(String player) {
+
+		Log.i("projet", "Récupération des données en cours");
+		SQLiteDatabase bdd = getWritableDatabase();
+
+		String query = "SELECT * FROM " + tab_competence + " WHERE " + COL_nomProComp + " = \"" + player + "\"";
+		Log.i("projet", "Debut execution de la requete");
+		Cursor c = bdd.rawQuery(query, null);
+		Log.i("projet", "requete executé");
+		List<Competence> listComp = new ArrayList<>();
+		Competence competence = new Competence();
+
+		while (c.moveToNext()) {
+
+			competence.setId(c.getInt(NUM_COL_ID));
+			competence.setNomComp(c.getString(NUM_COL_nomComp));
+			competence.setEffetComp(c.getString(NUM_COL_effetComp));
+			competence.setNomPro(c.getString(NUM_COL_nomProComp));
+			competence.setManaUse(c.getInt(NUM_COL_manaUseComp));
+
+			Log.i("projet", competence.toString());
+			listComp.add(competence);
+		}
+		bdd.close();
+		Log.i("projet", "fin");
+		return listComp;
+	}
+
+
+	public void insertCompetence(Competence c) {
 		SQLiteDatabase bdd = getWritableDatabase();
 		ContentValues values = new ContentValues();
 
@@ -340,28 +369,28 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nomProComp, c.getNomPro());
 		values.put(COL_manaUseComp, c.getManaUse());
 
-		bdd.insert(tab_competance, null, values);
+		bdd.insert(tab_competence, null, values);
 		bdd.close();
 	}
 
-	public int updateCompetance(String nom, Objet o) {
+	public int updateCompetence(String nom, Objet o) {
 		SQLiteDatabase bdd = getWritableDatabase();
 		ContentValues values = new ContentValues();
 		values.put(COL_nomComp, o.getNom());
 		values.put(COL_effetComp, o.getNb());
 		values.put(COL_nomProComp, o.getEffet());
 		values.put(COL_manaUseComp, o.getNomPro());
-		return bdd.update(tab_competance, values, COL_nomComp + " = " + nom, null);
+		return bdd.update(tab_competence, values, COL_nomComp + " = " + nom, null);
 	}
 
-	public int removeCompetanceWithName(String name) {
+	public int removeCompetenceWithName(String name) {
 		SQLiteDatabase bdd = getWritableDatabase();
-		int i =  bdd.delete(tab_competance, COL_nomComp + " = " + name, null);
+		int i =  bdd.delete(tab_competence, COL_nomComp + " = " + name, null);
 		bdd.close();
 		return i;
 	}
 
-	private Competance cursorToCompetance(Cursor c) {
+	private Competence cursorToCompetence(Cursor c) {
 		SQLiteDatabase bdd = getWritableDatabase();
 
 		//si aucun élément n'a été retourné dans la requête, on renvoie null
@@ -370,16 +399,16 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 
 		c.moveToFirst();
 
-		Competance competance = new Competance();
+		Competence competence = new Competence();
 
-		competance.setId(c.getInt(NUM_COL_ID));
-		competance.setNomComp(c.getString(NUM_COL_nomComp));
-		competance.setEffetComp(c.getString(NUM_COL_effetComp));
-		competance.setNomPro(c.getString(NUM_COL_nomProComp));
-		competance.setManaUse(c.getInt(NUM_COL_manaUseComp));
+		competence.setId(c.getInt(NUM_COL_ID));
+		competence.setNomComp(c.getString(NUM_COL_nomComp));
+		competence.setEffetComp(c.getString(NUM_COL_effetComp));
+		competence.setNomPro(c.getString(NUM_COL_nomProComp));
+		competence.setManaUse(c.getInt(NUM_COL_manaUseComp));
 		c.close();
 		bdd.close();
-		return competance;
+		return competence;
 	}
 
     /* *********************************************************** JOUEURS ********************************************************** */
@@ -388,8 +417,9 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		SQLiteDatabase bdd = getWritableDatabase();
 		String query = "SELECT * FROM " + tab_joueur + " WHERE " + COL_nomPerso + " = \"" + nom + "\"";
 		Cursor c = bdd.rawQuery(query, null);
+		Joueur j = cursorToJoueur(c);
 		bdd.close();
-		return cursorToJoueur(c);
+		return j;
 	}
 
 	public void insertJoueur(Joueur j) {
@@ -698,7 +728,6 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		bdd.close();
 		Log.i("projet", "fin");
 		return listStat;
-
 	}
 
 

@@ -40,7 +40,9 @@
                 <TextView
                     android:layout_width = "wrap_content"
                     android:layout_height = "wrap_content"
-                    android:layout_margin = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginTop = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginBottom = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginLeft = "@dimen/edit_text_matchparent_margin"
                     android:text = "HP : "
                     android:textColor = "#FF7F7F"
                     android:textSize = "20dp"
@@ -50,7 +52,9 @@
                     android:id = "@+id/ET_hpMax"
                     android:layout_width = "50dp"
                     android:layout_height = "wrap_content"
-                    android:layout_margin = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginTop = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginBottom = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginLeft = "@dimen/edit_text_matchparent_margin"
                     android:inputType = "number"
                     android:maxLength = "5"
                     android:singleLine = "true"/>
@@ -58,7 +62,9 @@
                 <TextView
                     android:layout_width = "wrap_content"
                     android:layout_height = "wrap_content"
-                    android:layout_margin = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginTop = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginBottom = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginLeft = "@dimen/edit_text_matchparent_margin"
                     android:text = "Energy : "
                     android:textColor = "#4C93FF"
                     android:textSize = "20dp"
@@ -68,7 +74,9 @@
                     android:id = "@+id/ET_manaMax"
                     android:layout_width = "50dp"
                     android:layout_height = "wrap_content"
-                    android:layout_margin = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginTop = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginBottom = "@dimen/edit_text_matchparent_margin"
+                    android:layout_marginLeft = "@dimen/edit_text_matchparent_margin"
                     android:inputType = "number"
                     android:maxLength = "5"
                     android:singleLine = "true"/>
@@ -117,7 +125,6 @@
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
                 android:stretchColumns = "1">
-
             </TableLayout>
 
 

@@ -29,7 +29,7 @@ public class NewGameActivity2 extends Activity {
 		ArrayList<String> s = new ArrayList<>();
 
 		for (int i = 1; i <= game.getStatNumber(); i++) {
-			s.add(i-1,"Caracteristique " + i);
+			s.add(i-1,getString(R.string.characteristic) + i);
 		}
 
 		StatArrayAdapter adapter = new StatArrayAdapter(this, s);

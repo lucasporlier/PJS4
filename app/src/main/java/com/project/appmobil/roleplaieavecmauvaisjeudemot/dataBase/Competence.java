@@ -3,7 +3,7 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase;
 /**
  * Created by qu2 on 21/03/2016.
  */
-public class Competance {
+public class Competence {
 	private int id;
 
 	private String NomComp;
@@ -11,10 +11,10 @@ public class Competance {
 	private int manaUse;
 	private String nomPro;
 
-	public Competance() {
+	public Competence() {
 	}
 
-	public Competance(String nomComp, String effetComp, int manaUse, String nomPro) {
+	public Competence(String nomComp, String effetComp, int manaUse, String nomPro) {
 		NomComp = nomComp;
 		this.effetComp = effetComp;
 		this.manaUse = manaUse;

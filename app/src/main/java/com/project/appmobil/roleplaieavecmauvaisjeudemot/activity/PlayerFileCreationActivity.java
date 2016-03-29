@@ -25,6 +25,7 @@ import java.util.List;
  */
 public class PlayerFileCreationActivity extends Activity {
 
+	public static final String EXTRA_LISTPLAYER = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_LISTPLAYER";
 	/**
 	 * The game that contain the list of Characteristics
 	 */
@@ -64,9 +65,10 @@ public class PlayerFileCreationActivity extends Activity {
 		Log.i("Projet", "get intent ok");
 
 		Log.i("Projet", "GetParcelable");
-		p = intent.getExtras().getParcelable(NewGameActivity2.EXTRA_GAME);
 
-		playerList = intent.getExtras().getParcelableArrayList("List");
+		p = intent.getParcelableExtra(NewGameActivity2.EXTRA_GAME);
+
+		playerList = intent.getParcelableArrayListExtra(EXTRA_LISTPLAYER);
 		if(playerList ==null){
 			playerList = new ArrayList<>();
 		}
@@ -126,9 +128,11 @@ public class PlayerFileCreationActivity extends Activity {
 		TableLayout tbL = (TableLayout) findViewById(R.id.capacitiesTable);
 
 		EditText ed1 = new EditText(this);
+		ed1.setWidth(60);
 		ed1.setHint("Name");
 
 		EditText ed2 = new EditText(this);
+		ed1.setWidth(120);
 		ed2.setHint("Description");
 
 		Log.i("projet ", "Début ajout ");
@@ -207,7 +211,7 @@ public class PlayerFileCreationActivity extends Activity {
 			Log.i("projet", "Préparation du putExtra EXTRA_NUMPLAYER");
 			intent.putExtra(EXTRA_NUMPLAYER, String.valueOf((numeroPlayer + 1) + ""));
 			intent.putExtra(NewGameActivity2.EXTRA_GAME, p);
-			intent.putParcelableArrayListExtra("List", playerList);
+			intent.putParcelableArrayListExtra(EXTRA_LISTPLAYER, playerList);
 			startActivity(intent);
 		} else {
 

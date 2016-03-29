@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -50,12 +52,13 @@ public class PlayerFileActivity extends Activity {
 
 		namePerso.setText(j.getNom());
 		lvlPerso.setText(j.getLvl());
-		pvPerso.setText(j.getLvl());
+		pvPerso.setText(j.getPv());
 		manaPerso.setText(j.getMana());
 		xpPerso.setText(j.getNbExp());
 
 		TableRow tableRowName = (TableRow) findViewById(R.id.table_caracteristics_name);
 		TextView tv;
+
 		for(Stat s :db.getAllStats(j.getNom())){
 			tv = new TextView(this);
 			tv.setText(s.getNomStat());
@@ -63,16 +66,17 @@ public class PlayerFileActivity extends Activity {
 		}
 
 		TableRow tableRowValues = (TableRow) findViewById(R.id.table_row_caracteristics_value);
-
 		for(Stat s :db.getAllStats(j.getNom())){
 			tv = new TextView(this);
 			tv.setText(s.getNomStat());
 			tableRowValues.addView(tv);
 		}
 
+
         //TODO Les 2 ListView
-
-
+		PlayerCapacityArrayAdaptater adaptater = new PlayerCapacityArrayAdaptater(this,db.getCompetenceWithPro(j.getNom()));
+		ListView capacitiesView = (ListView) findViewById(R.id.list_capacities);
+		capacitiesView.setAdapter(adaptater);
 
 		final TextView tvHP = (TextView) findViewById(R.id.tvHP);
 		SeekBar sbHP = (SeekBar) findViewById(R.id.seekBarHP);

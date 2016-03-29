@@ -38,6 +38,7 @@
     <string name="title_activity_new_game2">NewGameActivity2</string>
     <string name="caractere_race">Character Race</string>
     <string name="write_player_carac">Write player\'s caracteristics :</string>
+    <string name="characteristic">"Characteristic "</string>
 
 
 </resources>
