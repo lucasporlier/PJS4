@@ -38,6 +38,8 @@
         <activity android:name=".activity.PlayerListActivity"></activity>
 
         <activity android:name=".activity.PlayerFileActivity"></activity>
+
+        <activity android:name=".activity.AddObjetActivity"></activity>
     </application>
 
 

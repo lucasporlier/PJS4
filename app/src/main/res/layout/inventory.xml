@@ -27,6 +27,8 @@
         android:layout_alignParentBottom="true"
         android:text="Nouvel objet"
         android:id="@+id/button"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="newObjet"
+        />
 
 </LinearLayout >

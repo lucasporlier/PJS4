@@ -61,7 +61,7 @@ public class ObjetArrayAdapter extends BaseAdapter {
 
         nomObjet.setText(obj.get(position).getNom());
         effetObjet.setText(obj.get(position).getEffet());
-        nbObjet.setText(obj.get(position).getNb());
+        nbObjet.setText(String.valueOf(obj.get(position).getNb()));
 
         layoutItems.add(layoutItem);
         return layoutItem;
