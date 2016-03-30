@@ -40,7 +40,7 @@ public class PlayerFileCreationActivity extends Activity {
 	private static TextView hpPerso;
 	private static TextView manaPerso;
 	private String lore = "";
-	private List<Competance> listCapacity;
+	private List<Competance> listCapacity = new ArrayList<>();
 
 
 	private int numCapacities = 1;
@@ -169,6 +169,7 @@ public class PlayerFileCreationActivity extends Activity {
 
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.capacitiesTable);
 
+		Competance c;
 		Log.i("projet", "Il y a " + tableLayout.getChildCount() + "fils dans tableLayout");
 		for (int i = 0; i < tableLayout.getChildCount(); i++) {
 
@@ -176,12 +177,13 @@ public class PlayerFileCreationActivity extends Activity {
 				Log.i("projet", "la ligne : " + i + " est bien une table row");
 
 				Log.i("projet", "Il y a " + ((TableRow) tableLayout.getChildAt(i)).getChildCount() + "fils dans tableRow");
-				Competance c = new Competance();
+				 c = new Competance();
 			c.setNomComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(0)).getText().toString());
 			c.setEffetComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(1)).getText().toString());
 			c.setNomPro(nomPerso.getText().toString());
 
 			listCapacities.add(c);
+
 
 		}
 
@@ -194,7 +196,26 @@ public class PlayerFileCreationActivity extends Activity {
 
 
     public void suivant(View view) {
-		 listCapacity = getCapacities();
+
+		TableLayout tableLayout = (TableLayout) findViewById(R.id.capacitiesTable);
+		Competance c;
+		Log.i("projet", "Il y a " + tableLayout.getChildCount() + "fils dans tableLayout");
+		for (int i = 0; i < tableLayout.getChildCount(); i++) {
+
+			/*if (tableLayout.getChildAt(i) instanceof TableRow) {*/
+			Log.i("projet", "la ligne : " + i + " est bien une table row");
+
+			Log.i("projet", "Il y a " + ((TableRow) tableLayout.getChildAt(i)).getChildCount() + "fils dans tableRow");
+			c = new Competance();
+			c.setNomComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(0)).getText().toString());
+			c.setEffetComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(1)).getText().toString());
+			c.setNomPro(nomPerso.getText().toString());
+
+			listCapacity.add(c);
+
+			Log.i("TestInsert", listCapacity.get(i).getEffetComp());
+		}
+
 		Joueur j = new Joueur (nomPerso.getText().toString(),racePerso.getText().toString(),Integer.parseInt(hpPerso.getText().toString()),Integer.parseInt(manaPerso.getText().toString()),lore,p.getNom());
 
 		Log.i("Joueur",j.getRace());
@@ -228,8 +249,8 @@ public class PlayerFileCreationActivity extends Activity {
 				MainActivity.db.insertJoueur(joueur);
 			}
 
-			for(Competance c : listCapacity){
-				MainActivity.db.insertCompetance(c);
+			for(Competance co : listCapacity){
+				MainActivity.db.insertCompetance(co);
 			}
 
 			Log.i("TestBd",MainActivity.db.getAllPlayer(p.getNom()).toString());

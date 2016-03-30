@@ -351,20 +351,53 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		SQLiteDatabase bdd = getWritableDatabase();
 		String query = "SELECT * FROM " + tab_competance + " WHERE " + COL_nomComp + " = \"" + nom + "\"";
 		Cursor c = bdd.rawQuery(query, null);
-		bdd.close();
-		return cursorToCompetance(c);
 
+		Competance co =  cursorToCompetance(c);
+		bdd.close();
+		return co;
+	}
+	public List<Competance> getCompetenceWithPro(String player) {
+
+		Log.i("projet", "Récupération des données en cours");
+
+		SQLiteDatabase bdd = getWritableDatabase();
+
+		String query = "SELECT * FROM " + tab_competance + " WHERE " + COL_nomProComp + " = \"" + player + "\"";
+
+		Log.i("projet", "Debut execution de la requete");
+		Cursor c = bdd.rawQuery(query, null);
+		Log.i("projet", "requete executé");
+		List<Competance> listComp = new ArrayList<>();
+		Competance competence = new Competance();
+
+		while (c.moveToNext()) {
+
+			competence.setId(c.getInt(NUM_COL_ID));
+			competence.setNomComp(c.getString(NUM_COL_nomComp));
+			competence.setEffetComp(c.getString(NUM_COL_effetComp));
+			competence.setNomPro(c.getString(NUM_COL_nomProComp));
+
+			Log.i("projet", competence.toString());
+
+			listComp.add(competence);
+		}
+		c.close();
+		bdd.close();
+		Log.i("projet", "fin");
+		return listComp;
 	}
 
 	public void insertCompetance(Competance c) {
 		SQLiteDatabase bdd = getWritableDatabase();
-		ContentValues values = new ContentValues();
 
+		ContentValues values = new ContentValues();
 
 		values.put(COL_nomComp, c.getNomComp());
 		values.put(COL_effetComp, c.getEffetComp());
 		values.put(COL_nomProComp, c.getNomPro());
+
 		bdd.insert(tab_competance, null, values);
+
 		bdd.close();
 	}
 
@@ -386,7 +419,6 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	}
 
 	private Competance cursorToCompetance(Cursor c) {
-		SQLiteDatabase bdd = getWritableDatabase();
 
 		//si aucun élément n'a été retourné dans la requête, on renvoie null
 		if (c.getCount() == 0)
@@ -401,7 +433,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		competance.setEffetComp(c.getString(NUM_COL_effetComp));
 		competance.setNomPro(c.getString(NUM_COL_nomProComp));
 		c.close();
-		bdd.close();
+
 		return competance;
 	}
 

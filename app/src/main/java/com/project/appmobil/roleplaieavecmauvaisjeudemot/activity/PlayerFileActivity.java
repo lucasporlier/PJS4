@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -84,7 +85,10 @@ public class PlayerFileActivity extends Activity {
 		}
 
         //TODO Les 2 ListView
+		PlayerCapacityArrayAdaptater adaptater = new PlayerCapacityArrayAdaptater(this,MainActivity.db.getCompetenceWithPro(j.getNom()));
 
+		ListView capacitiesView = (ListView) findViewById(R.id.list_capacities);
+		capacitiesView.setAdapter(adaptater);
 
 
 		final TextView tvHP = (TextView) findViewById(R.id.tvHP);
@@ -105,6 +109,10 @@ public class PlayerFileActivity extends Activity {
 			public void onStopTrackingTouch(SeekBar seekBar) {
 			}
 		});
+
+
+
+
 
 
 		final TextView tvMP = (TextView) findViewById(R.id.tvMP);

@@ -86,6 +86,11 @@ public class LoadGameActivity extends Activity {
 		}
 
 	}
+
+	public void testingCAPACITE(View view) {
+		((TextView) view).setText(MainActivity.db.getCompetenceWithPro("ail").toString());
+
+	}
 }
 
 
