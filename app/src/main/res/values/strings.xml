@@ -46,6 +46,7 @@
     <string name="add">Add</string>
     <string name="use">Use</string>
     <string name="use_item">Use Item</string>
+    <string name = "quantity_to_use">Quantity to Use</string>
 
 
 </resources>

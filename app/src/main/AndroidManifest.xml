@@ -33,26 +33,28 @@
 
         <activity android:name = ".activity.DiceActivity"></activity>
 
-        <activity android:name=".activity.InventoryActivity"></activity>
+        <activity android:name = ".activity.InventoryActivity"></activity>
 
-        <activity android:name=".activity.PlayerListActivity"></activity>
+        <activity android:name = ".activity.PlayerListActivity"></activity>
 
-        <activity android:name=".activity.PlayerFileActivity"></activity>
+        <activity android:name = ".activity.PlayerFileActivity"></activity>
 
-        <activity android:name=".activity.AddObjetActivity"></activity>
+        <activity android:name = ".activity.AddObjetActivity"></activity>
+
+        <activity android:name = ".activity.UseItemActivity"></activity>
     </application>
 
 
 </manifest>
 
-<!--
+    <!--
 
-Main Activity
-NewGameActivity
-NewGameActivity2
-PlayerFileCreationActivity
-InGameMenuActivity
-LoadGameActivity
-Dice
+    Main Activity
+    NewGameActivity
+    NewGameActivity2
+    PlayerFileCreationActivity
+    InGameMenuActivity
+    LoadGameActivity
+    Dice
 
--->
+    -->

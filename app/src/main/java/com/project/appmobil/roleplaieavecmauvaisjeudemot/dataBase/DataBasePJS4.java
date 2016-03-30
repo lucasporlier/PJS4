@@ -212,8 +212,10 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		SQLiteDatabase bdd = getWritableDatabase();
 
 		String query = "SELECT * FROM " + tab_objet + " WHERE " + COL_nomObj + " = \"" + nom + "\" AND " +COL_nomproObj + " = \"" + nomPro + "\"" ;
+		Log.i("projet", query);
 		Cursor c = bdd.rawQuery(query, null);
 		Objet o = cursorToObjet(c);
+		Log.i("projet", "objet trouvé" + o.toString());
 		bdd.close();
 		return o;
 	}
@@ -256,7 +258,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		bdd.close();
 	}
 
-	public int updateObjet(String nom, Objet o) {
+	public int updateObjet(String nom, Objet o, String nomPro) {
 		SQLiteDatabase bdd = getWritableDatabase();
 
 		ContentValues values = new ContentValues();
@@ -264,7 +266,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nbObj, o.getNb());
 		values.put(COL_effetComp, o.getEffet());
 		values.put(COL_nomProComp, o.getNomPro());
-		return bdd.update(tab_objet, values, COL_nomObj + " = " + nom, null);
+		return bdd.update(tab_objet, values, COL_nomObj + " = " + nom +"AND" +COL_nomproObj + " = " + nomPro, null);
 
 	}
 
@@ -293,8 +295,9 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		}
 
 
-		Objet o = new Objet();
+		Objet o;
 		while (c.moveToNext()) {
+			o = new Objet();
 			o.setId(c.getInt(NUM_COL_IDObj));
 			o.setNom(c.getString(NUM_COL_nomObj));
 			o.setNb(c.getInt(NUM_COL_nbObj));
@@ -482,12 +485,11 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		private  List<Joueur> cursorToListJoueur(Cursor c) {
 			SQLiteDatabase bdd = getWritableDatabase();
 
-
 			List<Joueur> l = new ArrayList<Joueur>();
 
-
+			Joueur joueur;
 			while (c.moveToNext()) {
-				Joueur joueur = new Joueur();
+				joueur = new Joueur();
 				//on lui affecte toutes les infos grâce aux infos contenues dans le Cursor
 				joueur.setId(c.getInt(NUM_COL_ID));
 				joueur.setNom(c.getString(NUM_COL_nomPerso));
@@ -569,9 +571,11 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		Cursor c = bdd.rawQuery(query, null);
 		Log.i("projet", "requete executé");
 		List<Partie> listGames = new ArrayList<>();
-		Partie partie = new Partie();
+		Partie partie;
 
 		while (c.moveToNext()) {
+
+			partie = new Partie();
 
 			partie.setId(c.getInt(NUM_COL_IDParti));
 			partie.setNom(c.getString(NUM_COL_nomParti));

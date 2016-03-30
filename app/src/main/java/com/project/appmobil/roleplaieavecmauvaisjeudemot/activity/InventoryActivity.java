@@ -1,29 +1,28 @@
 package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v4.app.FragmentManager;
-        import android.support.v7.app.AppCompatActivity;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.AdapterView;
-        import android.widget.ListView;
-        import android.widget.PopupMenu;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.TextView;
 
-        import com.project.appmobil.roleplaieavecmauvaisjeudemot.Dialog.DialogUseItem;
-        import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
-        import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
-        import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Objet;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Objet;
 
-        import java.util.List;
+import java.util.List;
 
 /**
  * Created by nivet on 23/03/2016.
  */
 public class InventoryActivity extends AppCompatActivity {
     public static final String EXTRA_NOMPRO = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPRO";
+    public static final String EXTRA_NOMOBJET = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMOBJET";
     private Joueur joueur;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,26 +43,31 @@ public class InventoryActivity extends AppCompatActivity {
             objetView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
-                    PopupMenu popupMenu = new PopupMenu(InventoryActivity.this, view);
+                PopupMenu popupMenu = new PopupMenu(InventoryActivity.this, view);
 
-                    popupMenu.getMenuInflater().inflate(R.menu.inventory_pop_up_menu, popupMenu.getMenu());
+                popupMenu.getMenuInflater().inflate(R.menu.inventory_pop_up_menu, popupMenu.getMenu());
 
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        public boolean onMenuItemClick(MenuItem item) {
-                            // Toast.makeText(InventoryActivity.this, "You Clicked : " + (parent.getItemAtPosition(position)), Toast.LENGTH_SHORT).show();
-                            if (item.getItemId() == R.id.add) {
-                                DialogUseItem dialogUseItem = new DialogUseItem();
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                    // Toast.makeText(InventoryActivity.this, "You Clicked : " + (parent.getItemAtPosition(position)), Toast.LENGTH_SHORT).show();
+                    if (item.getItemId() == R.id.add) {
 
-                                //dialogUseItem.show(dialogUseItem, "Use Item");
-                            }
+                    }
 
-                            if(item.getItemId() ==R.id.use){
+                    if(item.getItemId() ==R.id.use){
+                        Intent intent = new Intent(InventoryActivity.this, UseItemActivity.class);
 
-                            }
+                        intent.putExtra(EXTRA_NOMOBJET, String.valueOf(parent.getItemAtPosition(position)));
+                        intent.putExtra(EXTRA_NOMPRO, joueur.getNom());
 
-                            return true;
-                        }
-                    });
+                        Log.i("projet", "NOM : " + String.valueOf(parent.getItemAtPosition(position) + "  Proprietaire : " + joueur.getNom()));
+
+                                startActivity(intent);
+                    }
+
+                    return true;
+                    }
+                });
 
                     popupMenu.show();
                 }
