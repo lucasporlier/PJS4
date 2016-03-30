@@ -3,6 +3,7 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,13 +22,15 @@ public class UseItemActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.add_objet_layout);
+		setContentView(R.layout.use_item_layout);
 		Intent intent = getIntent();
 
 		String nomObjet = intent.getStringExtra(InventoryActivity.EXTRA_NOMOBJET);
 		String nomPro = intent.getStringExtra(InventoryActivity.EXTRA_NOMPRO);
 
 		objet = MainActivity.db.getObjetWithName(nomObjet, nomPro);
+
+		Log.i("projet", objet.getNom() + " " + objet.getNomPro());
 
 		TextView textViewNomPro = (TextView) findViewById(R.id.nomProObjUtil);
 		TextView textViewNom = (TextView) findViewById(R.id.nomObjUtil);
@@ -49,8 +52,10 @@ public class UseItemActivity extends Activity {
 		DataBasePJS4 db = MainActivity.db;
 
 		EditText useQuantity = (EditText) findViewById(R.id.nombreUse);
-		objet.setNb(objet.getNb() - Integer.parseInt(useQuantity.getText().toString()));
+
 		if(Integer.parseInt(useQuantity.getText().toString())<= objet.getNb()){
+			objet.setNb(objet.getNb() - Integer.parseInt(useQuantity.getText().toString()));
+			Log.i("projet", String.valueOf(objet.getNb()));
 			db.updateObjet(objet.getNom(), objet, objet.getNomPro());
 		}
 

@@ -12,22 +12,26 @@
     <TextView
         android:id = "@+id/nomProObjUtil"
         android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"/>
+        android:layout_height = "wrap_content"
+        android:text="NomPro"/>
 
     <TextView
         android:id = "@+id/nomObjUtil"
         android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"/>
+        android:layout_height = "wrap_content"
+        android:text="nomObj"/>
 
     <TextView
         android:id = "@+id/quantityObjUtil"
         android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"/>
+        android:layout_height = "wrap_content"
+        android:text="@string/quantity"/>
 
     <TextView
         android:id = "@+id/effetObjUtil"
         android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"/>
+        android:layout_height = "wrap_content"
+        android:text="@string/object_effect"/>
 
     <TextView
         android:layout_width = "wrap_content"
