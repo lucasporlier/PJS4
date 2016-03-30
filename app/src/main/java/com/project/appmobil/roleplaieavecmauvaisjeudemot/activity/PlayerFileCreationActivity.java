@@ -12,6 +12,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Competance;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
@@ -39,6 +40,7 @@ public class PlayerFileCreationActivity extends Activity {
 	private static TextView hpPerso;
 	private static TextView manaPerso;
 	private String lore = "";
+	private List<Competance> listCapacity;
 
 
 	private int numCapacities = 1;
@@ -161,9 +163,9 @@ public class PlayerFileCreationActivity extends Activity {
 		return listValues;
 	}
 
-	public List<String> getCapacities() {
+	public List<Competance> getCapacities() {
 
-		List<String> listCapacities = new ArrayList<>();
+		List<Competance> listCapacities = new ArrayList<>();
 
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.capacitiesTable);
 
@@ -174,14 +176,13 @@ public class PlayerFileCreationActivity extends Activity {
 				Log.i("projet", "la ligne : " + i + " est bien une table row");
 
 				Log.i("projet", "Il y a " + ((TableRow) tableLayout.getChildAt(i)).getChildCount() + "fils dans tableRow");
-				for (int j = 0; j < ((TableRow) tableLayout.getChildAt(i)).getChildCount(); j++) {
+				Competance c = new Competance();
+			c.setNomComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(0)).getText().toString());
+			c.setEffetComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(1)).getText().toString());
+			c.setNomPro(nomPerso.getText().toString());
 
-					/*if (((TableRow) tableLayout.getChildAt(i)).getChildAt(j) instanceof EditText) {*/
-						listCapacities.add(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(j)).getText().toString());
-						Log.i("projet", "Ligne ajoutée");
-					/*}*/
-				/*}*/
-			}
+			listCapacities.add(c);
+
 		}
 
 		return listCapacities;
@@ -193,8 +194,11 @@ public class PlayerFileCreationActivity extends Activity {
 
 
     public void suivant(View view) {
+		 listCapacity = getCapacities();
 		Joueur j = new Joueur (nomPerso.getText().toString(),racePerso.getText().toString(),Integer.parseInt(hpPerso.getText().toString()),Integer.parseInt(manaPerso.getText().toString()),lore,p.getNom());
+
 		Log.i("Joueur",j.getRace());
+
 		playerList.add(j);
 
 		Log.i("projet", getCharacteristicValues().toString());
@@ -202,9 +206,11 @@ public class PlayerFileCreationActivity extends Activity {
 		if (numeroPlayer < nbPlayerMAX) {
 
 			Log.i("projet", "Préparation de l'intent PlayerFileCreationActivity");
+
 			Intent intent = new Intent(this, PlayerFileCreationActivity.class);
 
 			Log.i("projet", "Préparation du putExtra EXTRA_NUMPLAYER");
+
 			intent.putExtra(EXTRA_NUMPLAYER, String.valueOf((numeroPlayer + 1) + ""));
 			intent.putExtra(NewGameActivity2.EXTRA_GAME, p);
 			intent.putParcelableArrayListExtra("List", playerList);
@@ -212,15 +218,22 @@ public class PlayerFileCreationActivity extends Activity {
 		} else {
 
 			Log.i("projet", "Préparation de l'intent InGameMenu Activity");
+
 			Intent intent = new Intent(this, InGameMenuActivity.class);
             intent.putExtra(LoadGameActivity.EXTRA_GAMENAME, p);
+
 			Log.i("projet", "Lancement de l'intent InGameMenu Activity");
 
 			for(Joueur joueur: playerList){
 				MainActivity.db.insertJoueur(joueur);
 			}
 
+			for(Competance c : listCapacity){
+				MainActivity.db.insertCompetance(c);
+			}
+
 			Log.i("TestBd",MainActivity.db.getAllPlayer(p.getNom()).toString());
+
 			MainActivity.db.insertparti(p);
 
 			startActivity(intent);

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              android:layout_width = "match_parent"
+              android:layout_height = "match_parent"
+              android:orientation = "vertical">
+
+    <TextView
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Add Item"/>
+
+    <TextView
+        android:id = "@+id/nomProObjUtil"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text="NomPro"/>
+
+    <TextView
+        android:id = "@+id/nomObjUtil"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text="nomObj"/>
+
+    <TextView
+        android:id = "@+id/quantityObjUtil"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text="@string/quantity"/>
+
+    <TextView
+        android:id = "@+id/effetObjUtil"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text="@string/object_effect"/>
+
+    <TextView
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "@string/quantity_to_use"/>
+
+    <EditText
+        android:id = "@+id/nombreUse"
+        android:layout_width = "150sp"
+        android:layout_height = "wrap_content"
+        android:hint = "Quantity"
+        android:inputType = "number"/>
+
+    <LinearLayout
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:orientation = "horizontal"
+        android:layout_gravity="center">
+
+        <Button
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "@string/cancel"
+            android:onClick="cancel"
+            android:layout_marginRight="20sp"/>
+
+        <Button
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:text = "@string/add"
+            android:onClick="add"/>
+    </LinearLayout>
+
+</LinearLayout>

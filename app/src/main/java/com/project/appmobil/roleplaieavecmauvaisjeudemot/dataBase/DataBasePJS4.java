@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class DataBasePJS4 extends SQLiteOpenHelper {
 
-	private static final int version = 1;
+	private static final int version = 2;
 	private static final String dataBaseName = "PJS4.db";
 
 	/*-----------------------------------------------------------------Competance---------------------------------------------------------*/
@@ -39,7 +39,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	private static final String COL_manaUseComp = "manaUse";
 	private static final int NUM_COL_manaUseComp = 4;
 
-	private static final String tab_comp = "CREATE TABLE " + tab_competance + " (" + COL_IDComp + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomComp + " TEXT NOT NULL, " + COL_effetComp + " TEXT NOT NULL, " + COL_nomProComp + " TEXT NOT NULL, " + COL_manaUseComp + " INTEGER NOT NULL);";
+	private static final String tab_comp = "CREATE TABLE " + tab_competance + " (" + COL_IDComp + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_nomComp + " TEXT NOT NULL, " + COL_effetComp + " TEXT NOT NULL, " + COL_nomProComp + " TEXT NOT NULL);";
 
 	/*---------------------------------------------------------------------Objet-------------------------------------------------------*/
 	private static final String tab_objet = "table_objet";
@@ -260,14 +260,18 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 	public void updateObjet(String nom, Objet o, String nomPro) {
 		SQLiteDatabase bdd = getWritableDatabase();
 
-		ContentValues values = new ContentValues();
+		String query = "UPDATE " + tab_objet + " SET " + COL_nbObj + " = " + o.getNb() + " WHERE " + COL_nomObj + " =\"" + nom + "\"  AND " + COL_nomproObj + " = \"" + nomPro + "\"";
+		Log.i("TestUpdate", query);
+		bdd.execSQL(query);
+
+		/*ContentValues values = new ContentValues();
 
 		values.put(COL_nomObj, o.getNom());
 		values.put(COL_nbObj, o.getNb());
 		values.put(COL_effetComp, o.getEffet());
 		values.put(COL_nomProComp, o.getNomPro());
 
-		bdd.update(tab_objet, values, COL_nomObj + " =\" " + nom + "\"  AND " + COL_nomproObj + " = \"" + nomPro + "\"", null);
+		bdd.update(tab_objet, values, COL_nomObj + " =\" " + nom + "\"  AND " + COL_nomproObj + " = \"" + nomPro + "\"", null);*/
 
 		bdd.close();
 	}
@@ -360,8 +364,6 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		values.put(COL_nomComp, c.getNomComp());
 		values.put(COL_effetComp, c.getEffetComp());
 		values.put(COL_nomProComp, c.getNomPro());
-		values.put(COL_manaUseComp, c.getManaUse());
-
 		bdd.insert(tab_competance, null, values);
 		bdd.close();
 	}
@@ -398,7 +400,6 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
 		competance.setNomComp(c.getString(NUM_COL_nomComp));
 		competance.setEffetComp(c.getString(NUM_COL_effetComp));
 		competance.setNomPro(c.getString(NUM_COL_nomProComp));
-		competance.setManaUse(c.getInt(NUM_COL_manaUseComp));
 		c.close();
 		bdd.close();
 		return competance;

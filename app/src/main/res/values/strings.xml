@@ -47,6 +47,7 @@
     <string name="use">Use</string>
     <string name="use_item">Use Item</string>
     <string name = "quantity_to_use">Quantity to Use</string>
+    <string name="not_enought_item">You don\'t have enought item !</string>
 
 
 </resources>

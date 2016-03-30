@@ -26,6 +26,7 @@ public class PlayerFileActivity extends Activity {
 	private TextView pvPerso;
 	private TextView manaPerso;
 	private TextView xpPerso;
+	private TextView racePerso;
 
 
 	public static final String EXTRA_NOMPROP = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPROP";
@@ -47,19 +48,24 @@ public class PlayerFileActivity extends Activity {
 		pvPerso = (TextView) findViewById(R.id.tvHP);
 		manaPerso = (TextView) findViewById(R.id.tvMP);
 		xpPerso = (TextView) findViewById(R.id.tvXP);
+		racePerso = (TextView) findViewById(R.id.race);
+
 
 		namePerso.setText(j.getNom());
 		lvlPerso.setText(String.valueOf(j.getLvl()));
 		pvPerso.setText(String.valueOf(j.getPv()));
 		manaPerso.setText(String.valueOf(j.getMana()));
 		xpPerso.setText(String.valueOf(j.getNbExp()));
+		racePerso.setText(j.getRace());
 
 		SeekBar seekBarHP = (SeekBar) findViewById(R.id.seekBarHP);
 		seekBarHP.setMax(j.getHpMax());
+		seekBarHP.setProgress(j.getPv());
 
 
 		SeekBar seekBarMP = (SeekBar) findViewById(R.id.seekBarMP);
 		seekBarMP.setMax(j.getManaMax());
+		seekBarMP.setProgress(j.getMana());
 
 		TableRow tableRowName = (TableRow) findViewById(R.id.table_caracteristics_name);
 		TextView tv;

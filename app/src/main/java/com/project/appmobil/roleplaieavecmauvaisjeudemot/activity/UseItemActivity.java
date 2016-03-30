@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Objet;
 
 /**
@@ -49,16 +51,31 @@ public class UseItemActivity extends Activity {
 	}
 
 	public void use(View view) {
-		DataBasePJS4 db = MainActivity.db;
+
 
 		EditText useQuantity = (EditText) findViewById(R.id.nombreUse);
 
 		if(Integer.parseInt(useQuantity.getText().toString())<= objet.getNb()){
 			objet.setNb(objet.getNb() - Integer.parseInt(useQuantity.getText().toString()));
+
 			Log.i("projet", String.valueOf(objet.getNb()));
-			db.updateObjet(objet.getNom(), objet, objet.getNomPro());
+
+			MainActivity.db.updateObjet(objet.getNom(), objet, objet.getNomPro());
+
+			Log.i("TestUpdate",String.valueOf(MainActivity.db.getObjetWithName(objet.getNom(),objet.getNomPro()).getNb()));
+
+			Intent intent = new Intent(this,InventoryActivity.class);
+
+			Joueur j = MainActivity.db.getJoueurWithName(objet.getNomPro());
+			intent.putExtra(PlayerFileActivity.EXTRA_NOMPROP, j);
+
+			startActivity(intent);
+
+			finish();
+		}else{
+			Toast.makeText(this, R.string.not_enought_item, Toast.LENGTH_LONG).show();
 		}
 
-		cancel(view);
+
 	}
 }

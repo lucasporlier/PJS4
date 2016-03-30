@@ -51,7 +51,14 @@ public class InventoryActivity extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                     // Toast.makeText(InventoryActivity.this, "You Clicked : " + (parent.getItemAtPosition(position)), Toast.LENGTH_SHORT).show();
                     if (item.getItemId() == R.id.add) {
+                        Intent intent = new Intent(InventoryActivity.this, AddItemActivity.class);
 
+                        intent.putExtra(EXTRA_NOMOBJET, String.valueOf(parent.getItemAtPosition(position)));
+                        intent.putExtra(EXTRA_NOMPRO, joueur.getNom());
+
+                        Log.i("projet", "NOM : " + String.valueOf(parent.getItemAtPosition(position) + "  Proprietaire : " + joueur.getNom()));
+
+                        startActivity(intent);
                     }
 
                     if(item.getItemId() ==R.id.use){
@@ -84,4 +91,11 @@ public class InventoryActivity extends AppCompatActivity {
     }
 
 
+    public void back(View view) {
+        Intent intent = new Intent(this, PlayerFileActivity.class);
+        intent.putExtra(PlayerListActivity.EXTRA_PLAYER_NAME, joueur);
+
+        startActivity(intent);
+
+    }
 }

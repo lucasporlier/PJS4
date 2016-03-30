@@ -42,6 +42,8 @@
         <activity android:name = ".activity.AddObjetActivity"></activity>
 
         <activity android:name = ".activity.UseItemActivity"></activity>
+
+        <activity android:name = ".activity.AddItemActivity"></activity>
     </application>
 
 

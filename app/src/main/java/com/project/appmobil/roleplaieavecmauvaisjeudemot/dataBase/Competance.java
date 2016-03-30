@@ -8,16 +8,14 @@ public class Competance {
 
 	private String NomComp;
 	private String effetComp;
-	private int manaUse;
 	private String nomPro;
 
 	public Competance() {
 	}
 
-	public Competance(String nomComp, String effetComp, int manaUse, String nomPro) {
+	public Competance(String nomComp, String effetComp, String nomPro) {
 		NomComp = nomComp;
 		this.effetComp = effetComp;
-		this.manaUse = manaUse;
 		this.nomPro = nomPro;
 	}
 
@@ -29,16 +27,9 @@ public class Competance {
 		return nomPro;
 	}
 
-	public int getManaUse() {
-		return manaUse;
-	}
 
 	public String getEffetComp() {
 		return effetComp;
-	}
-
-	public void setManaUse(int manaUse) {
-		this.manaUse = manaUse;
 	}
 
 	public void setNomPro(String nomPro) {

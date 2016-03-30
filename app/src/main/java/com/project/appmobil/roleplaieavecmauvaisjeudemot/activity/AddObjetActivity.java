@@ -1,6 +1,7 @@
 package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -40,6 +41,8 @@ public class AddObjetActivity extends Activity {
     public void addAndQuit(View view) {
         Objet o = new Objet(Integer.parseInt(quantiteObjet.getText().toString()),nomObjet.getText().toString(),effetObjet.getText().toString(),nomPro);
         MainActivity.db.insertObjets(o);
+        Intent intent = new Intent(this,InventoryActivity.class);
+        startActivity(intent);
         finish();
     }
 }
