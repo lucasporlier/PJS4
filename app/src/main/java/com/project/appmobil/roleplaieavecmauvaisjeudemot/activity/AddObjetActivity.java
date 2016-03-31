@@ -10,13 +10,19 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Objet;
 
 /**
+ * Used by the layout add_object.xml
+ *
  * Created by qu2 on 29/03/2016.
+ *
+ * @see InventoryActivity
+ * @see Objet
  */
 public class AddObjetActivity extends Activity {
     private EditText nomObjet;
     private EditText effetObjet;
     private EditText quantiteObjet;
     private String nomPro;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +35,13 @@ public class AddObjetActivity extends Activity {
     }
 
 
+    /**
+     * Add an object and prepare the activity for an other new Item
+     *
+     * @param view
+     */
     public void addAndNew(View view) {
-        Objet o = new Objet(Integer.parseInt(quantiteObjet.getText().toString()),nomObjet.getText().toString(),effetObjet.getText().toString(),nomPro);
+        Objet o = new Objet(Integer.parseInt(quantiteObjet.getText().toString()), nomObjet.getText().toString(), effetObjet.getText().toString(), nomPro);
         MainActivity.db.insertObjets(o);
 
         nomObjet.setText("");
@@ -38,10 +49,15 @@ public class AddObjetActivity extends Activity {
         quantiteObjet.setText("");
     }
 
+    /**
+     * Add an Item and end this activity
+     *
+     * @param view
+     */
     public void addAndQuit(View view) {
-        Objet o = new Objet(Integer.parseInt(quantiteObjet.getText().toString()),nomObjet.getText().toString(),effetObjet.getText().toString(),nomPro);
+        Objet o = new Objet(Integer.parseInt(quantiteObjet.getText().toString()), nomObjet.getText().toString(), effetObjet.getText().toString(), nomPro);
         MainActivity.db.insertObjets(o);
-        Intent intent = new Intent(this,InventoryActivity.class);
+        Intent intent = new Intent(this, InventoryActivity.class);
         startActivity(intent);
         finish();
     }

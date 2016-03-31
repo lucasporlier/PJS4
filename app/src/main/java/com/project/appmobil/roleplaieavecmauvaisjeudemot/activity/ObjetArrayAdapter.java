@@ -16,13 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * A custom adapter to manage the visual of a list of Objects
+ * <p/>
  * Created by nivet on 23/03/2016.
  */
 public class ObjetArrayAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
     private List<Objet> obj;
-    private List<LinearLayout> layoutItems =  new ArrayList<LinearLayout>();
+    private List<LinearLayout> layoutItems = new ArrayList<LinearLayout>();
     private LinearLayout layoutItem;
 
     public ObjetArrayAdapter(Context context, List<Objet> o) {
@@ -39,7 +41,7 @@ public class ObjetArrayAdapter extends BaseAdapter {
 
     @Override
     public String getItem(int position) {
-        return ((TextView)layoutItems.get(position).findViewById(R.id.nomObjet)).getText().toString();
+        return ((TextView) layoutItems.get(position).findViewById(R.id.nomObjet)).getText().toString();
     }
 
     @Override
@@ -51,14 +53,13 @@ public class ObjetArrayAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             layoutItem = (LinearLayout) mInflater.inflate(R.layout.inventory_object_layout, parent, false);
-        }
-        else{
+        } else {
             layoutItem = (LinearLayout) convertView;
         }
 
-        TextView nomObjet = (TextView)layoutItem.findViewById(R.id.nomObjet);
-        TextView effetObjet = (TextView)layoutItem.findViewById(R.id.effetObjet);
-        TextView nbObjet = (TextView)layoutItem.findViewById(R.id.nbObjet);
+        TextView nomObjet = (TextView) layoutItem.findViewById(R.id.nomObjet);
+        TextView effetObjet = (TextView) layoutItem.findViewById(R.id.effetObjet);
+        TextView nbObjet = (TextView) layoutItem.findViewById(R.id.nbObjet);
 
         nomObjet.setText(obj.get(position).getNom());
         effetObjet.setText(obj.get(position).getEffet());
@@ -68,5 +69,5 @@ public class ObjetArrayAdapter extends BaseAdapter {
         return layoutItem;
     }
 
-    
+
 }

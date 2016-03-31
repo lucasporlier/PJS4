@@ -1,56 +1,79 @@
 package com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase;
 
 /**
+ * A capacity
+ *
  * Created by qu2 on 21/03/2016.
+ *
+ * @see com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.NewGameActivity2
  */
 public class Competance {
-	private int id;
+    /**
+     * An identifier for the capacity
+     */
+    private int id;
 
-	private String NomComp;
-	private String effetComp;
-	private String nomPro;
+    /**
+     * The name of the capacity
+     */
+    private String NomComp;
 
-	public Competance() {
-	}
+    /**
+     * the effect of the capacity
+     */
+    private String effetComp;
 
-	public Competance(String nomComp, String effetComp, String nomPro) {
-		NomComp = nomComp;
-		this.effetComp = effetComp;
-		this.nomPro = nomPro;
-	}
+    /**
+     * the capacity owner name
+     */
+    private String nomPro;
 
-	public String getNomComp() {
-		return NomComp;
-	}
+    public Competance() {
+    }
 
-	public String getNomPro() {
-		return nomPro;
-	}
+    public Competance(String nomComp, String effetComp, String nomPro) {
+        NomComp = nomComp;
+        this.effetComp = effetComp;
+        this.nomPro = nomPro;
+    }
 
 
-	public String getEffetComp() {
-		return effetComp;
-	}
+    // ***** GETTERS *****
+    public String getNomComp() {
+        return NomComp;
+    }
 
-	public void setNomPro(String nomPro) {
-		this.nomPro = nomPro;
-	}
+    public String getNomPro() {
+        return nomPro;
+    }
 
-	public void setEffetComp(String effetComp) {
-		this.effetComp = effetComp;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setNomComp(String nomComp) {
-		NomComp = nomComp;
-	}
+    public String getEffetComp() {
+        return effetComp;
+    }
+    // ***** END GETTER *****
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
-	public int getId() {
+    // ***** SETTER *****
+    public void setNomPro(String nomPro) {
+        this.nomPro = nomPro;
+    }
 
-		return id;
-	}
+    public void setEffetComp(String effetComp) {
+        this.effetComp = effetComp;
+    }
+
+    public void setNomComp(String nomComp) {
+        NomComp = nomComp;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    // ***** END SETTER ******
+
 
 }

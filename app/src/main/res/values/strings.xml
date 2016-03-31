@@ -48,6 +48,11 @@
     <string name="use_item">Use Item</string>
     <string name = "quantity_to_use">Quantity to Use</string>
     <string name="not_enought_item">You don\'t have enought item !</string>
+    <string name="play">Play</string>
+    <string name="delete">Delete</string>
+    <string name="please_comp_all_fielsd">Please complete all fields</string>
+    <string name="char_name_token">The character name is already taken</string>
+    <string name="summary">Summary</string>
 
 
 </resources>

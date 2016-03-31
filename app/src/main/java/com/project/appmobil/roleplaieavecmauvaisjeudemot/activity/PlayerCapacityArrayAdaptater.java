@@ -15,13 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * A custom adapter to manage the visual of the players capacities
+ * <p/>
  * Created by qu2 on 30/03/2016.
  */
 public class PlayerCapacityArrayAdaptater extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
     private List<Competance> competences;
-    private List<LinearLayout> layoutItems =  new ArrayList<LinearLayout>();
+    private List<LinearLayout> layoutItems = new ArrayList<LinearLayout>();
 
     public PlayerCapacityArrayAdaptater(Context context, List<Competance> competences) {
         this.mContext = context;
@@ -51,13 +53,12 @@ public class PlayerCapacityArrayAdaptater extends BaseAdapter {
         LinearLayout layoutItem;
         if (convertView == null) {
             layoutItem = (LinearLayout) mInflater.inflate(R.layout.player_file_capacity_layout, parent, false);
-        }
-        else{
+        } else {
             layoutItem = (LinearLayout) convertView;
         }
 
-        TextView capacityName = (TextView)layoutItem.findViewById(R.id.capacityName);
-        TextView capacityDesciption = (TextView)layoutItem.findViewById(R.id.capacityDesciption);
+        TextView capacityName = (TextView) layoutItem.findViewById(R.id.capacityName);
+        TextView capacityDesciption = (TextView) layoutItem.findViewById(R.id.capacityDesciption);
 
         capacityName.setText(competences.get(position).getNomComp());
         capacityDesciption.setText(competences.get(position).getEffetComp());

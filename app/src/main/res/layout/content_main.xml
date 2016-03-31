@@ -50,38 +50,6 @@
                 android:text="@string/load_game"
                 />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ff0000"
-                android:onClick="test"
-                android:text="TEST"
-                />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ff1100"
-                android:onClick="test2"
-                android:text="TESTnewPlayer"
-                />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ff2200"
-                android:onClick="test3"
-                android:text="TESTplayerfile"
-                />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ff3300"
-                android:onClick="test4"
-                android:text="TESTDiceActivity"
-                />
-
         </LinearLayout>
 
 

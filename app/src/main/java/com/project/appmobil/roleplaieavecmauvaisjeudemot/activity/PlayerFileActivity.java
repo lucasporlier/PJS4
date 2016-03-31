@@ -18,56 +18,60 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Stat;
 
 /**
  * Used to manage the player's information
+ * <p/>
  * Created by ZHOU Eric on 22/02/2016.
+ *
+ * @see PlayerFileCreationActivity
  */
 public class PlayerFileActivity extends Activity {
 
-	private TextView namePerso;
-	private TextView lvlPerso;
-	private TextView pvPerso;
-	private TextView manaPerso;
-	private TextView xpPerso;
-	private TextView racePerso;
+    private TextView namePerso;
+    private TextView lvlPerso;
+    private TextView pvPerso;
+    private TextView manaPerso;
+    private TextView xpPerso;
+    private TextView racePerso;
 
 
-	public static final String EXTRA_NOMPROP = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPROP";
+    public static final String EXTRA_NOMPROP = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPROP";
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.player_file_layout);
-		Log.i("projet", "OnCreate PlayerFileActivity");
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.player_file_layout);
+        Log.i("projet", "OnCreate PlayerFileActivity");
 
-		Intent intent = getIntent();
+        Intent intent = getIntent();
 
-		Joueur j =intent.getParcelableExtra(PlayerListActivity.EXTRA_PLAYER_NAME);
-
-
-
-		namePerso = (TextView) findViewById(R.id.player_file_title);
-		lvlPerso = (TextView) findViewById(R.id.player_level);
-		pvPerso = (TextView) findViewById(R.id.tvHP);
-		manaPerso = (TextView) findViewById(R.id.tvMP);
-		xpPerso = (TextView) findViewById(R.id.tvXP);
-		racePerso = (TextView) findViewById(R.id.race);
+        Joueur j = intent.getParcelableExtra(PlayerListActivity.EXTRA_PLAYER_NAME);
 
 
-		namePerso.setText(j.getNom());
-		lvlPerso.setText(String.valueOf(j.getLvl()));
-		pvPerso.setText(String.valueOf(j.getPv()));
-		manaPerso.setText(String.valueOf(j.getMana()));
-		xpPerso.setText(String.valueOf(j.getNbExp()));
-		racePerso.setText(j.getRace());
-
-		SeekBar seekBarHP = (SeekBar) findViewById(R.id.seekBarHP);
-		seekBarHP.setMax(j.getHpMax());
-		seekBarHP.setProgress(j.getPv());
+        namePerso = (TextView) findViewById(R.id.player_file_title);
+        lvlPerso = (TextView) findViewById(R.id.player_level);
+        pvPerso = (TextView) findViewById(R.id.tvHP);
+        manaPerso = (TextView) findViewById(R.id.tvMP);
+        xpPerso = (TextView) findViewById(R.id.tvXP);
+        racePerso = (TextView) findViewById(R.id.race);
 
 
-		SeekBar seekBarMP = (SeekBar) findViewById(R.id.seekBarMP);
-		seekBarMP.setMax(j.getManaMax());
-		seekBarMP.setProgress(j.getMana());
+        namePerso.setText(j.getNom());
+        lvlPerso.setText(String.valueOf(j.getLvl()));
+        pvPerso.setText(String.valueOf(j.getPv()));
+        manaPerso.setText(String.valueOf(j.getMana()));
+        xpPerso.setText(String.valueOf(j.getNbExp()));
+        racePerso.setText(j.getRace());
 
+        SeekBar seekBarHP = (SeekBar) findViewById(R.id.seekBarHP);
+        seekBarHP.setMax(j.getHpMax());
+        seekBarHP.setProgress(j.getPv());
+
+
+        SeekBar seekBarMP = (SeekBar) findViewById(R.id.seekBarMP);
+        seekBarMP.setMax(j.getManaMax());
+        seekBarMP.setProgress(j.getMana());
+
+/*
+        //TODO maybe one day
 		TableRow tableRowName = (TableRow) findViewById(R.id.table_caracteristics_name);
 		TextView tv;
 		for(Stat s :MainActivity.db.getAllStats(j.getNom())){
@@ -83,85 +87,87 @@ public class PlayerFileActivity extends Activity {
 			tv.setText(s.getNomStat());
 			tableRowValues.addView(tv);
 		}
+*/
 
-        //TODO Les 2 ListView
-		PlayerCapacityArrayAdaptater adaptater = new PlayerCapacityArrayAdaptater(this,MainActivity.db.getCompetenceWithPro(j.getNom()));
-
-		ListView capacitiesView = (ListView) findViewById(R.id.list_capacities);
-		capacitiesView.setAdapter(adaptater);
+        PlayerCapacityArrayAdaptater adaptater = new PlayerCapacityArrayAdaptater(this, MainActivity.db.getCompetenceWithPro(j.getNom()));
 
 
-		final TextView tvHP = (TextView) findViewById(R.id.tvHP);
-		SeekBar sbHP = (SeekBar) findViewById(R.id.seekBarHP);
-		sbHP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				Log.i("projet", "onProgressChanged");
-
-				tvHP.setText(String.valueOf(progress));
-			}
-
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
-			}
-
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
-			}
-		});
+        ListView capacitiesView = (ListView) findViewById(R.id.list_capacities);
+        capacitiesView.setAdapter(adaptater);
 
 
+        final TextView tvHP = (TextView) findViewById(R.id.tvHP);
+        SeekBar sbHP = (SeekBar) findViewById(R.id.seekBarHP);
+        sbHP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Log.i("projet", "onProgressChanged");
+
+                tvHP.setText(String.valueOf(progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
 
 
+        final TextView tvMP = (TextView) findViewById(R.id.tvMP);
+        SeekBar sbMP = (SeekBar) findViewById(R.id.seekBarMP);
+        sbMP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Log.i("projet", "onProgressChanged");
 
+                tvMP.setText(String.valueOf(progress));
+            }
 
-		final TextView tvMP = (TextView) findViewById(R.id.tvMP);
-		SeekBar sbMP = (SeekBar) findViewById(R.id.seekBarMP);
-		sbMP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				Log.i("projet", "onProgressChanged");
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
-				tvMP.setText(String.valueOf(progress));
-			}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
 
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
-			}
+        final TextView tvXP = (TextView) findViewById(R.id.tvXP);
+        SeekBar sbXP = (SeekBar) findViewById(R.id.seekBarXP);
+        sbXP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Log.i("projet", "onProgressChanged");
 
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
-			}
-		});
+                tvXP.setText(String.valueOf(progress));
+            }
 
-		final TextView tvXP = (TextView) findViewById(R.id.tvXP);
-		SeekBar sbXP = (SeekBar) findViewById(R.id.seekBarXP);
-		sbXP.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				Log.i("projet", "onProgressChanged");
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
-				tvXP.setText(String.valueOf(progress));
-			}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
 
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
-			}
+    }
 
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
-			}
-		});
+    /**
+     * Goes to inventory Activity
+     *
+     * @param view
+     */
+    public void inventory(View view) {
+        //Toast.makeText(this, R.string.todo, Toast.LENGTH_SHORT).show();
 
-	}
+        Intent intent = new Intent(this, InventoryActivity.class);
+        Joueur j = MainActivity.db.getJoueurWithName(((TextView) findViewById(R.id.player_file_title)).getText().toString());
+        intent.putExtra(EXTRA_NOMPROP, j);
+        startActivity(intent);
 
-	public void inventory(View view) {
-		//Toast.makeText(this, R.string.todo, Toast.LENGTH_SHORT).show();
-
-		Intent intent = new Intent(this, InventoryActivity.class);
-		Joueur j = MainActivity.db.getJoueurWithName(((TextView) findViewById(R.id.player_file_title)).getText().toString());
-		intent.putExtra(EXTRA_NOMPROP,j);
-		startActivity(intent);
-
-	}
+    }
 }

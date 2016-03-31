@@ -44,6 +44,8 @@
         <activity android:name = ".activity.UseItemActivity"></activity>
 
         <activity android:name = ".activity.AddItemActivity"></activity>
+
+        <activity android:name=".activity.SummaryActivity"></activity>
     </application>
 
 

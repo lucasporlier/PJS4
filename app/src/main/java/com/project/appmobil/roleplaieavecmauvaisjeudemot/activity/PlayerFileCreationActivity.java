@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Competance;
@@ -22,7 +23,12 @@ import java.util.List;
 
 /**
  * Used by the layout player_file_creation_layout.xml
+ *
  * Created by ZHOU Eric on 08/02/2016.
+ *
+ * @see NewGameActivity
+ * @see NewGameActivity2
+ * @see PlayerFileCreationActivity
  */
 public class PlayerFileCreationActivity extends Activity {
 
@@ -40,7 +46,7 @@ public class PlayerFileCreationActivity extends Activity {
 	private static TextView hpPerso;
 	private static TextView manaPerso;
 	private String lore = "";
-	private List<Competance> listCapacity = new ArrayList<>();
+	private static List<Competance> listCapacity = new ArrayList<>();
 
 
 	private int numCapacities = 1;
@@ -196,24 +202,33 @@ public class PlayerFileCreationActivity extends Activity {
 
 
     public void suivant(View view) {
+		Joueur jo = MainActivity.db.getJoueurWithName(nomPerso.getText().toString());
+
+
+
+		if(nomPerso.equals("") || racePerso.equals("")||hpPerso.getText().toString().equals("")||manaPerso.getText().toString().equals("")){
+			Toast.makeText(this, R.string.please_comp_all_fielsd, Toast.LENGTH_LONG).show();
+			return;
+		}
+
+		for(Joueur j : playerList){
+			if (j.getNom().equals(nomPerso.getText().toString())){
+				Toast.makeText(this, R.string.char_name_token, Toast.LENGTH_LONG).show();
+				return ;
+			}
+		}
+		if(jo != null){
+			Toast.makeText(this, R.string.char_name_token, Toast.LENGTH_LONG).show();
+			return ;
+		}
+
 
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.capacitiesTable);
 		Competance c;
 		Log.i("projet", "Il y a " + tableLayout.getChildCount() + "fils dans tableLayout");
 		for (int i = 0; i < tableLayout.getChildCount(); i++) {
+			MainActivity.db.insertCompetance(new Competance(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(0)).getText().toString(),((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(1)).getText().toString(),nomPerso.getText().toString()));
 
-			/*if (tableLayout.getChildAt(i) instanceof TableRow) {*/
-			Log.i("projet", "la ligne : " + i + " est bien une table row");
-
-			Log.i("projet", "Il y a " + ((TableRow) tableLayout.getChildAt(i)).getChildCount() + "fils dans tableRow");
-			c = new Competance();
-			c.setNomComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(0)).getText().toString());
-			c.setEffetComp(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(1)).getText().toString());
-			c.setNomPro(nomPerso.getText().toString());
-
-			listCapacity.add(c);
-
-			Log.i("TestInsert", listCapacity.get(i).getEffetComp());
 		}
 
 		Joueur j = new Joueur (nomPerso.getText().toString(),racePerso.getText().toString(),Integer.parseInt(hpPerso.getText().toString()),Integer.parseInt(manaPerso.getText().toString()),lore,p.getNom());
@@ -249,11 +264,13 @@ public class PlayerFileCreationActivity extends Activity {
 				MainActivity.db.insertJoueur(joueur);
 			}
 
-			for(Competance co : listCapacity){
+			/*for(Competance co : listCapacity){
 				MainActivity.db.insertCompetance(co);
 			}
+*/
 
-			Log.i("TestBd",MainActivity.db.getAllPlayer(p.getNom()).toString());
+
+			Log.i("TestBd", MainActivity.db.getAllPlayer(p.getNom()).toString());
 
 			MainActivity.db.insertparti(p);
 

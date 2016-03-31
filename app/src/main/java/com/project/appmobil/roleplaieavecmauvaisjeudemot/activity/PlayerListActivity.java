@@ -21,6 +21,9 @@ import java.util.List;
  * Created by ZHOU Eric on 21/03/2016.
  *
  * Used for the gestion of the player list activity
+ *
+ * @see PlayerFileActivity
+ * @see InGameMenuActivity
  */
 
 public class PlayerListActivity extends Activity {

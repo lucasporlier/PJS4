@@ -67,6 +67,7 @@
                     android:id = "@+id/seekBarHP"
                     android:layout_width = "match_parent"
                     android:layout_height = "wrap_content"
+
                     android:layout_gravity = "center_horizontal"
                     android:max = "10"
                     android:progress = "10"
@@ -127,13 +128,14 @@
                     android:layout_width = "match_parent"
                     android:layout_height = "wrap_content"
                     android:layout_gravity = "center_horizontal"
-                    android:max = "10"
-                    android:progress = "10"
+                    android:max = "100"
+                    android:progress = "0"
 
                     />
             </LinearLayout>
 
 
+            <!--
             <TableLayout
                 android:layout_width = "match_parent"
                 android:layout_height = "wrap_content"
@@ -154,11 +156,18 @@
 
             </TableLayout>
 
+            -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1">
             <TextView
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
                 android:layout_gravity = "center"
-                android:layout_marginTop = "50sp"
+                android:layout_marginTop = "20sp"
                 android:text = "@string/capacities"
                 android:textStyle = "bold"
                 />
@@ -167,7 +176,8 @@
             <ListView
                 android:id = "@+id/list_capacities"
                 android:layout_width = "match_parent"
-                android:layout_height = "wrap_content">
+                android:layout_height = "150dp"
+                android:layout_weight="3.70">
 
             </ListView>
 
@@ -179,6 +189,7 @@
                 android:onClick = "inventory"
                 android:text = "@string/inventory"/>
 
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

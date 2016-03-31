@@ -53,27 +53,7 @@
             />
     </LinearLayout >
 
-    <LinearLayout
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:layout_gravity = "center"
-        android:orientation = "horizontal"
-        >
 
-        <Button
-            android:layout_width = "150sp"
-            android:layout_height = "80sp"
-            android:layout_margin = "10sp"
-            android:text = "button"
-            />
-
-        <Button
-            android:layout_width = "150sp"
-            android:layout_height = "80sp"
-            android:layout_margin = "10sp"
-            android:text = "button"
-            />
-    </LinearLayout >
 
     <LinearLayout
         android:layout_width = "wrap_content"
@@ -86,7 +66,8 @@
             android:layout_width = "150sp"
             android:layout_height = "80sp"
             android:layout_margin = "10sp"
-            android:text = "button"
+            android:text = "summary"
+            android:onClick="writeSummary"
             />
 
         <Button

@@ -1,56 +1,79 @@
 package com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase;
 
 /**
+ * A Characteristic
+ * <p/>
  * Created by qu2 on 21/03/2016.
+ *
+ * @see DataBasePJS4
  */
 public class Stat {
-	private int ID;
-	private int stat;
-	private String nomStat;
-	private String nomJoueurStat;
+
+    /**
+     * the identifier of the characteristic
+     */
+    private int ID;
+    /**
+     * the level of the characteristic
+     */
+    private int stat;
+    /**
+     * the name of the characteristic
+     */
+    private String nomStat;
+    /**
+     * the owner of the characteristic
+     */
+    private String nomJoueurStat;
 
 
+    public Stat() {
+    }
 
-	public Stat() {
-	}
+    public Stat(int stat, String nomStat, String nomJoueurStat) {
+        this.stat = stat;
+        this.nomStat = nomStat;
+        this.nomJoueurStat = nomJoueurStat;
+    }
 
-	public Stat(int stat, String nomStat, String nomJoueurStat) {
-		this.stat = stat;
-		this.nomStat = nomStat;
-		this.nomJoueurStat = nomJoueurStat;
-	}
+    // ***** GETTER *****
+    public int getID() {
+        return ID;
+    }
 
-	public int getID() {
-		return ID;
-	}
 
-	public void setID(int ID) {
-		this.ID = ID;
-	}
+    public String getNomStat() {
+        return nomStat;
+    }
 
-	public String getNomStat() {
-		return nomStat;
-	}
+    public String getNomJoueurStat() {
 
-	public int getStat() {
-		return stat;
-	}
+        return nomJoueurStat;
+    }
 
-	public void setNomStat(String nomStat) {
-		this.nomStat = nomStat;
-	}
+    public int getStat() {
+        return stat;
+    }
+    // ***** END GETTER *****
 
-	public void setStat(int stat) {
-		this.stat = stat;
-	}
+    // ***** SETTER *****
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
-	public void setNomJoueurStat(String nomJoueurStat) {
-		this.nomJoueurStat = nomJoueurStat;
-	}
+    public void setNomStat(String nomStat) {
+        this.nomStat = nomStat;
+    }
 
-	public String getNomJoueurStat() {
+    public void setStat(int stat) {
+        this.stat = stat;
+    }
 
-		return nomJoueurStat;
-	}
+    public void setNomJoueurStat(String nomJoueurStat) {
+        this.nomJoueurStat = nomJoueurStat;
+    }
+    // ***** END SETTER *****
+
+
 }
 

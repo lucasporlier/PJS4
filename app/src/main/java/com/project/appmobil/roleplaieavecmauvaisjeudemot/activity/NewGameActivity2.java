@@ -7,12 +7,22 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 
 import java.util.ArrayList;
 
+/**
+ * Used by the activity content_new_game2.xml
+ * Operates the capacities
+ *
+ * Created by Edouard Nivet
+ *
+ * @see NewGameActivity
+ * @see PlayerFileCreationActivity
+ */
 public class NewGameActivity2 extends Activity {
 	public static final String EXTRA_GAME = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_GAME";
 	private Partie game;
@@ -37,6 +47,11 @@ public class NewGameActivity2 extends Activity {
 		statView.setAdapter(adapter);
 	}
 
+	/**
+	 * Confirms the list of capacities
+	 *
+	 * @param v
+	 */
 	public void confirmNewGame2(View v){
 
 		ListView statView = (ListView) findViewById(R.id.listStatView);
@@ -52,7 +67,12 @@ public class NewGameActivity2 extends Activity {
 			if(string != null){
 				game.addStat(i, string);
 			}
+			else{
+				Toast.makeText(this, R.string.please_comp_all_fielsd, Toast.LENGTH_LONG).show();
+				return;
+			}
 		}
+
 
 
 		Log.i("projet", "lancement de PlayerFileCreation");

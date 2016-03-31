@@ -18,23 +18,31 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Objet;
 import java.util.List;
 
 /**
+ * Used by the layout inventory.xml
+ * <p/>
  * Created by nivet on 23/03/2016.
+ *
+ * @see AddObjetActivity
+ * @see AddItemActivity
+ * @see UseItemActivity
  */
 public class InventoryActivity extends AppCompatActivity {
     public static final String EXTRA_NOMPRO = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPRO";
     public static final String EXTRA_NOMOBJET = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMOBJET";
     private Joueur joueur;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inventory);
-         joueur = getIntent().getParcelableExtra(PlayerFileActivity.EXTRA_NOMPROP);
+        joueur = getIntent().getParcelableExtra(PlayerFileActivity.EXTRA_NOMPROP);
         ListView lv = (ListView) findViewById(R.id.listObjectView);
         List<Objet> objets = MainActivity.db.getObjetWithNomPro(joueur.getNom());
 
-        if (objets.isEmpty()){
+        if (objets.isEmpty()) {
             TextView tv = (TextView) findViewById(R.id.invenrotyTitle);
             tv.setText(tv.getText() + "\n\n" + getString(R.string.inventory_is_empty));
-        }else{
+        } else {
 
             ObjetArrayAdapter adapter = new ObjetArrayAdapter(this, objets);
             ListView objetView = (ListView) findViewById(R.id.listObjectView);
@@ -43,38 +51,38 @@ public class InventoryActivity extends AppCompatActivity {
             objetView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
-                PopupMenu popupMenu = new PopupMenu(InventoryActivity.this, view);
+                    PopupMenu popupMenu = new PopupMenu(InventoryActivity.this, view);
 
-                popupMenu.getMenuInflater().inflate(R.menu.inventory_pop_up_menu, popupMenu.getMenu());
+                    popupMenu.getMenuInflater().inflate(R.menu.inventory_pop_up_menu, popupMenu.getMenu());
 
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-                    // Toast.makeText(InventoryActivity.this, "You Clicked : " + (parent.getItemAtPosition(position)), Toast.LENGTH_SHORT).show();
-                    if (item.getItemId() == R.id.add) {
-                        Intent intent = new Intent(InventoryActivity.this, AddItemActivity.class);
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        public boolean onMenuItemClick(MenuItem item) {
+                            // Toast.makeText(InventoryActivity.this, "You Clicked : " + (parent.getItemAtPosition(position)), Toast.LENGTH_SHORT).show();
+                            if (item.getItemId() == R.id.add) {
+                                Intent intent = new Intent(InventoryActivity.this, AddItemActivity.class);
 
-                        intent.putExtra(EXTRA_NOMOBJET, String.valueOf(parent.getItemAtPosition(position)));
-                        intent.putExtra(EXTRA_NOMPRO, joueur.getNom());
+                                intent.putExtra(EXTRA_NOMOBJET, String.valueOf(parent.getItemAtPosition(position)));
+                                intent.putExtra(EXTRA_NOMPRO, joueur.getNom());
 
-                        Log.i("projet", "NOM : " + String.valueOf(parent.getItemAtPosition(position) + "  Proprietaire : " + joueur.getNom()));
-
-                        startActivity(intent);
-                    }
-
-                    if(item.getItemId() ==R.id.use){
-                        Intent intent = new Intent(InventoryActivity.this, UseItemActivity.class);
-
-                        intent.putExtra(EXTRA_NOMOBJET, String.valueOf(parent.getItemAtPosition(position)));
-                        intent.putExtra(EXTRA_NOMPRO, joueur.getNom());
-
-                        Log.i("projet", "NOM : " + String.valueOf(parent.getItemAtPosition(position) + "  Proprietaire : " + joueur.getNom()));
+                                Log.i("projet", "NOM : " + String.valueOf(parent.getItemAtPosition(position) + "  Proprietaire : " + joueur.getNom()));
 
                                 startActivity(intent);
-                    }
+                            }
 
-                    return true;
-                    }
-                });
+                            if (item.getItemId() == R.id.use) {
+                                Intent intent = new Intent(InventoryActivity.this, UseItemActivity.class);
+
+                                intent.putExtra(EXTRA_NOMOBJET, String.valueOf(parent.getItemAtPosition(position)));
+                                intent.putExtra(EXTRA_NOMPRO, joueur.getNom());
+
+                                Log.i("projet", "NOM : " + String.valueOf(parent.getItemAtPosition(position) + "  Proprietaire : " + joueur.getNom()));
+
+                                startActivity(intent);
+                            }
+
+                            return true;
+                        }
+                    });
 
                     popupMenu.show();
                 }
@@ -83,14 +91,24 @@ public class InventoryActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Prepares the activity for adding Items
+     *
+     * @param view
+     */
     public void newObjet(View view) {
-        Intent intent = new Intent(this,AddObjetActivity.class);
+        Intent intent = new Intent(this, AddObjetActivity.class);
 
-        intent.putExtra(EXTRA_NOMPRO,joueur.getNom());
+        intent.putExtra(EXTRA_NOMPRO, joueur.getNom());
         startActivity(intent);
     }
 
 
+    /**
+     * Returns to the last activity
+     *
+     * @param view
+     */
     public void back(View view) {
         Intent intent = new Intent(this, PlayerFileActivity.class);
         intent.putExtra(PlayerListActivity.EXTRA_PLAYER_NAME, joueur);

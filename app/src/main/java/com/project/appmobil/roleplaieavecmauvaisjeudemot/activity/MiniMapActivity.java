@@ -7,6 +7,8 @@ import android.util.Log;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
 
 /**
+ * Used by the layout minimap_layout.xml
+ *
  * Created by ZHOU Eric on 15/02/2016.
  */
 public class MiniMapActivity extends Activity {
