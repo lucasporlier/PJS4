@@ -2,36 +2,37 @@
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
               android:layout_width = "match_parent"
               android:layout_height = "match_parent"
-              android:orientation = "vertical">
+              android:orientation = "vertical"
+    android:background="@drawable/backgroung1">
 
     <TextView
         android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:text = "Add Item"/>
+        android:text = "Add Item"
+        style="@style/title"/>
 
     <TextView
         android:id = "@+id/nomProObjUtil"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text="NomPro"/>
+        android:text = "NomPro"/>
 
     <TextView
         android:id = "@+id/nomObjUtil"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text="nomObj"/>
+        android:text = "nomObj"/>
 
     <TextView
         android:id = "@+id/quantityObjUtil"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text="@string/quantity"/>
+        android:text = "@string/quantity"/>
 
     <TextView
         android:id = "@+id/effetObjUtil"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text="@string/object_effect"/>
+        android:text = "@string/object_effect"/>
 
     <TextView
         android:layout_width = "wrap_content"
@@ -43,26 +44,27 @@
         android:layout_width = "150sp"
         android:layout_height = "wrap_content"
         android:hint = "Quantity"
-        android:inputType = "number"/>
+        android:inputType = "number"
+        />
 
     <LinearLayout
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:orientation = "horizontal"
-        android:layout_gravity="center">
+        android:layout_gravity = "center"
+        android:orientation = "horizontal">
 
         <Button
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:text = "@string/cancel"
-            android:onClick="cancel"
-            android:layout_marginRight="20sp"/>
+            style = "@style/button_app"
+            android:layout_width = "150sp"
+            android:layout_marginRight = "20sp"
+            android:onClick = "cancel"
+            android:text = "@string/cancel"/>
 
         <Button
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:text = "@string/add"
-            android:onClick="add"/>
+            android:layout_width = "150sp"
+            style="@style/button_app"
+            android:onClick = "add"
+            android:text = "@string/add"/>
     </LinearLayout>
 
 </LinearLayout>

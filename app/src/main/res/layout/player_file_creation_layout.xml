@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
               android:layout_width = "match_parent"
               android:layout_height = "match_parent"
+              android:background = "@drawable/backgroung1"
               android:orientation = "vertical">
 
     <ScrollView
@@ -15,14 +16,10 @@
 
             <TextView
                 android:id = "@+id/Text_Title"
+                style = "@style/title"
                 android:layout_width = "wrap_content"
-                android:layout_height = "60dp"
-                android:layout_gravity = "center"
-                android:background = "@drawable/backgroung1"
                 android:padding = "10dp"
-                android:text = "@string/player_creator"
-                android:textAlignment = "center"
-                android:textSize = "@dimen/title_size"/>
+                android:text = "@string/player_creator"/>
 
             <EditText
                 android:id = "@+id/ET_nomPerso"
@@ -127,8 +124,8 @@
 
                 <ImageView
                     android:id = "@+id/imageView"
-                    android:layout_width = "40sp"
-                    android:layout_height = "40sp"
+                    android:layout_width = "@dimen/button_more_size"
+                    android:layout_height = "@dimen/button_more_size"
                     android:layout_alignParentEnd = "true"
                     android:layout_alignParentTop = "true"
                     android:layout_margin = "20sp"
@@ -149,20 +146,19 @@
 
                     <Button
                         android:id = "@+id/btnRetour"
+                        style = "@style/button_app"
                         android:layout_width = "100dp"
                         android:layout_height = "50dp"
                         android:layout_marginLeft = "5dp"
                         android:layout_marginRight = "5dp"
-                        android:background = "@drawable/backgroung1"
                         android:onClick = "retour"
                         android:text = "@string/retour"/>
 
                     <Button
                         android:id = "@+id/btnSuivant"
+                        style = "@style/button_app"
                         android:layout_width = "100dp"
-                        android:layout_height = "50dp"
                         android:layout_marginEnd = "5dp"
-                        android:background = "@drawable/backgroung1"
                         android:onClick = "suivant"
                         android:text = "@string/suivant"
                         />

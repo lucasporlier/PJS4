@@ -2,21 +2,22 @@
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
               android:orientation = "vertical"
               android:layout_width = "match_parent"
-              android:layout_height = "match_parent">
+              android:layout_height = "match_parent"
+    android:background="@drawable/backgroung1">
 
     <LinearLayout
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
-        android:orientation = "horizontal"
+        android:orientation = "vertical"
         android:layout_gravity="center">
+
 
         <TextView
             android:id = "@+id/game_name"
             android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:layout_margin = "10sp"
+            style="@style/title"
             android:text = "GameName"
-            android:textSize = "25sp"
+
             />
 
         <ImageView
@@ -25,6 +26,7 @@
             android:layout_margin = "10sp"
             android:background="@color/colorDefault"
             android:onClick = "miniMap"
+            android:layout_gravity="center"
             />
 
     </LinearLayout >
@@ -37,16 +39,16 @@
         >
 
         <Button
-            android:layout_width = "150sp"
-            android:layout_height = "80sp"
+            android:layout_width = "@dimen/button_size"
+            style="@style/button_app"
             android:layout_margin = "10sp"
             android:onClick = "seeCharactereProfile"
             android:text = "@string/caractere_profile"
             />
 
         <Button
-            android:layout_width = "150sp"
-            android:layout_height = "80sp"
+            android:layout_width = "@dimen/button_size"
+            style="@style/button_app"
             android:layout_margin = "10sp"
             android:onClick="chooseDice"
             android:text = "@string/launch_dice"
@@ -63,16 +65,16 @@
         >
 
         <Button
-            android:layout_width = "150sp"
-            android:layout_height = "80sp"
+            android:layout_width = "@dimen/button_size"
+            style="@style/button_app"
             android:layout_margin = "10sp"
             android:text = "summary"
             android:onClick="writeSummary"
             />
 
         <Button
-            android:layout_width = "150sp"
-            android:layout_height = "80sp"
+            android:layout_width = "@dimen/button_size"
+            style="@style/button_app"
             android:layout_margin = "10sp"
             android:text = "Exit"
             android:onClick="exitGameMenu"

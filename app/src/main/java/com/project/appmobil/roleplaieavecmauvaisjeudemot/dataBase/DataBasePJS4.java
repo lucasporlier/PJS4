@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class DataBasePJS4 extends SQLiteOpenHelper {
 
-    private static final int version = 2;
+    private static final int version = 1;
     private static final String dataBaseName = "PJS4.db";
 
     /*-----------------------------------------------------------------Competance---------------------------------------------------------*/

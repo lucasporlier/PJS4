@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
               android:layout_width = "match_parent"
               android:layout_height = "match_parent"
-              android:orientation = "vertical">
+              android:orientation = "vertical"
+    android:background="@drawable/backgroung1">
 
     <ScrollView
         android:layout_width = "match_parent"
@@ -16,11 +17,9 @@
             <TextView
                 android:id = "@+id/player_file_title"
                 android:layout_width = "wrap_content"
-                android:layout_height = "wrap_content"
-                android:layout_gravity = "center"
-                android:layout_margin = "@dimen/margin_title"
+                style="@style/title"
                 android:text = "@string/player_file"
-                android:textSize = "@dimen/title_size"/>
+              />
 
             <RelativeLayout
                 android:layout_width = "match_parent"
@@ -183,8 +182,8 @@
 
 
             <Button
-                android:layout_width = "wrap_content"
-                android:layout_height = "wrap_content"
+                android:layout_width = "@dimen/button_size"
+                style="@style/button_app"
                 android:layout_gravity = "right"
                 android:onClick = "inventory"
                 android:text = "@string/inventory"/>

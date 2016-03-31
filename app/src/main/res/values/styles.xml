@@ -22,7 +22,7 @@
         <item name="android:layout_marginBottom">20sp</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:background">@drawable/backgroung1</item>
+        <item name="android:background">@drawable/backgroung2</item>
         <item name="android:padding">10dp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">@dimen/title_size</item>
@@ -31,7 +31,7 @@
     </style>
 
     <style name="button_app">
-        <item name="android:background">@drawable/backgroung1</item>
+        <item name="android:background">@drawable/backgroung2</item>
         <item name="android:layout_height">50dp</item>
     </style>
 

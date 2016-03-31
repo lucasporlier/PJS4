@@ -2,15 +2,14 @@
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
     android:orientation = "vertical"
     android:layout_width = "match_parent"
-    android:layout_height = "match_parent" >
+    android:layout_height = "match_parent"
+    android:background="@drawable/backgroung1">
 
     <TextView
         android:id="@+id/invenrotyTitle"
         android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
         android:text="@string/inventory"
-        android:textSize="@dimen/title_size"
-        android:layout_gravity="center"
+        style="@style/title"
         />
 
     <ListView
@@ -28,18 +27,17 @@
         android:layout_gravity="center">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:layout_marginRight="25sp"
+            android:layout_width="@dimen/button_size"
+            style="@style/button_app"
+            android:text="@string/back"
+            android:layout_marginRight="20sp"
             android:onClick="back"/>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/button_size"
+            style="@style/button_app"
             android:layout_alignParentBottom="true"
-            android:text="Nouvel objet"
+            android:text="@string/new_object"
             android:id="@+id/button"
-            android:layout_gravity="center_horizontal"
             android:onClick="newObjet"
             />
 

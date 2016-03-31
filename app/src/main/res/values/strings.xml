@@ -13,7 +13,7 @@
     <string name = "todo">Not implemented yet</string>
     <string name = "inventory">Inventory</string>
     <string name = "caractere_profile">Character profile</string>
-    <string name = "launch_dice">Choose a Dice to launch</string>
+    <string name = "launch_dice">Launch a Dice</string>
     <string name = "launch">Launch</string>
     <string name = "dice_title">Dice Launcher</string>
     <string name = "logo_description">Role Plaie Logo</string>
@@ -53,6 +53,7 @@
     <string name="please_comp_all_fielsd">Please complete all fields</string>
     <string name="char_name_token">The character name is already taken</string>
     <string name="summary">Summary</string>
+    <string name = "back">Back</string>
 
 
 </resources>
