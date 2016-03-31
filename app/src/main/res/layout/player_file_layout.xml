@@ -30,7 +30,7 @@
                     android:layout_width = "wrap_content"
                     android:layout_height = "wrap_content"
                     android:layout_marginLeft = "10sp"
-                    android:text = "race"
+                    android:text = "@string/caractere_race"
                     android:textSize = "@dimen/title_size"/>
 
                 <TextView
@@ -184,7 +184,7 @@
             <Button
                 android:layout_width = "@dimen/button_size"
                 style="@style/button_app"
-                android:layout_gravity = "right"
+                android:layout_gravity = "end"
                 android:onClick = "inventory"
                 android:text = "@string/inventory"/>
 

@@ -49,9 +49,9 @@ public class LoadGameActivity extends Activity {
     }
 
     /**
-     * Fills the list with all games names
+     * Fills a list with all games names
      *
-     * @param listViewGames
+     * @param listViewGames the listView
      */
     private void fillGameList(ListView listViewGames) {
         Log.i("projet", "DEBUT DU REMPLISSAGE DE LA LISTE");
@@ -123,7 +123,7 @@ public class LoadGameActivity extends Activity {
 
         } else {
             TextView textView = (TextView) findViewById(R.id.title_loag_game);
-            textView.setText(textView.getText() + "\n\n Aucune partie n'est enregistré");
+            textView.setText(textView.getText() + "\n\n" + getResources().getString(R.string.no_game_saved));
         }
 
     }

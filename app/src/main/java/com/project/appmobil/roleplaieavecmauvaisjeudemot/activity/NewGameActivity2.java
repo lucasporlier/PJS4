@@ -50,7 +50,7 @@ public class NewGameActivity2 extends Activity {
 	/**
 	 * Confirms the list of capacities
 	 *
-	 * @param v
+	 * @param v a view
 	 */
 	public void confirmNewGame2(View v){
 

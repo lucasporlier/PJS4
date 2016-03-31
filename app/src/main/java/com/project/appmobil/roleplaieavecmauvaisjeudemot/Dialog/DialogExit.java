@@ -5,7 +5,8 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.widget.Toast;
+
+import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
 
 /**
  *
@@ -19,22 +20,21 @@ public class DialogExit extends DialogFragment {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
 
 
-		dialog.setTitle("Exit");
+		dialog.setTitle(R.string.exit);
 
-		dialog.setMessage("Do you really want to exit ? ");
+		dialog.setMessage(R.string.exit_confirm);
 
-		dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+		dialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				getActivity().finish();
 			}
 		});
 
-		dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+		dialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				Toast.makeText(getActivity(), "Continue", Toast.LENGTH_SHORT).show();
-				;
+
 			}
 		});
 

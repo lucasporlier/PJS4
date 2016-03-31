@@ -28,7 +28,6 @@ public class NewGameActivity extends Activity implements Parcelable {
     public NewGameActivity() {
     }
 
-    ;
 
     protected NewGameActivity(Parcel in) {
     }
@@ -62,7 +61,7 @@ public class NewGameActivity extends Activity implements Parcelable {
     /**
      * Confirms the creation of a new games
      *
-     * @param view
+     * @param view a view
      */
     public void ConfirmNewGame(View view) {
         String gameName = ((TextView) findViewById(R.id.GameNameEdiText)).getText().toString();
@@ -76,7 +75,7 @@ public class NewGameActivity extends Activity implements Parcelable {
             return ;
         }
         if( p != null ){
-            Toast.makeText(this, "This game name is already taken", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.game_name_used, Toast.LENGTH_LONG).show();
             return ;
         }
 

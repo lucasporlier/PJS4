@@ -17,12 +17,6 @@
         android:layout_height = "wrap_content">
 
     </ListView>
-
-    <TextView
-        android:id="@+id/textViewcomptTEST"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="erg"
-        android:onClick="testingCAPACITE"/>
+    
 
 </LinearLayout>

@@ -2,8 +2,6 @@ package com.project.appmobil.roleplaieavecmauvaisjeudemot.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -76,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Goes to a new activity to create a new game
      *
-     * @param view
+     * @param view a view
      */
     public void newGame(View view) {
         Log.i("projet", "Préparation de l'intent Nouvelle partie");
@@ -87,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Goes to the activity to load or delete a game
      *
-     * @param view
+     * @param view a view
      */
     public void loadGame(View view) {
         Log.i("projet", "Préparation de l'intent Chargement partie");

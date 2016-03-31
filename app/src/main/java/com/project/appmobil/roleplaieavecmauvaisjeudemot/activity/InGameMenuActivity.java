@@ -19,7 +19,6 @@ import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 public class InGameMenuActivity extends Activity {
 
     public static final String EXTRA_NOMPARTIE = "com.project.appmobil.roleplaieavecmauvaisjeudemot.activity.EXTRA_NOMPARTIE";
-    private String gameName;
     private Partie p;
 
     @Override
@@ -65,8 +64,6 @@ public class InGameMenuActivity extends Activity {
         Log.i("TesteBd", MainActivity.db.getAllGames().toString());
 
         Intent intent = new Intent(this, PlayerListActivity.class);
-
-        TextView textView = (TextView) findViewById(R.id.game_name);
 
         intent.putExtra(EXTRA_NOMPARTIE, p);
 

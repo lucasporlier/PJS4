@@ -58,8 +58,8 @@ public class Partie implements Parcelable {
         this.nombreJoueur = nombreJoueur;
         this.nombreStat = nombreStat;
         this.resume = "";
-        this.listStat = new ArrayList<String>();
-        this.listJoueur = new ArrayList<Joueur>();
+        this.listStat = new ArrayList<>();
+        this.listJoueur = new ArrayList<>();
     }
 
     public Partie() {

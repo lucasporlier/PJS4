@@ -7,20 +7,20 @@
 
     <TextView
         android:layout_width = "wrap_content"
-        android:text = "Add Item"
+        android:text = "@string/add_Item"
         style="@style/title"/>
 
     <TextView
         android:id = "@+id/nomProObjUtil"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text = "NomPro"/>
+        android:text = "@string/owner_name_notrad"/>
 
     <TextView
         android:id = "@+id/nomObjUtil"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text = "nomObj"/>
+        android:text = "@string/item_name_notrad"/>
 
     <TextView
         android:id = "@+id/quantityObjUtil"
@@ -43,7 +43,7 @@
         android:id = "@+id/nombreUse"
         android:layout_width = "150sp"
         android:layout_height = "wrap_content"
-        android:hint = "Quantity"
+        android:hint = "@string/quantity"
         android:inputType = "number"
         />
 
@@ -56,7 +56,7 @@
         <Button
             style = "@style/button_app"
             android:layout_width = "150sp"
-            android:layout_marginRight = "20sp"
+            android:layout_marginEnd="20sp"
             android:onClick = "cancel"
             android:text = "@string/cancel"/>
 

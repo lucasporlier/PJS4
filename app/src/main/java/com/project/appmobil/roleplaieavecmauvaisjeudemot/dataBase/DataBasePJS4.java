@@ -325,7 +325,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
      * @return the list of objects
      */
     private List<Objet> cursorToObjetList(Cursor c) {
-        List<Objet> oList = new ArrayList<Objet>();
+        List<Objet> oList = new ArrayList<>();
         if (c.getCount() == 0) {
             return oList;
         }
@@ -630,7 +630,7 @@ public class DataBasePJS4 extends SQLiteOpenHelper {
     private List<Joueur> cursorToListJoueur(Cursor c) {
         SQLiteDatabase bdd = getWritableDatabase();
 
-        List<Joueur> l = new ArrayList<Joueur>();
+        List<Joueur> l = new ArrayList<>();
 
         Joueur joueur;
         while (c.moveToNext()) {

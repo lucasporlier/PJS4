@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,7 +23,7 @@ public class ObjetArrayAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
     private List<Objet> obj;
-    private List<LinearLayout> layoutItems = new ArrayList<LinearLayout>();
+    private List<LinearLayout> layoutItems = new ArrayList<>();
     private LinearLayout layoutItem;
 
     public ObjetArrayAdapter(Context context, List<Objet> o) {

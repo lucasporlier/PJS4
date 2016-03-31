@@ -38,7 +38,7 @@ public class AddObjetActivity extends Activity {
     /**
      * Add an object and prepare the activity for an other new Item
      *
-     * @param view
+     * @param view a view
      */
     public void addAndNew(View view) {
         Objet o = new Objet(Integer.parseInt(quantiteObjet.getText().toString()), nomObjet.getText().toString(), effetObjet.getText().toString(), nomPro);
@@ -52,7 +52,7 @@ public class AddObjetActivity extends Activity {
     /**
      * Add an Item and end this activity
      *
-     * @param view
+     * @param view a view
      */
     public void addAndQuit(View view) {
         Objet o = new Objet(Integer.parseInt(quantiteObjet.getText().toString()), nomObjet.getText().toString(), effetObjet.getText().toString(), nomPro);

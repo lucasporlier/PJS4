@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Competance;
-import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Partie;
 
@@ -134,10 +133,10 @@ public class PlayerFileCreationActivity extends Activity {
 		TableLayout tbL = (TableLayout) findViewById(R.id.capacitiesTable);
 
 		EditText ed1 = new EditText(this);
-		ed1.setHint("Name");
+		ed1.setHint(R.string.name);
 
 		EditText ed2 = new EditText(this);
-		ed2.setHint("Description");
+		ed2.setHint(R.string.description);
 
 		Log.i("projet ", "Début ajout ");
 		TableRow tr = new TableRow(this);
@@ -224,7 +223,7 @@ public class PlayerFileCreationActivity extends Activity {
 
 
 		TableLayout tableLayout = (TableLayout) findViewById(R.id.capacitiesTable);
-		Competance c;
+
 		Log.i("projet", "Il y a " + tableLayout.getChildCount() + "fils dans tableLayout");
 		for (int i = 0; i < tableLayout.getChildCount(); i++) {
 			MainActivity.db.insertCompetance(new Competance(((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(0)).getText().toString(),((EditText) ((TableRow) tableLayout.getChildAt(i)).getChildAt(1)).getText().toString(),nomPerso.getText().toString()));

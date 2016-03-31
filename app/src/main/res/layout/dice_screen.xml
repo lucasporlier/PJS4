@@ -14,6 +14,7 @@
         />
 
     <ImageView
+        android:contentDescription="@string/dice_image_desc_notrad"
         android:id = "@+id/imageDice3d"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"

@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.R;
-import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.DataBasePJS4;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Joueur;
 import com.project.appmobil.roleplaieavecmauvaisjeudemot.dataBase.Objet;
 
@@ -51,7 +50,7 @@ public class UseItemActivity extends Activity {
     /**
      * Returns to the last activity
      *
-     * @param view
+     * @param view a view
      */
     public void cancel(View view) {
         finish();
@@ -60,7 +59,7 @@ public class UseItemActivity extends Activity {
     /**
      * Uses an Item
      *
-     * @param view
+     * @param view a view
      */
     public void use(View view) {
 
